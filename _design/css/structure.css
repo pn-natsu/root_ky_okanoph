@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+/****** Elad Shechter's RESET *******/
+/*** box sizing border-box for all elements ***/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* ------------------------------------
+// base
+------------------------------------ */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #EFEFEF;
+  color: #061938;
+  font-family: "Zen Kaku Gothic New", "Meiryo", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+}
+
+a:link {
+  text-decoration: underline;
+}
+
+a:visited {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+a {
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+@media (min-width: 1023px) {
+  a[href^="tel:"] {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    min-width: 0;
+  }
+}
+/* ------------------------------------
+// list
+------------------------------------ */
+#main {
+  padding: 2rem;
+}
+#main h1 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+#main h2 {
+  font-size: 2.4rem;
+  padding: 1rem;
+  background-color: #EFEFEF;
+  margin-bottom: 3rem;
+}
+#main section {
+  margin-top: 5rem;
+}
+#main .pagelist {
+  border-collapse: collapse;
+  border-top: 1px solid #222;
+  border-left: 1px solid #222;
+}
+#main .pagelist .notice th, #main .pagelist .notice td {
+  background: #FFFFCC;
+}
+#main .pagelist .notice th a, #main .pagelist .notice td a {
+  background: #FFCA1C;
+  color: #000;
+}
+#main .pagelist th, #main .pagelist td {
+  border-right: 1px solid #222;
+  border-bottom: 1px solid #222;
+  padding: 1rem;
+}
+#main .pagelist th a, #main .pagelist th span, #main .pagelist td a, #main .pagelist td span {
+  background: #0068B6;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 50vh;
+  padding: 0 4rem 0 2rem;
+  text-align: center;
+  position: relative;
+  display: block;
+}
+#main .pagelist th a:after, #main .pagelist th span:after, #main .pagelist td a:after, #main .pagelist td span:after {
+  content: "";
+  height: 0.8rem;
+  aspect-ratio: 0.8660254038;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: #FFF;
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: calc(50% - 0.4rem);
+}
+#main .pagelist th span, #main .pagelist td span {
+  background: #aaa;
+}
+
+/* ------------------------------------
+// design
+------------------------------------ */
+#design {
+  min-width: 1024px;
+  padding: 0;
+  position: relative;
+}
+#design .pagedata {
+  position: sticky;
+  top: 0;
+  font-size: 1.6rem;
+  background: #222222;
+  color: #EFEFEF;
+  padding: 1rem 2rem;
+  display: flex;
+  grid-template-columns: max-content 1fr;
+  justify-content: space-between;
+}
+#design .pagedata .data ul {
+  display: flex;
+  gap: 1rem;
+}
+#design .pagedata .data ul li {
+  border: 1px solid #EFEFEF;
+  padding: 0 1rem;
+}
+#design .pagedata .backlink ul {
+  display: flex;
+  gap: 1rem;
+}
+#design .pagedata .backlink ul li a, #design .pagedata .backlink ul li span {
+  background: #EFEFEF;
+  color: #222222;
+  padding: 0rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+#design .pagedata .backlink ul li a.previous:before, #design .pagedata .backlink ul li span.previous:before {
+  content: "";
+  height: 1.2rem;
+  aspect-ratio: 0.8660254038;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  background: #222222;
+}
+#design .pagedata .backlink ul li a.next:after, #design .pagedata .backlink ul li span.next:after {
+  content: "";
+  height: 1.2rem;
+  aspect-ratio: 0.8660254038;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: #222222;
+}
+#design .pagedata .backlink ul li span {
+  padding: 0rem 2rem;
+  background: #aaa;
+  color: #fff;
+}
+#design .pagedata .backlink ul li span.previous::before {
+  background: #FFF;
+}
+#design .pagedata .backlink ul li span.next::after {
+  background: #FFF;
+}
+#design .image {
+  text-align: center;
+}
+#design .image img {
+  max-width: 100%;
+}
