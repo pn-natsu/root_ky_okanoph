@@ -1,0 +1,578 @@
+@charset "utf-8";
+@import "include";
+
+
+
+/* case
+----------------------------------- */
+
+#case {
+ .caseContainer {
+  margin-top: 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clp(1rem, 30);
+  >section {
+   background: #F9F1D4;
+   padding: 0 clp(2rem, 30) clp(2rem, 30) clp(2rem, 30);
+   border-radius: 30px;
+   display: grid;
+   grid-template-rows: subgrid;
+   grid-row: span 3;
+   gap: 0;
+   p {
+    text-align: center;
+    margin-top: 1rem;
+   }
+   h3 {
+    width: fit-content;
+    padding: .5rem 3rem;
+    border-radius: 50vh;
+    background: $color_yellow_01;
+    color: #FFF;
+    font-size: clp(1.4rem, 18);
+    @include font-Fredoka;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    span {
+     font-size: clp(2.4rem, 32);
+     display: inline-block;
+     padding-left: .2em;
+    }
+   }
+  }
+ }
+  @include media(sp) {
+   .caseContainer {
+   grid-template-columns: 1fr;
+   gap: 5rem;
+   }
+  }
+}
+
+/* inqury
+----------------------------------- */
+
+#delivery {
+ background: $color_okanoblue_01;
+ border-radius: 30px;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ padding: clp(1rem, 40);
+ gap: clp(1rem, 40);
+ .photo {
+  border-radius: 30px;
+  overflow: hidden;
+  img {
+   object-fit: cover;
+   height: 100%;
+  }
+ }
+ .detail {
+  place-content: center;
+  h2 {
+   font-size: clp(2.4rem, 40);
+   font-weight: 500;
+   margin-bottom: 2.5rem;
+   color: #FFF;
+   span {
+    color: $color_yellow_01;
+    font-size: clp(3rem, 50);
+    font-weight: 700;
+   }
+  }
+  p {
+   font-size: clp(1.6rem, 18);
+   font-weight: 500;
+   color: #FFF;
+  }
+
+
+
+
+ }
+
+ @include media(sp) {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: clp(1rem, 30);
+  .detail {
+   padding: clp(2rem, 30);
+  }
+ }
+
+}
+
+/* flow
+----------------------------------- */
+
+#flow {
+ .notes {
+  text-align: center;
+ }
+
+ .flowList {
+  margin-top: 3rem;
+  .dotlist01 {
+   --dotlisticon: #D0AE33;
+  }
+  section {
+   border: 1px solid $color_yellow_01;
+   border-radius: 30px;
+   &+section {
+    margin-top: 3rem;
+   }
+   .flowHead {
+    border-radius: 30px 30px 0 0;
+    background: $color_yellow_01;
+    padding: clp(1rem, 20) clp(2rem, 30);
+    h3 {
+     display: grid;
+     grid-template-columns: auto 1fr;
+     color: #FFF;
+     align-items: center;
+     gap: 2rem;
+     font-size: clp(2rem, 24);
+     span {
+      font-size: clp(3rem, 70);
+      @include font-Fredoka;
+      line-height: 1;
+     }
+    }
+   }
+   .flowBody {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding: clp(1rem, 20);
+   }
+   .flowIllust {
+    display: flex;
+    align-items: center;
+    gap: clp(1rem, 20);
+    li {
+     padding-right: calc(clp(3rem, 40) + clp(1rem, 20));
+     position: relative;
+     p {
+      text-align: center;
+      margin-top: .5rem;
+      font-size: clp(1.4rem, 14);
+     }
+     .image {
+      margin: 0 auto;
+     }
+     &:not(:last-child) {
+      &::after {
+       content: "";
+       width: clp(3rem, 40);
+       aspect-ratio: 1;
+       background: url(/lib/img/zaitaku/flow_allow.webp) no-repeat center / contain;
+       display: block;
+       position: absolute;
+       right: 0;
+       top: calc(50% - clp(3rem, 40));
+      }
+     }
+    }
+    .flow_pharmacist {
+     max-width: 156px;
+    }
+    .flow_doctor {
+     max-width: 170px;
+    }
+    .flow_prescription {
+     width: clp(120px, 162);
+    }
+    .flow_medicine {
+     width: clp(115px, 149);
+    }
+    .flow_patient {
+     max-width: 213px;
+    }
+    .flow_report {
+     width: clp(100px, 133);
+    }
+
+
+   }
+   .disc {
+    dl {
+     margin: 2rem 0 0 0;
+     dt {
+      font-weight: bold;
+      margin-bottom: 1rem;
+     }
+    }
+    .point {
+     display: grid;
+     grid-template-columns: 6rem 1fr;
+     gap: 1rem;
+     align-items: center;
+     margin-bottom: 2rem;
+    }
+   }
+   .fukidashi {
+    border: 1px solid $color_yellow_01;
+    border-radius: 10px;
+    padding: 1.4rem;
+    position: relative;
+    margin-bottom: 2rem;
+    &::before {
+     content: "";
+     width: 3rem;
+     aspect-ratio: 1.866;
+     background: $color_yellow_01;
+     clip-path: polygon(0 50%, 100% 0, 100% 100%);
+     position: absolute;
+     right: calc((100% - 1px));
+     bottom: calc(50% - 1.5rem);
+    }
+    &:after {
+     content: "";
+     width: 3rem;
+     aspect-ratio: 1.866;
+     background: #FFF;
+     clip-path: polygon(0 50%, 100% 0, 100% 100%);
+     position: absolute;
+     right: calc((100% - 4px));
+     bottom: calc(50% - 1.5rem);
+    }
+    .cut {
+     position: absolute;
+     right: .5rem;
+     top: .5rem;
+     width: clp(3rem, 120);
+    }
+   }
+  }
+ }
+ @include media(sp) {
+
+  .flowList {
+   section {
+    .flowHead {
+     padding: clp(1rem, 20) clp(2rem, 30);
+     h3 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      span {
+       text-align: center;
+      }
+     }
+    }
+    .flowBody {
+     display: grid;
+     grid-template-columns: 1fr;
+     padding: 3rem clp(1rem, 20);
+    }
+    .flowIllust {
+     display: grid;
+     grid-template-columns: 1fr;
+     li {
+      padding-right: 0;
+      padding-bottom: calc(clp(3rem, 40) + clp(1rem, 20));
+      position: relative;
+      .image {
+       margin: 0 auto;
+       max-width: 50%;
+      }
+      &:not(:last-child) {
+       &::after {
+        content: "";
+        width: clp(3rem, 40);
+        aspect-ratio: 1;
+        background: url(/lib/img/zaitaku/flow_allow.webp) no-repeat center / contain;
+        transform: rotate(90deg);
+        display: block;
+        position: absolute;
+        right: calc(50% - clp(1.5rem, 20));
+        top: calc(50% - clp(3rem, 40));
+        top: auto;
+        bottom: 0;
+       }
+      }
+     }
+
+
+
+    }
+    .disc {
+     .point {
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 2rem;
+     }
+    }
+    .fukidashi {
+
+     &::before {
+      content: "";
+      width: 3rem;
+      aspect-ratio: 1.866;
+      background: $color_yellow_01;
+      clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      position: absolute;
+      right: calc(50% - 1.5rem);
+      bottom: calc(100% + 5px);
+      transform: rotate(90deg);
+     }
+     &:after {
+      content: "";
+      width: 3rem;
+      aspect-ratio: 1.866;
+      background: #FFF;
+      clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      position: absolute;
+      transform: rotate(90deg);
+      right: calc(50% - 1.5rem);
+      bottom: calc(100% + 2px);
+     }
+     .cut {
+      width: clp(6rem, 80, 375);
+     }
+    }
+   }
+  }
+
+ }
+
+
+}
+
+/* #service
+----------------------------------- */
+
+#service {
+ .notes {
+  text-align: center;
+ }
+ .serviceList {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 5rem;
+  .item {
+   display: grid;
+   grid-template-columns: subgrid;
+   grid-column: span 2;
+   background: $color_yellow_02;
+   border-radius: 20px;
+   padding: 1.5rem;
+   gap: 4rem clp(1rem, 40);
+   margin-top: 1rem;
+  }
+  .num {
+   @include font-Fredoka;
+   font-size: clp(3rem, 70);
+   color: $color_yellow_01;
+   align-self: center;
+  }
+  .item_container {
+   background: #FFF;
+   border-radius: 30px;
+   padding: 1rem clp(1rem, 50);
+   display: grid;
+   grid-template-columns: 1fr 24%;
+   gap: clp(1rem, 20);
+   align-items: center;
+  }
+  dl {
+   dt {
+    font-size: clp(2rem, 24);
+    font-weight: 500;
+    margin-bottom: 1rem;
+   }
+  }
+  .image {
+   height: 10rem;
+   text-align: center;
+   img {
+    object-fit: contain;
+    height: 100%;
+   }
+  }
+ }
+ @include media(sp) {
+  .notes {
+   text-align: left;
+  }
+  .serviceList {
+   margin-top: 3rem;
+   .item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+   }
+   .num {
+    text-align: center;
+    line-height: 1;
+   }
+   .item_container {
+    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+   }
+  }
+ }
+
+}
+
+/* price
+----------------------------------- */
+
+#price {
+ --radiusscore: 30px;
+ .note {
+  text-align: center;
+  @include media(sp) {
+   text-align: left;
+   padding-left: 1em;
+   text-indent: -1em;
+  }
+
+
+ }
+ .tableformat01 {
+
+  tbody {
+   background: #fff;
+
+   td {
+    width: 30%;
+   }
+
+  }
+
+ }
+
+}
+
+
+/* #areamap
+----------------------------------- */
+
+#areamap {
+ text-align: center;
+ .area {
+  font-weight: 500;
+  font-size: clp(1.8rem, 20);
+  margin-bottom: 3rem;
+ }
+ .note {
+  margin-bottom: 3rem;
+  @include media(sp) {
+   text-align: left;
+   padding-left: 1em;
+   text-indent: -1em;
+  }
+
+ }
+}
+
+/* inqury
+----------------------------------- */
+
+#inqury {
+ background: #F9F9F9;
+ border-radius: 30px;
+ display: grid;
+ grid-template-columns: max-content 1fr;
+ padding: clp(1rem, 40);
+ gap: clp(1rem, 40);
+ .photo {
+  border-radius: 30px;
+  overflow: hidden;
+  img {
+   object-fit: cover;
+   height: 100%;
+  }
+ }
+ .detail {
+  background: #FFF;
+  border-radius: 30px;
+  padding: clp(2rem, 30);
+  display: grid;
+  place-content: center;
+  h2 {
+   font-size: clp(2.4rem, 32);
+   font-weight: 500;
+   margin-bottom: 2.5rem;
+   display: flex;
+   gap: .5rem;
+   align-items: center;
+   &::before {
+    content: "";
+    width: 2.7rem;
+    aspect-ratio: 27/43;
+    background: url(/lib/img/cmn/icon_call.webp) no-repeat center / contain;
+   }
+  }
+  p {
+   margin-bottom: 2.5rem;
+   &.lead {
+    font-size: clp(1.8rem, 20);
+    font-weight: 500;
+    margin-bottom: 1rem;
+   }
+  }
+
+  .call {
+   color: $color_yellow_01;
+   font-size: clp(1.4rem, 16);
+   display: flex;
+   align-items: center;
+   a {
+    color: $color_yellow_01;
+    font-size: clp(2rem, 44);
+    font-weight: 600;
+    display: inline-flex;
+    gap: .5rem;
+    align-items: center;
+    &::before {
+     content: "";
+     width: 2.7rem;
+     aspect-ratio: 27/43;
+     background: url(/lib/img/cmn/icon_call.webp) no-repeat center / contain;
+    }
+   }
+  }
+
+
+ }
+
+ @include media(sp) {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: clp(1rem, 30);
+  .detail {
+   padding: clp(2rem, 30);
+
+
+   .call {
+    color: $color_yellow_01;
+    display: block;
+    gap: 0;
+    span {
+     display: block;
+     text-align: center;
+    }
+    a {
+     color: $color_yellow_01;
+     font-size: clp(2.6rem, 44);
+     font-weight: 600;
+     display: inline-flex;
+     gap: .5rem;
+     align-items: center;
+     &::before {
+      content: "";
+      width: 2.7rem;
+      aspect-ratio: 27/43;
+      background: url(/lib/img/cmn/icon_call.webp) no-repeat center / contain;
+     }
+    }
+   }
+
+
+  }
+ }
+
+}

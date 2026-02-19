@@ -1,0 +1,125 @@
+//sass include
+
+@mixin font-base {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: calc(1em * 0.1);
+  text-indent: calc(1em * 0.1);    
+}
+@mixin font-zenkaku {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-zenmaru {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-Fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+// firedoka
+// <weight>: Use a value from 300 to 700
+// <width>: Use a value from 75 to 125
+// <uniquifier>: Use a unique and descriptive class name
+
+
+@mixin font-Figtree {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+// Figtree
+// <weight>: Use a value from 300 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+@mixin font-Geologica {
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: calc(1em * 0.1);
+  text-indent: calc(1em * 0.1);    
+
+}
+// geologica
+// <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+@mixin font-Inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+// <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+
+
+$font_color_base: #232324;
+$color_gray_01: #878787;
+$color_gray_02: #EAE9E8;
+$color_line_01:#EAE9E8;
+
+$color_okanoblue_01: #3A62AD;
+$color_blue_01: #5F9BC6;
+$color_yellow_01: #D0AE33;
+$color_yellow_02: #F9F1D4;
+$color_pink_01: #E58787;
+$color_green_01: #5CAD8F;
+$color_purple_01: #BA98C8;
+$color_purple_02: #F8F3FA;
+$color_beige_01: #F7F6F4;
+
+//breakpoint
+$breakpoints: (
+  "overPC": "screen and (min-width: 1200px)",
+  "min1200": "screen and (max-width: 1200px)",
+  "md": "screen and (max-width: 1024px)",
+  "sp": "screen and (max-width: 768px)"
+) !default;
+
+@mixin media($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+
+
+@mixin lineheightfix {
+  margin-block:calc((1cap - 1lh) / 2);
+}
+
+@mixin ls($per) {
+  letter-spacing: calc(1em * $per);
+  text-indent: calc(1em * $per);
+}
+
+@function vwsize($pcsize, $design_width: 1440) {
+  $vw: 100 * ($pcsize / $design_width);
+  $size: round($vw * 10) / 10;
+  @return #{$size}vw;
+}
+
+@function clp($minsize,$pcsize, $design_width: 1440) {
+  $maxsize: $pcsize / 10;
+  $vw: 100vw * ($pcsize / $design_width);
+  $mdl: round($vw * 10) / 10;
+  @return clamp(#{$minsize}, #{$mdl}, #{$maxsize}rem);
+}
+
+@function clpMax($minsize, $maxsize,$pcsize, $design_width: 1440) {
+  $vw: 100vw * ($pcsize / $design_width);
+  $mdl: round($vw * 10) / 10;
+  @return clamp(#{$minsize}, #{$mdl}, #{$maxsize});
+}

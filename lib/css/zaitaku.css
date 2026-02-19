@@ -1,0 +1,523 @@
+/* case
+----------------------------------- */
+#case .caseContainer {
+  margin-top: 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.1vw, 3rem);
+}
+#case .caseContainer > section {
+  background: #F9F1D4;
+  padding: 0 clamp(2rem, 2.1vw, 3rem) clamp(2rem, 2.1vw, 3rem) clamp(2rem, 2.1vw, 3rem);
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0;
+}
+#case .caseContainer > section p {
+  text-align: center;
+  margin-top: 1rem;
+}
+#case .caseContainer > section h3 {
+  width: fit-content;
+  padding: 0.5rem 3rem;
+  border-radius: 50vh;
+  background: #D0AE33;
+  color: #FFF;
+  font-size: clamp(1.4rem, 1.3vw, 1.8rem);
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+#case .caseContainer > section h3 span {
+  font-size: clamp(2.4rem, 2.2vw, 3.2rem);
+  display: inline-block;
+  padding-left: 0.2em;
+}
+@media screen and (max-width: 768px) {
+  #case .caseContainer {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+}
+
+/* inqury
+----------------------------------- */
+#delivery {
+  background: #3A62AD;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: clamp(1rem, 2.8vw, 4rem);
+  gap: clamp(1rem, 2.8vw, 4rem);
+}
+#delivery .photo {
+  border-radius: 30px;
+  overflow: hidden;
+}
+#delivery .photo img {
+  object-fit: cover;
+  height: 100%;
+}
+#delivery .detail {
+  place-content: center;
+}
+#delivery .detail h2 {
+  font-size: clamp(2.4rem, 2.8vw, 4rem);
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  color: #FFF;
+}
+#delivery .detail h2 span {
+  color: #D0AE33;
+  font-size: clamp(3rem, 3.5vw, 5rem);
+  font-weight: 700;
+}
+#delivery .detail p {
+  font-size: clamp(1.6rem, 1.3vw, 1.8rem);
+  font-weight: 500;
+  color: #FFF;
+}
+@media screen and (max-width: 768px) {
+  #delivery {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: clamp(1rem, 2.1vw, 3rem);
+  }
+  #delivery .detail {
+    padding: clamp(2rem, 2.1vw, 3rem);
+  }
+}
+
+/* flow
+----------------------------------- */
+#flow .notes {
+  text-align: center;
+}
+#flow .flowList {
+  margin-top: 3rem;
+}
+#flow .flowList .dotlist01 {
+  --dotlisticon: #D0AE33;
+}
+#flow .flowList section {
+  border: 1px solid #D0AE33;
+  border-radius: 30px;
+}
+#flow .flowList section + section {
+  margin-top: 3rem;
+}
+#flow .flowList section .flowHead {
+  border-radius: 30px 30px 0 0;
+  background: #D0AE33;
+  padding: clamp(1rem, 1.4vw, 2rem) clamp(2rem, 2.1vw, 3rem);
+}
+#flow .flowList section .flowHead h3 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  color: #FFF;
+  align-items: center;
+  gap: 2rem;
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+}
+#flow .flowList section .flowHead h3 span {
+  font-size: clamp(3rem, 4.9vw, 7rem);
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+#flow .flowList section .flowBody {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  padding: clamp(1rem, 1.4vw, 2rem);
+}
+#flow .flowList section .flowIllust {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 1.4vw, 2rem);
+}
+#flow .flowList section .flowIllust li {
+  padding-right: calc(clamp(3rem, 2.8vw, 4rem) + clamp(1rem, 1.4vw, 2rem));
+  position: relative;
+}
+#flow .flowList section .flowIllust li p {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: clamp(1.4rem, 1vw, 1.4rem);
+}
+#flow .flowList section .flowIllust li .image {
+  margin: 0 auto;
+}
+#flow .flowList section .flowIllust li:not(:last-child)::after {
+  content: "";
+  width: clamp(3rem, 2.8vw, 4rem);
+  aspect-ratio: 1;
+  background: url(/lib/img/zaitaku/flow_allow.webp) no-repeat center/contain;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: calc(50% - clamp(3rem, 2.8vw, 4rem));
+}
+#flow .flowList section .flowIllust .flow_pharmacist {
+  max-width: 156px;
+}
+#flow .flowList section .flowIllust .flow_doctor {
+  max-width: 170px;
+}
+#flow .flowList section .flowIllust .flow_prescription {
+  width: clamp(120px, 11.3vw, 16.2rem);
+}
+#flow .flowList section .flowIllust .flow_medicine {
+  width: clamp(115px, 10.3vw, 14.9rem);
+}
+#flow .flowList section .flowIllust .flow_patient {
+  max-width: 213px;
+}
+#flow .flowList section .flowIllust .flow_report {
+  width: clamp(100px, 9.2vw, 13.3rem);
+}
+#flow .flowList section .disc dl {
+  margin: 2rem 0 0 0;
+}
+#flow .flowList section .disc dl dt {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#flow .flowList section .disc .point {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+#flow .flowList section .fukidashi {
+  border: 1px solid #D0AE33;
+  border-radius: 10px;
+  padding: 1.4rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+#flow .flowList section .fukidashi::before {
+  content: "";
+  width: 3rem;
+  aspect-ratio: 1.866;
+  background: #D0AE33;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  position: absolute;
+  right: calc(100% - 1px);
+  bottom: calc(50% - 1.5rem);
+}
+#flow .flowList section .fukidashi:after {
+  content: "";
+  width: 3rem;
+  aspect-ratio: 1.866;
+  background: #FFF;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  position: absolute;
+  right: calc(100% - 4px);
+  bottom: calc(50% - 1.5rem);
+}
+#flow .flowList section .fukidashi .cut {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: clamp(3rem, 8.3vw, 12rem);
+}
+@media screen and (max-width: 768px) {
+  #flow .flowList section .flowHead {
+    padding: clamp(1rem, 1.4vw, 2rem) clamp(2rem, 2.1vw, 3rem);
+  }
+  #flow .flowList section .flowHead h3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  #flow .flowList section .flowHead h3 span {
+    text-align: center;
+  }
+  #flow .flowList section .flowBody {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 3rem clamp(1rem, 1.4vw, 2rem);
+  }
+  #flow .flowList section .flowIllust {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #flow .flowList section .flowIllust li {
+    padding-right: 0;
+    padding-bottom: calc(clamp(3rem, 2.8vw, 4rem) + clamp(1rem, 1.4vw, 2rem));
+    position: relative;
+  }
+  #flow .flowList section .flowIllust li .image {
+    margin: 0 auto;
+    max-width: 50%;
+  }
+  #flow .flowList section .flowIllust li:not(:last-child)::after {
+    content: "";
+    width: clamp(3rem, 2.8vw, 4rem);
+    aspect-ratio: 1;
+    background: url(/lib/img/zaitaku/flow_allow.webp) no-repeat center/contain;
+    transform: rotate(90deg);
+    display: block;
+    position: absolute;
+    right: calc(50% - clamp(1.5rem, 1.4vw, 2rem));
+    top: calc(50% - clamp(3rem, 2.8vw, 4rem));
+    top: auto;
+    bottom: 0;
+  }
+  #flow .flowList section .disc .point {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+  #flow .flowList section .fukidashi::before {
+    content: "";
+    width: 3rem;
+    aspect-ratio: 1.866;
+    background: #D0AE33;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    position: absolute;
+    right: calc(50% - 1.5rem);
+    bottom: calc(100% + 5px);
+    transform: rotate(90deg);
+  }
+  #flow .flowList section .fukidashi:after {
+    content: "";
+    width: 3rem;
+    aspect-ratio: 1.866;
+    background: #FFF;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    position: absolute;
+    transform: rotate(90deg);
+    right: calc(50% - 1.5rem);
+    bottom: calc(100% + 2px);
+  }
+  #flow .flowList section .fukidashi .cut {
+    width: clamp(6rem, 21.3vw, 8rem);
+  }
+}
+
+/* #service
+----------------------------------- */
+#service .notes {
+  text-align: center;
+}
+#service .serviceList {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 5rem;
+}
+#service .serviceList .item {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+  background: #F9F1D4;
+  border-radius: 20px;
+  padding: 1.5rem;
+  gap: 4rem clamp(1rem, 2.8vw, 4rem);
+  margin-top: 1rem;
+}
+#service .serviceList .num {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3rem, 4.9vw, 7rem);
+  color: #D0AE33;
+  align-self: center;
+}
+#service .serviceList .item_container {
+  background: #FFF;
+  border-radius: 30px;
+  padding: 1rem clamp(1rem, 3.5vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 24%;
+  gap: clamp(1rem, 1.4vw, 2rem);
+  align-items: center;
+}
+#service .serviceList dl dt {
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+#service .serviceList .image {
+  height: 10rem;
+  text-align: center;
+}
+#service .serviceList .image img {
+  object-fit: contain;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  #service .notes {
+    text-align: left;
+  }
+  #service .serviceList {
+    margin-top: 3rem;
+  }
+  #service .serviceList .item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  #service .serviceList .num {
+    text-align: center;
+    line-height: 1;
+  }
+  #service .serviceList .item_container {
+    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* price
+----------------------------------- */
+#price {
+  --radiusscore: 30px;
+}
+#price .note {
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  #price .note {
+    text-align: left;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+}
+#price .tableformat01 tbody {
+  background: #fff;
+}
+#price .tableformat01 tbody td {
+  width: 30%;
+}
+
+/* #areamap
+----------------------------------- */
+#areamap {
+  text-align: center;
+}
+#areamap .area {
+  font-weight: 500;
+  font-size: clamp(1.8rem, 1.4vw, 2rem);
+  margin-bottom: 3rem;
+}
+#areamap .note {
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  #areamap .note {
+    text-align: left;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+}
+
+/* inqury
+----------------------------------- */
+#inqury {
+  background: #F9F9F9;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  padding: clamp(1rem, 2.8vw, 4rem);
+  gap: clamp(1rem, 2.8vw, 4rem);
+}
+#inqury .photo {
+  border-radius: 30px;
+  overflow: hidden;
+}
+#inqury .photo img {
+  object-fit: cover;
+  height: 100%;
+}
+#inqury .detail {
+  background: #FFF;
+  border-radius: 30px;
+  padding: clamp(2rem, 2.1vw, 3rem);
+  display: grid;
+  place-content: center;
+}
+#inqury .detail h2 {
+  font-size: clamp(2.4rem, 2.2vw, 3.2rem);
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+#inqury .detail h2::before {
+  content: "";
+  width: 2.7rem;
+  aspect-ratio: 27/43;
+  background: url(/lib/img/cmn/icon_call.webp) no-repeat center/contain;
+}
+#inqury .detail p {
+  margin-bottom: 2.5rem;
+}
+#inqury .detail p.lead {
+  font-size: clamp(1.8rem, 1.4vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+#inqury .detail .call {
+  color: #D0AE33;
+  font-size: clamp(1.4rem, 1.1vw, 1.6rem);
+  display: flex;
+  align-items: center;
+}
+#inqury .detail .call a {
+  color: #D0AE33;
+  font-size: clamp(2rem, 3.1vw, 4.4rem);
+  font-weight: 600;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+#inqury .detail .call a::before {
+  content: "";
+  width: 2.7rem;
+  aspect-ratio: 27/43;
+  background: url(/lib/img/cmn/icon_call.webp) no-repeat center/contain;
+}
+@media screen and (max-width: 768px) {
+  #inqury {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: clamp(1rem, 2.1vw, 3rem);
+  }
+  #inqury .detail {
+    padding: clamp(2rem, 2.1vw, 3rem);
+  }
+  #inqury .detail .call {
+    color: #D0AE33;
+    display: block;
+    gap: 0;
+  }
+  #inqury .detail .call span {
+    display: block;
+    text-align: center;
+  }
+  #inqury .detail .call a {
+    color: #D0AE33;
+    font-size: clamp(2.6rem, 3.1vw, 4.4rem);
+    font-weight: 600;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  #inqury .detail .call a::before {
+    content: "";
+    width: 2.7rem;
+    aspect-ratio: 27/43;
+    background: url(/lib/img/cmn/icon_call.webp) no-repeat center/contain;
+  }
+}

@@ -1,0 +1,86 @@
+/* .commitment
+----------------------------------- */
+.commitment section {
+  display: grid;
+  grid-template-columns: 1fr 60%;
+  gap: clamp(2rem, 2.8vw, 4rem);
+}
+.commitment section + section {
+  margin-top: 4rem;
+}
+.commitment section h3 {
+  background: #5F9BC6;
+  border-radius: 10px;
+  color: white;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  font-size: clamp(1.8rem, 1.5vw, 2.2rem);
+  padding: 2rem 0;
+}
+.commitment section .detail p {
+  font-size: clamp(1.6rem, 1.4vw, 2rem);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .commitment section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* .companyData
+----------------------------------- */
+.companyData {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: clamp(2rem, 3.5vw, 5rem);
+}
+.companyData .gmap iframe {
+  aspect-ratio: 9/10;
+}
+.companyData .dataTable dl {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.companyData .dataTable dl dt, .companyData .dataTable dl dd {
+  border-bottom: 1px solid #EAE9E8;
+  padding: 1.5rem clamp(1rem, 4.2vw, 6rem) 2rem clamp(1rem, 4.2vw, 6rem);
+}
+.companyData .dataTable dl dt {
+  color: #5F9BC6;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem clamp(1rem, 4.2vw, 6rem) calc(1.5rem + 3.5px);
+  position: relative;
+  align-self: end;
+}
+.companyData .dataTable dl dt:after {
+  content: "";
+  width: 100%;
+  height: 7px;
+  border-radius: 50vh;
+  background: #5F9BC6;
+  position: absolute;
+  left: 0;
+  bottom: -3.5px;
+}
+@media screen and (max-width: 1024px) {
+  .companyData {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .companyData .gmap iframe {
+    aspect-ratio: 3/2;
+  }
+  .companyData .dataTable dl {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .companyData .dataTable dl dt, .companyData .dataTable dl dd {
+    padding: 1rem clamp(1rem, 4.2vw, 6rem) 1.5rem clamp(1rem, 4.2vw, 6rem);
+  }
+  .companyData .dataTable dl dd {
+    text-align: center;
+  }
+}

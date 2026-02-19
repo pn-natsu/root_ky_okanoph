@@ -1,0 +1,154 @@
+@charset "utf-8";
+@import "include";
+
+
+
+/* photolist
+----------------------------------- */
+
+.photolist {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    li {
+      flex: 1;
+      min-width: 0;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+}
+
+.gmap {
+  max-width: 1200px;
+  margin: 0 auto;
+  iframe {
+   aspect-ratio: 3/1;    
+  }
+}
+
+
+.discription {
+  margin: 8rem auto;
+  max-width: 1200px;
+  text-align: center;
+  .lead {
+    font-size: clp(1.8rem, 20);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+}
+
+@include media(sp) {
+  .gmap {
+   iframe {
+    aspect-ratio: 1;
+   }
+  }
+  .discription {
+   margin: 3rem auto;
+   text-align: left;
+    .lead {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+  }
+
+}
+
+/* requirements
+----------------------------------- */
+
+#requirements {
+  background: #F7F6F4;
+  padding: 5rem 2rem;
+  h2 {
+    font-size: clp(2rem,40);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .requirementsList {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: clp(2rem,40);
+    h3 {
+      padding: 1.5rem;
+      background: $color_yellow_01;
+      color: #FFF;
+      text-align: center;
+      font-weight: 400;
+      font-size: clp(2rem,24);
+    }
+    .photo {
+      margin: 1rem 0;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem 0;
+      dt {
+        background: $color_gray_02;
+        padding: 1rem clp(.5rem,20);
+        display: flex;
+        align-items: center;
+      }
+      dd {
+        align-items: center;
+        background: #FFF;
+        padding: 1rem clp(.5rem,20);
+        text-align: center;
+        a {
+          padding: .5rem 1rem;
+          background: $color_blue_01;
+          color: #FFF;
+          font-weight: 500;
+          border-radius: 50vh;
+          gap: .5rem;
+          position: relative;
+          display: block;
+          transition: .3s;
+          &:hover {
+            background: $color_okanoblue_01;
+          }
+          &::after {
+            position: absolute;
+            right: 1rem;
+            top:calc(50% - 1rem);
+            content: "";
+            width: 1.0rem;
+            aspect-ratio: 1/2;
+            background: url(/recruit/lib/img/cmn/icon_allow_02.svg) no-repeat center/ contain;
+          }
+
+        }
+      }
+    }
+  }
+@include media(sp) {
+  .requirementsList {
+    grid-template-columns: 1fr;
+    dl {
+      dt {
+        padding: 1rem 2rem;
+      }
+      dd {
+        padding: 1rem;
+      }
+    }
+    }
+ }
+
+
+
+}
+

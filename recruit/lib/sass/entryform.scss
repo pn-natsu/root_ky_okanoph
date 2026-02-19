@@ -1,0 +1,228 @@
+@charset "utf-8";
+@import "include";
+
+
+
+/* siteTitle
+----------------------------------- */
+
+.discription {
+  margin: 0 auto 5rem auto;
+  padding: 0 2rem;
+  @include media(sp) {
+    padding: 0 0;
+  }
+}
+
+p {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+}
+.lead {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  font-weight: 500;
+  font-size: clp(2rem, 24);
+}
+.privacyCheckbox {
+  max-width: 1200px;
+  background: $color_beige_01;
+  padding: 3rem;
+  margin: 0 auto;
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+  }
+}
+
+
+/* formContainer
+----------------------------------- */
+#formContainer {
+  padding: 5rem 2rem;
+  background: $color_beige_01;
+
+  .formtable {
+    margin: 0 auto 3rem auto;
+    max-width: 1200px;
+    border-collapse: separate;
+    border-spacing: 5px;
+    width: 100%;
+    th,
+    td {
+      padding: 1.5rem;
+    }
+    tbody {
+      display: grid;
+      gap: 7px;
+      grid-template-columns: minmax(max-content, 1fr) auto 3fr;
+    }
+    tr {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: span 3;
+      gap: 7px;
+    }
+    th {
+      background: #91A1B0;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 400;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    td {
+      &.nes {
+        padding: 1.5rem 0 1.5rem 1rem;
+        color: #C73636;
+        font-weight: 400;
+      }
+    }
+  }
+  @include media(sp) {
+    padding: 3rem 1rem;
+    .formtable {
+      tbody {
+        grid-template-columns: 1fr;
+      }
+      tr {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      td {
+        padding: 0 0 1rem 0;
+        &.nes {
+          padding: 0 0 0 0;
+          text-align: center;
+        }
+      }
+
+    }
+
+  }
+
+
+  input[type=text] {
+    font-size: 1.3em;
+    padding: .5em;
+    margin: 0 .5rem;
+    width: 100%;
+    &.number {
+      width: auto;
+    }
+    &.year {
+      width: 4em;
+      padding: .5em 0;
+    }
+    &.month {
+      width: 2em;
+    }
+    &.day {
+      width: 2em;
+    }
+
+    &::placeholder {
+      color: #BBB;
+      font-size: 0.8em;
+    }
+  }
+  textarea {
+    font-size: 1em;
+    padding: .5em;
+    width: 100%;
+  }
+  label {
+    display: inline-flex;
+    align-items: center;
+    &+label {
+      margin-left: 1em;
+    }
+  }
+
+  .radioBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    @include media(sp) {
+      display: grid;
+      width: fit-content;
+      margin: 0 auto;
+      grid-template-columns: 1fr;
+      gap: .5rem 0;
+
+
+
+      label {
+        display: block;
+        padding: 0.6rem 1.2rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: #fff;
+        cursor: pointer;
+        transition: .2s ease;
+      }
+
+      /* hover */
+      label:hover {
+        background: #f5f5f5;
+      }
+
+      /* checked時 */
+      label:has(input:checked) {
+        background: $color_okanoblue_01;
+        color: #fff;
+        border-color: $color_okanoblue_01;
+      }
+
+      /* focus可視化 */
+      label:has(input:focus-visible) {
+        outline: 2px solid $color_okanoblue_01;
+        outline-offset: 2px;
+      }
+
+    }
+  }
+  .postalcode {
+    margin-bottom: 1rem;
+  }
+
+
+  .err {
+    display: block;
+    color: #EB5F5F;
+    font-size: 0.8em;
+  }
+
+  .submit {
+    max-width: 1200px;
+    margin: 10rem auto 0;
+    padding-inline: 2rem;
+
+    button {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: relative;
+      background: $color_gray_01;
+      padding: 2rem;
+      text-align: center;
+      font-size: clp(1.8rem, 32);
+      font-weight: 500;
+      color: #FFF;
+      width: 70%;
+      min-width: fit-content;
+      margin: 0 auto;
+      &::after {
+        content: "";
+        width: clp(1.28rem, 16);
+        aspect-ratio: 12/20;
+        background: url(/lib/img/cmn/icon_allow_01.svg) no-repeat center /contain;
+      }
+
+
+    }
+  }
+}

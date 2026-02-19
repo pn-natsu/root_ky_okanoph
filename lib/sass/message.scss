@@ -1,0 +1,78 @@
+@charset "utf-8";
+@import "include";
+
+/* #mv
+----------------------------------- */
+
+#mv {
+ hgroup {
+  left: clp(12rem,380);
+ }
+}
+
+/* .column
+----------------------------------- */
+
+
+.column {
+ max-width: 1200px;
+ gap: clp(2rem,50);
+ display: grid;
+ grid-template-columns: minmax(30rem,1fr) 1fr;
+ grid-template-areas: "textBox photoBox";
+ align-items: start;
+ &.rev {
+ grid-template-columns:  1fr minmax(30rem,1fr);
+ grid-template-areas:"photoBox textBox";
+ }
+  .textBox {
+   grid-area: textBox;
+  }
+  .photoBox {
+   grid-area: photoBox;
+    position: sticky;
+    top: 2rem;
+
+  }
+ & + & {
+  margin-top: 10rem;
+ }
+
+ h3 {
+  font-size: clp(2rem,28);
+  margin-bottom: 3rem;
+  font-weight: 500;
+ }
+
+ p + p {
+  margin-top: 1.5em;
+ }
+
+ .subtitle {
+  text-align: center;
+ }
+
+ ul.oldAkashi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+ }
+
+ @include media(sp) {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+ grid-template-areas: "textBox" "photoBox";
+ &.rev {
+  grid-template-columns: 1fr;
+ grid-template-areas: "textBox" "photoBox";
+ }
+
+ & + & {
+  margin-top: 5rem;
+ }
+
+
+ }
+
+}

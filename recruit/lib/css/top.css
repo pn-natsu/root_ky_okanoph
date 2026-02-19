@@ -1,0 +1,209 @@
+/* pageContainer
+------------------------------------ */
+@media screen and (max-width: 1200px) {
+  #pageContainer main {
+    padding-inline: 0;
+  }
+}
+
+/* siteTitle
+----------------------------------- */
+#mv .siteTitle .title {
+  font-size: 4.9vw;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-indent: 0em;
+}
+#mv .siteTitle .message {
+  width: 39.6vw;
+}
+@media screen and (max-width: 768px) {
+  #mv .siteTitle .title {
+    font-size: 7.5vw;
+  }
+  #mv .siteTitle .message {
+    width: 80vw;
+  }
+}
+
+hgroup.recTop01 {
+  margin-bottom: 5rem;
+}
+hgroup.recTop01 .en {
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  font-size: clamp(1.4rem, 1.4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+hgroup.recTop01 .title {
+  font-size: clamp(1.8rem, 2.2vw, 3.2rem);
+}
+hgroup.recTop01 .title .decline {
+  position: relative;
+}
+hgroup.recTop01 .title .decline::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  aspect-ratio: 429/74;
+  display: block;
+  background: url(/recruit/lib/img/top/header_01.webp) no-repeat center right/contain;
+  right: 0;
+  top: calc(100% - 0.7rem);
+}
+hgroup.recTop01 .title .str01 {
+  font-weight: 500;
+  font-size: clamp(2.4rem, 3.2vw, 4.6rem);
+}
+
+/* siteTitle
+----------------------------------- */
+#who {
+  background: #F7F6F4;
+  margin-top: 5px;
+  padding: 8rem 2rem;
+}
+#who .whoContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(2rem, 4.2vw, 6rem);
+  grid-template-columns: 1fr 30%;
+}
+#who .detail p + p {
+  margin-top: 2rem;
+}
+#who .photo p {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  #who {
+    padding: 2rem 2rem;
+  }
+  #who .whoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #who .photo {
+    text-align: center;
+  }
+  #who .photo img {
+    max-width: 200px;
+  }
+}
+
+/* .topbox
+----------------------------------- */
+.topbox {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-areas: "mainimage mainimage" "subimage detail";
+  gap: 7px;
+  margin: 7px 0 !important;
+}
+.topbox .mainimage {
+  grid-area: mainimage;
+  height: clamp(150px, 38.9vw, 56rem);
+  position: relative;
+  overflow: hidden;
+}
+.topbox .mainimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.topbox .subimage {
+  grid-area: subimage;
+}
+.topbox .subimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.topbox .detail {
+  grid-area: detail;
+  align-self: center;
+  padding: 2rem clamp(2rem, 4.2vw, 6rem);
+}
+@media screen and (max-width: 768px) {
+  .topbox {
+    grid-template-columns: 1fr;
+    grid-template-areas: "mainimage" "detail" "subimage";
+  }
+  .topbox .subimage {
+    width: 50%;
+    position: relative;
+  }
+  .topbox .subimage::after {
+    width: calc(100% - 7px);
+    height: 100%;
+    content: "";
+    background: rgba(58, 98, 173, 0.4);
+    position: absolute;
+    left: calc(100% + 7px);
+    top: 0;
+  }
+  .topbox .subimage::before {
+    content: "OKANO PHARMACY";
+    line-height: 1;
+    font-family: "Geologica", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: calc(100% + 20px);
+    top: calc(50% - 0.5em);
+    z-index: 50;
+  }
+}
+
+#together,
+#env {
+  grid-template-columns: 1fr 30%;
+  grid-template-areas: "mainimage mainimage" " detail subimage";
+}
+@media screen and (max-width: 768px) {
+  #together,
+  #env {
+    grid-template-columns: 1fr;
+    grid-template-areas: "mainimage" "detail" "subimage";
+  }
+  #together .subimage,
+  #env .subimage {
+    width: 50%;
+    margin: 0 0 0 auto;
+  }
+  #together .subimage::after,
+  #env .subimage::after {
+    background: rgba(92, 173, 143, 0.4);
+    left: auto;
+    right: calc(100% + 7px);
+  }
+  #together .subimage::before,
+  #env .subimage::before {
+    right: calc(100% + 20px);
+    left: auto;
+  }
+}
+
+#trust .subimage::after {
+  background: rgba(229, 135, 135, 0.4);
+}
+
+#env .subimage::after {
+  background: rgba(186, 152, 200, 0.4);
+}

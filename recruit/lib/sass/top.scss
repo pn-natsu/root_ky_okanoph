@@ -1,0 +1,227 @@
+@charset "utf-8";
+@import "include";
+
+
+/* pageContainer
+------------------------------------ */
+
+#pageContainer {
+  @media screen and (max-width: 1200px) {
+    main {
+      padding-inline: 0;
+    }
+  }
+}
+
+
+
+
+/* siteTitle
+----------------------------------- */
+#mv {
+  .siteTitle {
+    .title {
+      font-size: vwsize(70);
+      font-weight: 500;
+      @include ls(0);
+    }
+    .message {
+      width: vwsize(570);
+    }
+    @include media(sp) {
+      .title {
+        font-size: vwsize(28, 375);
+      }
+      .message {
+        width: vwsize(300, 375);
+      }
+    }
+  }
+}
+
+
+
+hgroup.recTop01 {
+  margin-bottom: 5rem;
+  .en {
+    @include font-Geologica;
+    font-size: clp(1.4rem, 20);
+    margin-bottom: 1.5rem;
+  }
+  .title {
+    font-size: clp(1.8rem, 32);
+
+    .decline {
+      position: relative;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        aspect-ratio: 429/74;
+        display: block;
+        background: url(/recruit/lib/img/top/header_01.webp) no-repeat center right /contain;
+        right: 0;
+        top: calc(100% - .7rem);
+      }
+
+
+    }
+    .str01 {
+      font-weight: 500;
+      font-size: clp(2.4rem, 46);
+    }
+  }
+
+}
+
+
+/* siteTitle
+----------------------------------- */
+
+#who {
+  background: #F7F6F4;
+  margin-top: 5px;
+  padding: 8rem 2rem;
+  .whoContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: clp(2rem, 60);
+    grid-template-columns: 1fr 30%;
+  }
+  .detail {
+    p+p {
+      margin-top: 2rem;
+    }
+  }
+  .photo {
+    p {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+  }
+  @include media(sp) {
+    padding: 2rem 2rem;
+    .whoContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .photo {
+      text-align: center;
+      img {
+        max-width: 200px;
+      }
+    }
+
+  }
+
+}
+
+/* .topbox
+----------------------------------- */
+
+.topbox {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-areas: "mainimage mainimage" "subimage detail";
+  gap: 7px;
+  margin: 7px 0 !important;
+  .mainimage {
+    grid-area: mainimage;
+    height: clp(150px, 560);
+    position: relative;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+  .subimage {
+    grid-area: subimage;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+  .detail {
+    grid-area: detail;
+    align-self: center;
+    padding: 2rem clp(2rem, 60);
+  }
+
+  @include media(sp) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "mainimage" "detail" "subimage";
+    .subimage {
+      width: 50%;
+      position: relative;
+      &::after {
+        width: calc(100% - 7px);
+        height: 100%;
+        content: "";
+        background: rgba($color: $color_okanoblue_01, $alpha: 0.4);
+        position: absolute;
+        left: calc(100% + 7px);
+        top: 0;
+      }
+      &::before {
+        content: "OKANO PHARMACY";
+        line-height: 1;
+        @include font-Geologica;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: rgba($color: #FFF, $alpha: 0.6);
+        position: absolute;
+        left: calc(100% + 20px);
+        top: calc(50% - .5em);
+        z-index: 50;
+      }
+    }
+  }
+
+}
+
+#together,
+#env {
+  grid-template-columns: 1fr 30%;
+  grid-template-areas: "mainimage mainimage" " detail subimage";
+  @include media(sp) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "mainimage" "detail" "subimage";
+    .subimage {
+      width: 50%;
+      margin: 0 0 0 auto;
+      &::after {
+        background: rgba($color: $color_green_01, $alpha: 0.4);
+        left: auto;
+        right: calc(100% + 7px);
+      }
+      &::before {
+        right: calc(100% + 20px);
+        left: auto;
+      }
+    }
+  }
+}
+
+#trust {
+  .subimage {
+    &::after {
+      background: rgba($color: $color_pink_01, $alpha: 0.4);
+    }
+  }
+}
+
+#env {
+  .subimage {
+    &::after {
+      background: rgba($color: $color_purple_01, $alpha: 0.4);
+    }
+  }
+}

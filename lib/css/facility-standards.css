@@ -1,0 +1,23 @@
+/* facility-standards
+----------------------------------- */
+.firstSection {
+  margin-bottom: 10rem;
+}
+@media screen and (max-width: 768px) {
+  .firstSection {
+    margin-bottom: 5rem;
+  }
+}
+.firstSection .dotlist01 {
+  --dotlisticon:#BA98C8;
+}
+
+h2 {
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+p + p {
+  margin-top: 1rem;
+}

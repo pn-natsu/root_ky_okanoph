@@ -1,0 +1,117 @@
+@charset "utf-8";
+@import "include";
+
+
+/* .commitment
+----------------------------------- */
+
+.commitment {
+ section {
+  display: grid;
+  grid-template-columns: 1fr 60%;
+  gap: clp(2rem,40);
+  & + section {
+   margin-top: 4rem;
+  }
+  h3 {
+   background: $color_blue_01;
+   border-radius: 10px;
+   color: #FFFF;
+   display: grid;
+   place-content: center;
+   place-items: center;  
+   font-size: clp(1.8rem,22); 
+   padding: 2rem 0;
+  }
+  .detail {
+   p {
+    font-size: clp(1.6rem,20);
+    font-weight: bold;
+    margin-bottom: 2rem;
+   }
+  }
+ }
+
+	@include media(sp) {
+  section {
+   grid-template-columns: 1fr;
+  }
+	}
+
+
+}
+
+
+
+
+/* .companyData
+----------------------------------- */
+
+.companyData {
+ display: grid;
+ grid-template-columns: 1fr max-content;
+ gap: clp(2rem,50);
+ .gmap {
+  iframe {
+   aspect-ratio: 9/10;
+  }
+ }
+ .dataTable {
+  dl {
+   display: grid;
+   grid-template-columns: auto auto;
+   dt,dd {
+    border-bottom: 1px solid $color_line_01;
+    padding: 1.5rem clp(1rem,60) 2rem clp(1rem,60);
+   }
+   dt {
+    color: $color_blue_01;
+    font-weight: bold;
+    text-align: center;
+    padding:  1.5rem clp(1rem,60) calc(1.5rem + 3.5px);
+    position: relative;
+    align-self: end;
+    &:after {
+     content: "";
+     width: 100%;
+     height: 7px;
+     border-radius: 50vh;
+     background: $color_blue_01;
+     position: absolute;
+     left: 0;
+     bottom: -3.5px;
+    }
+   }
+  }
+
+ }
+	@include media(md) {
+  display: grid;
+  grid-template-columns: 1fr;
+ .gmap {
+  iframe {
+   aspect-ratio: 3/2;
+  }
+ }
+ .dataTable {
+  dl {
+   display: grid;
+   grid-template-columns: auto;
+   dt,dd {
+    padding: 1rem clp(1rem,60) 1.5rem clp(1rem,60);
+   }
+   dd {
+    text-align: center;
+   }
+  }
+
+ }
+
+
+ }
+
+
+}
+
+
+

@@ -73,10 +73,10 @@ html {
 }
 
 body {
-  background: #EFEFEF;
+  background: #FFF;
   color: #061938;
   font-family: "Zen Kaku Gothic New", "Meiryo", sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
@@ -169,6 +169,9 @@ img {
   text-align: center;
   position: relative;
   display: block;
+}
+#main .pagelist th a {
+  background: #b60430;
 }
 #main .pagelist th a:after, #main .pagelist th span:after, #main .pagelist td a:after, #main .pagelist td span:after {
   content: "";

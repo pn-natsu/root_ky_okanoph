@@ -1,0 +1,212 @@
+@charset "UTF-8";
+/* siteTitle
+----------------------------------- */
+.discription {
+  margin: 0 auto 5rem auto;
+  padding: 0 2rem;
+}
+@media screen and (max-width: 768px) {
+  .discription {
+    padding: 0 0;
+  }
+}
+
+p {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+}
+
+.lead {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  font-weight: 500;
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+}
+
+.privacyCheckbox {
+  max-width: 1200px;
+  background: #F7F6F4;
+  padding: 3rem;
+  margin: 0 auto;
+}
+.privacyCheckbox label {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+}
+
+/* formContainer
+----------------------------------- */
+#formContainer {
+  padding: 5rem 2rem;
+  background: #F7F6F4;
+}
+#formContainer .formtable {
+  margin: 0 auto 3rem auto;
+  max-width: 1200px;
+  border-collapse: separate;
+  border-spacing: 5px;
+  width: 100%;
+}
+#formContainer .formtable th,
+#formContainer .formtable td {
+  padding: 1.5rem;
+}
+#formContainer .formtable tbody {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: minmax(max-content, 1fr) auto 3fr;
+}
+#formContainer .formtable tr {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 3;
+  gap: 7px;
+}
+#formContainer .formtable th {
+  background: #91A1B0;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 400;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#formContainer .formtable td.nes {
+  padding: 1.5rem 0 1.5rem 1rem;
+  color: #C73636;
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  #formContainer {
+    padding: 3rem 1rem;
+  }
+  #formContainer .formtable tbody {
+    grid-template-columns: 1fr;
+  }
+  #formContainer .formtable tr {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #formContainer .formtable td {
+    padding: 0 0 1rem 0;
+  }
+  #formContainer .formtable td.nes {
+    padding: 0 0 0 0;
+    text-align: center;
+  }
+}
+#formContainer input[type=text] {
+  font-size: 1.3em;
+  padding: 0.5em;
+  margin: 0 0.5rem;
+  width: 100%;
+}
+#formContainer input[type=text].number {
+  width: auto;
+}
+#formContainer input[type=text].year {
+  width: 4em;
+  padding: 0.5em 0;
+}
+#formContainer input[type=text].month {
+  width: 2em;
+}
+#formContainer input[type=text].day {
+  width: 2em;
+}
+#formContainer input[type=text]::placeholder {
+  color: #BBB;
+  font-size: 0.8em;
+}
+#formContainer textarea {
+  font-size: 1em;
+  padding: 0.5em;
+  width: 100%;
+}
+#formContainer label {
+  display: inline-flex;
+  align-items: center;
+}
+#formContainer label + label {
+  margin-left: 1em;
+}
+#formContainer .radioBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+@media screen and (max-width: 768px) {
+  #formContainer .radioBox {
+    display: grid;
+    width: fit-content;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 0;
+  }
+  #formContainer .radioBox label {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  #formContainer .radioBox {
+    /* hover */
+  }
+  #formContainer .radioBox label:hover {
+    background: #f5f5f5;
+  }
+  #formContainer .radioBox {
+    /* checked時 */
+  }
+  #formContainer .radioBox label:has(input:checked) {
+    background: #3A62AD;
+    color: #fff;
+    border-color: #3A62AD;
+  }
+  #formContainer .radioBox {
+    /* focus可視化 */
+  }
+  #formContainer .radioBox label:has(input:focus-visible) {
+    outline: 2px solid #3A62AD;
+    outline-offset: 2px;
+  }
+}
+#formContainer .postalcode {
+  margin-bottom: 1rem;
+}
+#formContainer .err {
+  display: block;
+  color: #EB5F5F;
+  font-size: 0.8em;
+}
+#formContainer .submit {
+  max-width: 1200px;
+  margin: 10rem auto 0;
+  padding-inline: 2rem;
+}
+#formContainer .submit button {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  background: #878787;
+  padding: 2rem;
+  text-align: center;
+  font-size: clamp(1.8rem, 2.2vw, 3.2rem);
+  font-weight: 500;
+  color: #FFF;
+  width: 70%;
+  min-width: fit-content;
+  margin: 0 auto;
+}
+#formContainer .submit button::after {
+  content: "";
+  width: clamp(1.28rem, 1.1vw, 1.6rem);
+  aspect-ratio: 12/20;
+  background: url(/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
+}

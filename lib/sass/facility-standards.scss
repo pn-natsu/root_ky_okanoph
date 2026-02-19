@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import "include";
+
+
+
+/* facility-standards
+----------------------------------- */
+
+.firstSection {
+ margin-bottom: 10rem;
+@include media(sp) {
+ margin-bottom: 5rem;
+}
+
+ .dotlist01 {
+ 		--dotlisticon:#BA98C8;
+   }
+}
+
+h2 {
+ font-size: clp(2rem,24);
+ font-weight: 500;
+ margin-bottom: 3rem;
+}
+
+p + p {
+ margin-top: 1rem;
+}

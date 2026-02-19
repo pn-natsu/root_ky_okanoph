@@ -1,0 +1,345 @@
+@charset "utf-8";
+@import "include";
+
+
+
+/* #pageTitleBlock
+----------------------------------- */
+
+#pageTitleBlock {
+  width: fit-content;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 226px) auto;
+  grid-template-areas: "fukidashi sub" "fukidashi pagetitle";
+  gap: 0 clp(0rem, 30);
+  .interview {
+    grid-area: fukidashi;
+  }
+  .sub {
+    grid-area: sub;
+    @include font-Geologica;
+    font-size: clp(1.4rem, 20);
+    align-self: self-end;
+  }
+  .pagetitle {
+    align-self: self-start;
+    grid-area: pagetitle;
+  }
+}
+
+/* .pageMV
+----------------------------------- */
+
+#interviewList {
+  padding: 7rem 2rem;
+  background: $color_beige_01;
+  .interviewListContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: clp(2rem, 40);
+    .card {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      padding: 5px;
+      background: #FFF;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+      position: relative;
+      .label {
+        position: absolute;
+        bottom: clp(1.5rem, 20);
+        right: clp(1.5rem, 20);
+        left: clp(1.5rem, 20);
+        background: #91A1B0;
+        padding: 1.5rem .5rem;
+        text-align: center;
+        color: #FFF;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 0 clp(.3rem, 10);
+        }
+        li {
+          font-weight: 500;
+          font-size: clp(1rem, 14);
+          &.name {
+            font-size: clp(1.2rem, 16);
+            font-weight: 600;
+          }
+          &.year {
+            font-size: clp(1rem, 16);
+            font-weight: 400;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* .pageMV
+----------------------------------- */
+.pageMV {
+  max-width: 1440px;
+  margin: 0 auto 10rem;
+  position: relative;
+  img {
+    display: block;
+  }
+
+  .panel {
+    position: absolute;
+    max-width: 60%;
+    padding: 1rem;
+    .lead {
+      backdrop-filter: blur(10px);
+      font-size: clp(1.6rem, 32);
+      font-weight: 500;
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 10px;
+      strong {
+        font-weight: 500;
+      }
+
+    }
+
+    .data {
+      margin-top: clp(1rem, 40);
+      background: #91A1B0;
+      padding: clp(1rem, 30) clp(2rem, 60);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      text-align: center;
+      color: #FFF;
+      min-width: 350px;
+      width: fit-content;
+
+      .year {
+        background: #FFF;
+        color: #91A1B0;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        font-weight: bold;
+      }
+      .job {
+        font-weight: bold;
+        font-size: clp(1.6rem, 18);
+      }
+      .name {
+        font-size: clp(2rem, 22);
+        font-weight: bold;
+      }
+    }
+
+  }
+  .alignL {
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .alignR {
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .data {
+      margin: clp(1rem, 40) 0 0 auto;
+    }
+  }
+
+  @include media(md) {
+    .panel {
+      .data {
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+      }
+
+    }
+    .alignL {
+      left: 2%;
+    }
+    .alignR {
+      right: 2%;
+    }
+  }
+  @include media(sp) {
+    .alignL,
+    .alignR {
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      transform: none;
+      max-width: 100%;
+      background: rgba($color: #91A1B0, $alpha: 0.2);
+      .lead {
+        color: #91A1B0;
+        text-align: center;
+      }
+      .status {
+        font-size: 1.4rem;
+      }
+      .data {
+        width: 100%;
+      }
+    }
+
+  }
+
+}
+
+/* .qaboxContainer
+----------------------------------- */
+
+.qaboxContainer {
+
+  .item {
+    margin: 0 auto;
+    max-width: 1440px;
+    background: #F7F6F4;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    border-bottom: 10px solid #FFF;
+    .question {
+      background: #fff;
+      padding: 3rem 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: clp(3rem, 60);
+        height: 100%;
+        background: #FFF;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+      }
+      hgroup {
+        margin: 0 auto;
+        text-align: center;
+        .en {
+          @include font-Geologica;
+          @include ls(0.2);
+          font-size: 2rem;
+          line-height: 1;
+        }
+        .num {
+          @include font-Geologica;
+          @include ls(.06);
+          font-size: 10rem;
+          line-height: 1;
+        }
+        h3 {
+          position: relative;
+          padding: 40px 0 0;
+          margin: 0 auto;
+          max-width: 220px;
+          &::before {
+            content: "";
+            width: 214px;
+            aspect-ratio: 214/37;
+            display: block;
+            background: url(/recruit/lib/img/interview/sectionTitle.webp) no-repeat center / contain;
+            position: absolute;
+            top: 0;
+            left: calc(50% - 107px);
+          }
+        }
+      }
+
+    }
+    .answer {
+      padding: clp(3rem, 60) clp(3rem, 120);
+      padding-left: clp(6rem, 180);
+      align-self: center;
+      p+p {
+        margin-top: 1rem;
+      }
+      .photo+p {
+        margin-top: 3rem;
+      }
+      p+.photo {
+        margin-top: 3rem;
+      }
+      h4 {
+        font-weight: 600;
+        color: $color_okanoblue_01;
+        margin: 2rem 0;
+      }
+    }
+
+  }
+  @include media(sp) {
+    .item {
+      grid-template-columns: 1fr;
+      &+.item {
+        margin-top: 3rem;
+      }
+      .question {
+        padding: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 3rem;
+          background: #FFF;
+          aspect-ratio: 1/cos(30deg);
+          clip-path: polygon(50% 100%, 100% 0, 0 0);
+        }
+        hgroup {
+          .num {
+            @include font-Geologica;
+            @include ls(.06);
+            font-size: 6rem;
+            line-height: 1;
+          }
+
+        }
+
+      }
+      .answer {
+        padding: 6rem 2rem 2rem;
+      }
+    }
+  }
+}
+
+/* .pager
+----------------------------------- */
+
+.pager {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: clp(1rem,14);
+  a {
+    display: block;
+    color: #FFF;
+    background: #666;
+    padding: .2rem clp(1rem,20);
+  }
+  span {
+    display: block;
+    color: #FFF;
+    background: #CCC;
+    padding: .2rem clp(1rem,20);
+  }
+
+}

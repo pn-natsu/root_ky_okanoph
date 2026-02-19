@@ -1,0 +1,62 @@
+/* #mv
+----------------------------------- */
+#mv hgroup {
+  left: clamp(12rem, 26.4vw, 38rem);
+}
+
+/* .column
+----------------------------------- */
+.column {
+  max-width: 1200px;
+  gap: clamp(2rem, 3.5vw, 5rem);
+  display: grid;
+  grid-template-columns: minmax(30rem, 1fr) 1fr;
+  grid-template-areas: "textBox photoBox";
+  align-items: start;
+}
+.column.rev {
+  grid-template-columns: 1fr minmax(30rem, 1fr);
+  grid-template-areas: "photoBox textBox";
+}
+.column .textBox {
+  grid-area: textBox;
+}
+.column .photoBox {
+  grid-area: photoBox;
+  position: sticky;
+  top: 2rem;
+}
+.column + .column {
+  margin-top: 10rem;
+}
+.column h3 {
+  font-size: clamp(2rem, 1.9vw, 2.8rem);
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+.column p + p {
+  margin-top: 1.5em;
+}
+.column .subtitle {
+  text-align: center;
+}
+.column ul.oldAkashi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .column {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "textBox" "photoBox";
+  }
+  .column.rev {
+    grid-template-columns: 1fr;
+    grid-template-areas: "textBox" "photoBox";
+  }
+  .column + .column {
+    margin-top: 5rem;
+  }
+}

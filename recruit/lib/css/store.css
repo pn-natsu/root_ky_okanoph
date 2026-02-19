@@ -1,0 +1,134 @@
+/* photolist
+----------------------------------- */
+.photolist {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.photolist ul {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+.photolist ul li {
+  flex: 1;
+  min-width: 0;
+}
+.photolist ul li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gmap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.gmap iframe {
+  aspect-ratio: 3/1;
+}
+
+.discription {
+  margin: 8rem auto;
+  max-width: 1200px;
+  text-align: center;
+}
+.discription .lead {
+  font-size: clamp(1.8rem, 1.4vw, 2rem);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .gmap iframe {
+    aspect-ratio: 1;
+  }
+  .discription {
+    margin: 3rem auto;
+    text-align: left;
+  }
+  .discription .lead {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+/* requirements
+----------------------------------- */
+#requirements {
+  background: #F7F6F4;
+  padding: 5rem 2rem;
+}
+#requirements h2 {
+  font-size: clamp(2rem, 2.8vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#requirements .requirementsList {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 2.8vw, 4rem);
+}
+#requirements .requirementsList h3 {
+  padding: 1.5rem;
+  background: #D0AE33;
+  color: #FFF;
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+}
+#requirements .requirementsList .photo {
+  margin: 1rem 0;
+}
+#requirements .requirementsList dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 0;
+}
+#requirements .requirementsList dl dt {
+  background: #EAE9E8;
+  padding: 1rem clamp(0.5rem, 1.4vw, 2rem);
+  display: flex;
+  align-items: center;
+}
+#requirements .requirementsList dl dd {
+  align-items: center;
+  background: #FFF;
+  padding: 1rem clamp(0.5rem, 1.4vw, 2rem);
+  text-align: center;
+}
+#requirements .requirementsList dl dd a {
+  padding: 0.5rem 1rem;
+  background: #5F9BC6;
+  color: #FFF;
+  font-weight: 500;
+  border-radius: 50vh;
+  gap: 0.5rem;
+  position: relative;
+  display: block;
+  transition: 0.3s;
+}
+#requirements .requirementsList dl dd a:hover {
+  background: #3A62AD;
+}
+#requirements .requirementsList dl dd a::after {
+  position: absolute;
+  right: 1rem;
+  top: calc(50% - 1rem);
+  content: "";
+  width: 1rem;
+  aspect-ratio: 1/2;
+  background: url(/recruit/lib/img/cmn/icon_allow_02.svg) no-repeat center/contain;
+}
+@media screen and (max-width: 768px) {
+  #requirements .requirementsList {
+    grid-template-columns: 1fr;
+  }
+  #requirements .requirementsList dl dt {
+    padding: 1rem 2rem;
+  }
+  #requirements .requirementsList dl dd {
+    padding: 1rem;
+  }
+}

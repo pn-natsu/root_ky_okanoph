@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "include";
+
+/* #mv
+----------------------------------- */
+
+#mv {
+ hgroup {
+  left: clp(12rem,380);
+ }
+}
+
+/* xxxxxxxxxxxxxxxx
+----------------------------------- */
+
+
+@include media(sp) {
+}

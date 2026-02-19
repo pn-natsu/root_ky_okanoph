@@ -1,0 +1,341 @@
+/* #pageTitleBlock
+----------------------------------- */
+#pageTitleBlock {
+  width: fit-content;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 226px) auto;
+  grid-template-areas: "fukidashi sub" "fukidashi pagetitle";
+  gap: 0 clamp(0rem, 2.1vw, 3rem);
+}
+#pageTitleBlock .interview {
+  grid-area: fukidashi;
+}
+#pageTitleBlock .sub {
+  grid-area: sub;
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  font-size: clamp(1.4rem, 1.4vw, 2rem);
+  align-self: self-end;
+}
+#pageTitleBlock .pagetitle {
+  align-self: self-start;
+  grid-area: pagetitle;
+}
+
+/* .pageMV
+----------------------------------- */
+#interviewList {
+  padding: 7rem 2rem;
+  background: #F7F6F4;
+}
+#interviewList .interviewListContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: clamp(2rem, 2.8vw, 4rem);
+}
+#interviewList .interviewListContainer .card {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  padding: 5px;
+  background: #FFF;
+}
+#interviewList .interviewListContainer .card img {
+  height: auto;
+  width: 100%;
+}
+#interviewList .interviewListContainer .card {
+  position: relative;
+}
+#interviewList .interviewListContainer .card .label {
+  position: absolute;
+  bottom: clamp(1.5rem, 1.4vw, 2rem);
+  right: clamp(1.5rem, 1.4vw, 2rem);
+  left: clamp(1.5rem, 1.4vw, 2rem);
+  background: #91A1B0;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  color: #FFF;
+}
+#interviewList .interviewListContainer .card .label ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 clamp(0.3rem, 0.7vw, 1rem);
+}
+#interviewList .interviewListContainer .card .label li {
+  font-weight: 500;
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+#interviewList .interviewListContainer .card .label li.name {
+  font-size: clamp(1.2rem, 1.1vw, 1.6rem);
+  font-weight: 600;
+}
+#interviewList .interviewListContainer .card .label li.year {
+  font-size: clamp(1rem, 1.1vw, 1.6rem);
+  font-weight: 400;
+  width: 100%;
+}
+
+/* .pageMV
+----------------------------------- */
+.pageMV {
+  max-width: 1440px;
+  margin: 0 auto 10rem;
+  position: relative;
+}
+.pageMV img {
+  display: block;
+}
+.pageMV .panel {
+  position: absolute;
+  max-width: 60%;
+  padding: 1rem;
+}
+.pageMV .panel .lead {
+  backdrop-filter: blur(10px);
+  font-size: clamp(1.6rem, 2.2vw, 3.2rem);
+  font-weight: 500;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+.pageMV .panel .lead strong {
+  font-weight: 500;
+}
+.pageMV .panel .data {
+  margin-top: clamp(1rem, 2.8vw, 4rem);
+  background: #91A1B0;
+  padding: clamp(1rem, 2.1vw, 3rem) clamp(2rem, 4.2vw, 6rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: center;
+  color: #FFF;
+  min-width: 350px;
+  width: fit-content;
+}
+.pageMV .panel .data .year {
+  background: #FFF;
+  color: #91A1B0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+.pageMV .panel .data .job {
+  font-weight: bold;
+  font-size: clamp(1.6rem, 1.3vw, 1.8rem);
+}
+.pageMV .panel .data .name {
+  font-size: clamp(2rem, 1.5vw, 2.2rem);
+  font-weight: bold;
+}
+.pageMV .alignL {
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pageMV .alignR {
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pageMV .alignR .data {
+  margin: clamp(1rem, 2.8vw, 4rem) 0 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .pageMV .panel .data {
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+  .pageMV .alignL {
+    left: 2%;
+  }
+  .pageMV .alignR {
+    right: 2%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pageMV .alignL,
+  .pageMV .alignR {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    background: rgba(145, 161, 176, 0.2);
+  }
+  .pageMV .alignL .lead,
+  .pageMV .alignR .lead {
+    color: #91A1B0;
+    text-align: center;
+  }
+  .pageMV .alignL .status,
+  .pageMV .alignR .status {
+    font-size: 1.4rem;
+  }
+  .pageMV .alignL .data,
+  .pageMV .alignR .data {
+    width: 100%;
+  }
+}
+
+/* .qaboxContainer
+----------------------------------- */
+.qaboxContainer .item {
+  margin: 0 auto;
+  max-width: 1440px;
+  background: #F7F6F4;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  border-bottom: 10px solid #FFF;
+}
+.qaboxContainer .item .question {
+  background: #fff;
+  padding: 3rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.qaboxContainer .item .question::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: clamp(3rem, 4.2vw, 6rem);
+  height: 100%;
+  background: #FFF;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.qaboxContainer .item .question hgroup {
+  margin: 0 auto;
+  text-align: center;
+}
+.qaboxContainer .item .question hgroup .en {
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  font-size: 2rem;
+  line-height: 1;
+}
+.qaboxContainer .item .question hgroup .num {
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  letter-spacing: 0.06em;
+  text-indent: 0.06em;
+  font-size: 10rem;
+  line-height: 1;
+}
+.qaboxContainer .item .question hgroup h3 {
+  position: relative;
+  padding: 40px 0 0;
+  margin: 0 auto;
+  max-width: 220px;
+}
+.qaboxContainer .item .question hgroup h3::before {
+  content: "";
+  width: 214px;
+  aspect-ratio: 214/37;
+  display: block;
+  background: url(/recruit/lib/img/interview/sectionTitle.webp) no-repeat center/contain;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 107px);
+}
+.qaboxContainer .item .answer {
+  padding: clamp(3rem, 4.2vw, 6rem) clamp(3rem, 8.3vw, 12rem);
+  padding-left: clamp(6rem, 12.5vw, 18rem);
+  align-self: center;
+}
+.qaboxContainer .item .answer p + p {
+  margin-top: 1rem;
+}
+.qaboxContainer .item .answer .photo + p {
+  margin-top: 3rem;
+}
+.qaboxContainer .item .answer p + .photo {
+  margin-top: 3rem;
+}
+.qaboxContainer .item .answer h4 {
+  font-weight: 600;
+  color: #3A62AD;
+  margin: 2rem 0;
+}
+@media screen and (max-width: 768px) {
+  .qaboxContainer .item {
+    grid-template-columns: 1fr;
+  }
+  .qaboxContainer .item + .item {
+    margin-top: 3rem;
+  }
+  .qaboxContainer .item .question {
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .qaboxContainer .item .question::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    background: #FFF;
+    aspect-ratio: 1/0.8660254038;
+    clip-path: polygon(50% 100%, 100% 0, 0 0);
+  }
+  .qaboxContainer .item .question hgroup .num {
+    font-family: "Geologica", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    letter-spacing: 0.06em;
+    text-indent: 0.06em;
+    font-size: 6rem;
+    line-height: 1;
+  }
+  .qaboxContainer .item .answer {
+    padding: 6rem 2rem 2rem;
+  }
+}
+
+/* .pager
+----------------------------------- */
+.pager {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+.pager a {
+  display: block;
+  color: #FFF;
+  background: #666;
+  padding: 0.2rem clamp(1rem, 1.4vw, 2rem);
+}
+.pager span {
+  display: block;
+  color: #FFF;
+  background: #CCC;
+  padding: 0.2rem clamp(1rem, 1.4vw, 2rem);
+}
