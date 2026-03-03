@@ -148,19 +148,20 @@ img {
   border-top: 1px solid #222;
   border-left: 1px solid #222;
 }
-#main .pagelist .notice th, #main .pagelist .notice td {
-  background: #FFFFCC;
+#main .pagelist tbody th a {
+  background: #CC0020;
+  color: #FFF;
 }
-#main .pagelist .notice th a, #main .pagelist .notice td a {
-  background: #FFCA1C;
-  color: #000;
-}
-#main .pagelist th, #main .pagelist td {
+#main .pagelist th,
+#main .pagelist td {
   border-right: 1px solid #222;
   border-bottom: 1px solid #222;
   padding: 1rem;
 }
-#main .pagelist th a, #main .pagelist th span, #main .pagelist td a, #main .pagelist td span {
+#main .pagelist th a,
+#main .pagelist th span,
+#main .pagelist td a,
+#main .pagelist td span {
   background: #0068B6;
   color: #FFF;
   text-decoration: none;
@@ -170,10 +171,10 @@ img {
   position: relative;
   display: block;
 }
-#main .pagelist th a {
-  background: #b60430;
-}
-#main .pagelist th a:after, #main .pagelist th span:after, #main .pagelist td a:after, #main .pagelist td span:after {
+#main .pagelist th a:after,
+#main .pagelist th span:after,
+#main .pagelist td a:after,
+#main .pagelist td span:after {
   content: "";
   height: 0.8rem;
   aspect-ratio: 0.8660254038;
@@ -184,8 +185,20 @@ img {
   right: 1rem;
   top: calc(50% - 0.4rem);
 }
-#main .pagelist th span, #main .pagelist td span {
+#main .pagelist th span,
+#main .pagelist td span {
   background: #aaa;
+}
+#main .pagelist thead th, #main .pagelist thead td {
+  background: #CCC;
+}
+#main .pagelist tr.recruitSite th,
+#main .pagelist tr.recruitSite td {
+  background: #FFFFCC;
+}
+#main .pagelist tr.mimotohoshoSite th,
+#main .pagelist tr.mimotohoshoSite td {
+  background: #FFFFCC;
 }
 
 /* ------------------------------------
@@ -219,7 +232,8 @@ img {
   display: flex;
   gap: 1rem;
 }
-#design .pagedata .backlink ul li a, #design .pagedata .backlink ul li span {
+#design .pagedata .backlink ul li a,
+#design .pagedata .backlink ul li span {
   background: #EFEFEF;
   color: #222222;
   padding: 0rem 2rem;
@@ -228,14 +242,16 @@ img {
   gap: 1rem;
   align-items: center;
 }
-#design .pagedata .backlink ul li a.previous:before, #design .pagedata .backlink ul li span.previous:before {
+#design .pagedata .backlink ul li a.previous:before,
+#design .pagedata .backlink ul li span.previous:before {
   content: "";
   height: 1.2rem;
   aspect-ratio: 0.8660254038;
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
   background: #222222;
 }
-#design .pagedata .backlink ul li a.next:after, #design .pagedata .backlink ul li span.next:after {
+#design .pagedata .backlink ul li a.next:after,
+#design .pagedata .backlink ul li span.next:after {
   content: "";
   height: 1.2rem;
   aspect-ratio: 0.8660254038;
