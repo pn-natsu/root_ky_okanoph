@@ -220,16 +220,16 @@
   justify-content: center;
   gap: 1rem;
 }
-.pager li a {
+.pager li a, .pager li span {
   padding: 0.5rem 1.5rem;
   display: block;
 }
-.pager li a:hover {
+.pager li a:hover, .pager li span:hover {
   color: #fff;
   background: #878787;
   border-radius: 5px;
 }
-.pager li a.current {
+.pager li a.current, .pager li span.current {
   color: #fff;
   background: #BA98C8;
   border-radius: 5px;
