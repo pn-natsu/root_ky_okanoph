@@ -187,8 +187,83 @@
 
 <body>
   <div id="pageContainer">
-  <!-- header -->
-  <?php
-  include(ROOT . "/lib/inc/header.html");
-  ?>
-  <!-- /header -->
+    <!-- header -->
+    <header>
+      <div id="header">
+        <div class="logo"><a href="/"><img src="/lib/img/cmn/header_logo.webp" alt="オカノ薬局"></a></div>
+        <ul class="gnav">
+          <li><a href="/">TOP</a></li>
+          <li><a href="/news/">お知らせ</a></li>
+          <li><a href="/about/">会社案内</a></li>
+          <li><a href="/message/">社長メッセージ</a></li>
+          <li><a href="/zaitaku/">在宅医療</a></li>
+          <li><a href="/mimotohosho/">身元保証サービス</a></li>
+          <li class="store"><a data-target="modal_services" class="modal_open">店舗紹介</a></li>
+        </ul>
+        <div class="recruit"><a href="/recruit/"><span>Recruit</span>スタッフ募集</a></div>
+
+        <div class="btn_store"><a data-target="modal_services" class="modal_open">店舗紹介</a></div>
+        <div class="btn_menu">
+          <div><span></span><span></span></div>
+          <p>Menu</p>
+        </div>
+
+      </div>
+    </header>
+    <?php
+    $parent_page = get_page_by_path('store');
+    if ($parent_page) {
+      $args = array(
+        'post_type'      => 'page',
+        'post_parent'    => $parent_page->ID,
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC'
+      );
+      $child_query = new WP_Query($args);
+    }
+    if ($child_query->have_posts()):
+    ?>
+
+      <section id="modal_services" class="modal_box">
+        <h2><img src="/lib/img/cmn/header_logo.webp" alt="オカノ薬局"></h2>
+        <div class="modal_close"><span></span><span></span></div>
+        <div class="storelist_list">
+          <?php while ($child_query->have_posts()):
+            $child_query->the_post();
+            $slug = get_post_field('post_name', get_the_ID());
+            $slug_no_hifun = str_replace('-', '', $slug);
+          ?>
+            <!-- store -->
+            <div class="store">
+              <a href="<?php the_permalink(); ?>" class="store_<?php echo $slug_no_hifun; ?>">
+                <div class="photo"><img src="/lib/img/cmn/store_<?php echo $slug_no_hifun; ?>.webp" alt="オカノ薬局 <?php the_title(); ?>"></div>
+                <p><span>オカノ薬局</span> <?php the_title(); ?></p>
+              </a>
+            </div>
+          <?php endwhile;
+          wp_reset_postdata(); ?>
+        </div>
+      </section>
+    <?php endif; ?>
+
+    <div id="menu">
+      <header>
+        <div id="header">
+          <h1 class="logo"><img src="/lib/img/cmn/header_logo.webp" alt="オカノ薬局"></h1>
+          <div class="btn_menu">
+            <div><span></span><span></span></div>
+            <p>Close</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="drawerbox">
+        <!--  js.clone -->
+        <div class="serviceContainer">
+          <h2>店舗紹介</h2>
+        </div>
+        <!--  js.clone -->
+      </div>
+
+    </div> <!-- /header -->

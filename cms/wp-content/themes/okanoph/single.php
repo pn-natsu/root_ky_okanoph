@@ -33,7 +33,7 @@
   <?php
 
   $referer = wp_get_referer();
-  $archive_url = get_post_type_archive_link('post');
+  $archive_url = home_url();
   $archive_url = untrailingslashit($archive_url);
   $back_url = '';
   if ($referer && strpos($referer, $archive_url) !== false) {

@@ -16,35 +16,71 @@
         <p class="en">Instagram</p>
         <h2>インスタグラム</h2>
       </hgroup>
-      <ul class="dummy">
-        <li><img src="/lib/img/top/dummy_instagram_01.webp" alt=""></li>
-        <li><img src="/lib/img/top/dummy_instagram_02.webp" alt=""></li>
-        <li><img src="/lib/img/top/dummy_instagram_03.webp" alt=""></li>
-        <li><img src="/lib/img/top/dummy_instagram_04.webp" alt=""></li>
-        <li><img src="/lib/img/top/dummy_instagram_05.webp" alt=""></li>
-      </ul>
-      <div class="link"><a href="#" target="_blank">もっと見る</a></div>
+      <?php echo do_shortcode('[instagram-feed feed=2]'); ?>
+      <div class="link"><a href="https://www.instagram.com/okanogram/" target="_blank">もっと見る</a></div>
     </section>
 
-    <!-- about -->
-    <section id="information">
-      <div class="infoContainer">
-        <div class="infoHead">
-          <hgroup class="htype01">
-            <p class="en">Information</p>
-            <h2>お知らせ</h2>
-          </hgroup>
-          <p class="link"><a href="/news/indexlist.html">お知らせ一覧へ</a></p>
-        </div>
-        <div class="infolist">
-          <ul>
-            <li><a href="/news/article.html"><span>2024/12/02</span>アスピア前店　移転OPENしました。</a></li>
-            <li><a href="/news/article.html"><span>2024/06/07</span>当薬局では、マイナンバーカードを導入しております。</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <?php
+    $posts_per_page = 5;
+    $pickup_args = array(
+      'posts_per_page' => $posts_per_page,
+      'meta_query' => array(
+        array(
+          'key'     => 'pickup',
+          'value'   => 1,
+          'compare' => '=',
+        )
+      ),
+    );
+    $pickup_posts = get_posts($pickup_args);
 
+    $exclude_ids = wp_list_pluck($pickup_posts, 'ID');
+    $pickup_count = count($pickup_posts);
+    $normal_posts = array();
+    if ($posts_per_page > $pickup_count) {
+      $normal_args = array(
+        'posts_per_page' => $posts_per_page - $pickup_count,
+        'post__not_in'   => $exclude_ids,
+      );
+      $normal_posts = get_posts($normal_args);
+    }
+    $all_posts = array_merge($pickup_posts, $normal_posts);
+    if (!empty($all_posts)): global $post;
+    ?>
+
+      <!-- information -->
+      <section id="information">
+        <div class="infoContainer">
+          <div class="infoHead">
+            <hgroup class="htype01">
+              <p class="en">Information</p>
+              <h2>お知らせ</h2>
+            </hgroup>
+            <p class="link"><a href="/news/indexlist.html">お知らせ一覧へ</a></p>
+          </div>
+          <div class="infolist">
+            <ul>
+              <?php foreach ($all_posts as $post): setup_postdata($post); ?>
+                <?php if (get_field('disp_body')): ?>
+                  <li>
+                    <div>
+                      <span><?php the_time('Y/m/d'); ?></span>
+                      <div class="entryBody">
+                        <p class="title"><?php the_title(); ?></p>
+                        <?php the_content(); ?>
+                      </div>
+                    </div>
+                  </li>
+                <?php else: ?>
+                  <li><a href="<?php the_permalink(); ?>"><span><?php the_time('Y/m/d'); ?></span><?php the_title(); ?></a></li>
+                <?php endif; ?>
+              <?php endforeach;
+              wp_reset_postdata(); ?>
+            </ul>
+          </div>
+        </div>
+      </section>
+    <?php endif; ?>
     <!-- about -->
     <section id="about">
       <ul class="headPhoto moviescroll">
@@ -84,109 +120,95 @@
         <li><img src="/lib/img/top/about_08.webp" alt=""></li>
       </ul>
     </section>
+    <?php
+    $args = [
+      'posts_per_page' => 3,
+      'post_type' => 'blog',
+    ];
+    $query = new WP_Query($args);
+    if ($query->have_posts()) :
+    ?>
 
-    <!-- blog -->
-    <div id="blog">
-      <hgroup class="htype01">
-        <p class="en">Blog</p>
-        <h2>オカノ薬局スタッフブログ</h2>
-      </hgroup>
+      <!-- blog -->
+      <div id="blog">
+        <hgroup class="htype01">
+          <p class="en">Blog</p>
+          <h2>オカノ薬局スタッフブログ</h2>
+        </hgroup>
 
-      <div class="blogContainer">
-        <!-- item -->
-        <div class="item"><a href="#">
-            <div class="photo"><img src="/lib/img/top/dummy_blog_01.webp" alt=""></div>
-            <p class="date">2024/12/02</p>
-            <p class="title">アスピア前店　移転OPENいたしました。</p>
-            <div class="link">もっと見る</div>
-          </a>
+        <div class="blogContainer">
+          <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <!-- item -->
+            <div class="item"><a href="<?php the_permalink(); ?>">
+                <div class="photo">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('large'); ?>
+                  <?php else : ?>
+                    <img src="/lib/img/cmn/no_image.png" alt="">
+                  <?php endif; ?>
+                </div>
+                <p class="date"><?php the_time('Y/m/d'); ?></p>
+                <p class="title"><?php the_title(); ?></p>
+                <div class="link">もっと見る</div>
+              </a>
+            </div>
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
         </div>
-        <!-- item -->
-        <div class="item"><a href="#">
-            <div class="photo"><img src="/lib/img/top/dummy_blog_02.webp" alt=""></div>
-            <p class="date">2024/09/06</p>
-            <p class="title">オカノ薬局初めての薬学部実習生を受け入れました！</p>
-            <div class="link">もっと見る</div>
-          </a>
-        </div>
-        <!-- item -->
-        <div class="item"><a href="#">
-            <div class="photo"><img src="/lib/img/top/dummy_blog_03.webp" alt=""></div>
-            <p class="date">2024/05/08</p>
-            <p class="title">明石駅店の看板をリニューアルしました</p>
-            <div class="link">もっと見る</div>
-          </a>
-        </div>
-        <!-- /item -->
-
-
       </div>
-    </div>
-
+    <?php endif; ?>
     <!-- mendan bnr -->
     <div id="mendan">
-      <a href="">
+      <a href="/recruit/">
         <picture>
           <source media="(max-width:767px)" srcset="/lib/img/top/bnr_recruit_sp.webp">
           <source srcset="/lib/img/top/bnr_recruit_pc.webp">
-          <img src="/lib/img/top/bnr_recruit_pc.webp" alt="xxxxxxxxxx">
+          <img src="/lib/img/top/bnr_recruit_pc.webp" alt="オカノ薬局採用サイト">
         </picture>
       </a>
     </div>
 
-    <!-- store info -->
-    <section id="storeinfo">
-      <hgroup class="htype01">
-        <p class="en">Store Information</p>
-        <h2>店舗のご案内</h2>
-      </hgroup>
-      <div id="storeinfoList">
-        <div class="slider">
-          <!-- store -->
-          <div class="slide papios-higashi">
-            <a href="/store/papios-higashi/" class="store_papioshigashi">
-              <div class="photo"><img src="/lib/img/cmn/store_papioshigashi.webp" alt=" オカノ薬局 パピオス東店"></div>
-              <p><span>オカノ薬局</span> パピオス東店</p>
-              <div class="icon"></div>
-            </a>
+    <?php
+    $parent_page = get_page_by_path('store');
+    if ($parent_page) {
+      $args = array(
+        'post_type'      => 'page',
+        'post_parent'    => $parent_page->ID,
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC'
+      );
+      $child_query = new WP_Query($args);
+    }
+    if ($child_query->have_posts()):
+    ?>
+      <!-- store info -->
+      <section id="storeinfo">
+        <hgroup class="htype01">
+          <p class="en">Store Information</p>
+          <h2>店舗のご案内</h2>
+        </hgroup>
+        <div id="storeinfoList">
+          <div class="slider">
+            <?php while ($child_query->have_posts()):
+              $child_query->the_post();
+              $slug = get_post_field('post_name', get_the_ID());
+              $slug_no_hifun = str_replace('-', '', $slug);
+            ?>
+              <!-- store -->
+              <div class="slide <?php echo $slug; ?>">
+                <a href="<?php the_permalink(); ?>" class="store_<?php echo $slug_no_hifun; ?>">
+                  <div class="photo"><img src="/lib/img/cmn/store_<?php echo $slug_no_hifun; ?>.webp" alt="オカノ薬局 <?php the_title(); ?>"></div>
+                  <p><span>オカノ薬局</span> <?php the_title(); ?></p>
+                  <div class="icon"></div>
+                </a>
+              </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
           </div>
-          <!-- store -->
-          <div class="slide papios-nishi">
-            <a href="/store/papios-nishi/" class="store_papiosnishi">
-              <div class="photo"><img src="/lib/img/cmn/store_papiosnishi.webp" alt=" オカノ薬局 パピオス西店"></div>
-              <p><span>オカノ薬局</span> パピオス西店</p>
-              <div class="icon"></div>
-            </a>
-          </div>
-          <!-- store -->
-          <div class="slide akashi-eki">
-            <a href="/store/akashi-eki/" class="store_akashieki">
-              <div class="photo"><img src="/lib/img/cmn/store_akashieki.webp" alt=" オカノ薬局 明石駅店"></div>
-              <p><span>オカノ薬局</span> 明石駅店</p>
-              <div class="icon"></div>
-            </a>
-          </div>
-          <!-- store -->
-          <div class="slide eki-higashi">
-            <a href="/store/eki-higashi/" class="store_ekihigashi">
-              <div class="photo"><img src="/lib/img/cmn/store_ekihigashi.webp" alt=" オカノ薬局 駅東店"></div>
-              <p><span>オカノ薬局</span> 駅東店</p>
-              <div class="icon"></div>
-            </a>
-          </div>
-          <!-- store -->
-          <div class="slide aspia-mae">
-            <a href="/store/aspia-mae/" class="store_aspiamae">
-              <div class="photo"><img src="/lib/img/cmn/store_aspiamae.webp" alt=" オカノ薬局 アスピア前店"></div>
-              <p><span>オカノ薬局</span> アスピア前店</p>
-              <div class="icon"></div>
-            </a>
-          </div>
-          <!-- / -->
         </div>
-      </div>
-    </section>
-
+      </section>
+    <?php endif; ?>
 
     <!-- featureService -->
     <div id="featureService">
