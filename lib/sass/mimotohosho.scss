@@ -4,14 +4,99 @@
 /* #mv
 ----------------------------------- */
 
-#mv {
- hgroup {
-  left: clp(12rem,380);
- }
+.nayamiList {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:6rem 2rem;
+
+  li{
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 50%;
+    aspect-ratio: 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    &::before {
+      content: "";
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      background: $color_green_02;
+      border-radius: 100vh;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    > * {
+      z-index: 2;
+      position: relative;
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
+    }
+    .chara {
+      display: block;
+      width: 54%;
+      margin: 0 auto;
+      height: 100%;
+      position: absolute;
+      bottom: -60%;
+      left: 23%;
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+		@include media(sp) {
+  grid-template-columns: repeat(1,1fr);
+  gap:1rem 2rem;
+  li{      
+    padding: 0;
+    background: $color_green_02;
+    position: relative;
+    padding: 2rem 1rem;
+    margin-bottom: 0;
+    aspect-ratio: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    br {
+      display: none;
+    }
+    &::before {
+      display: none;
+    }
+    p {
+      text-align: left;
+      width: 75%;
+    }
+    .chara {
+      display: block;
+      width: 15%;
+      margin: 0 auto;
+      height: auto;
+      position: relative;
+      bottom: auto;
+      left: auto;
+      img {
+        object-fit: contain;
+        height: auto;
+        width: auto;
+      }
+    }
+    }
+    }
 }
 
-/* #mv
------------------------------------ */
 
-		@include media(sp) {
-    }
+#about {
+  p {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}

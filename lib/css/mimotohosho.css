@@ -1,8 +1,96 @@
 /* #mv
 ----------------------------------- */
-#mv hgroup {
-  left: clamp(12rem, 26.4vw, 38rem);
+.nayamiList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 6rem 2rem;
+}
+.nayamiList li {
+  position: relative;
+  padding: 2rem;
+  margin-bottom: 50%;
+  aspect-ratio: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.nayamiList li::before {
+  content: "";
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  background: #E7F6F0;
+  border-radius: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.nayamiList li > * {
+  z-index: 2;
+  position: relative;
+}
+.nayamiList li p {
+  text-align: center;
+  font-weight: bold;
+}
+.nayamiList li .chara {
+  display: block;
+  width: 54%;
+  margin: 0 auto;
+  height: 100%;
+  position: absolute;
+  bottom: -60%;
+  left: 23%;
+}
+.nayamiList li .chara img {
+  object-fit: contain;
+  height: 100%;
+  width: auto;
+}
+@media screen and (max-width: 768px) {
+  .nayamiList {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem 2rem;
+  }
+  .nayamiList li {
+    padding: 0;
+    background: #E7F6F0;
+    position: relative;
+    padding: 2rem 1rem;
+    margin-bottom: 0;
+    aspect-ratio: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .nayamiList li br {
+    display: none;
+  }
+  .nayamiList li::before {
+    display: none;
+  }
+  .nayamiList li p {
+    text-align: left;
+    width: 75%;
+  }
+  .nayamiList li .chara {
+    display: block;
+    width: 15%;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    bottom: auto;
+    left: auto;
+  }
+  .nayamiList li .chara img {
+    object-fit: contain;
+    height: auto;
+    width: auto;
+  }
 }
 
-/* #mv
------------------------------------ */
+#about p {
+  text-align: center;
+  margin-bottom: 3rem;
+}
