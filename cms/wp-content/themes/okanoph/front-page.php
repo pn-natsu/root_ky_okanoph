@@ -21,7 +21,7 @@
     </section>
 
     <?php
-    $posts_per_page = 5;
+    $posts_per_page = 2;
     $pickup_args = array(
       'posts_per_page' => $posts_per_page,
       'meta_query' => array(
@@ -56,7 +56,17 @@
               <p class="en">Information</p>
               <h2>お知らせ</h2>
             </hgroup>
-            <p class="link"><a href="/news/indexlist.html">お知らせ一覧へ</a></p>
+            <?php
+
+            $page = get_page_by_path('news/indexlist');
+            if ($page) {
+              $list_url = get_permalink($page->ID);
+            } else {
+              $list_url = get_post_type_archive_link('post');
+            }
+            ?>
+
+            <p class="link"><a href="<?php echo $list_url; ?>">お知らせ一覧へ</a></p>
           </div>
           <div class="infolist">
             <ul>

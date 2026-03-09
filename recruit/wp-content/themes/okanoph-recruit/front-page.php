@@ -1,0 +1,100 @@
+<?php get_header(); ?>
+<!-- front-page.php -->
+    <div id="contents">
+      <div id="mv">
+        <div class="siteTitle">
+          <p class="title">スタッフ採用</p>
+          <div class="message"><img src="/recruit/lib/img/top/mv_catch.webp"
+              alt="つながりの真ん中に、私たちの薬局を。Be the Heart of the Community"></div>
+        </div>
+        <picture>
+          <source media="(max-width:767px)" srcset="/recruit/lib/img/top/mv.webp">
+          <source srcset="/recruit/lib/img/top/mv.webp">
+          <img src="/recruit/lib/img/top/mv.webp" alt="">
+        </picture>
+      </div>
+      <main>
+        <section id="who">
+          <div class="whoContainer">
+            <div class="detail">
+              <hgroup class="recTop01">
+                <p class="en">Who We Are?</p>
+                <h2 class="title"><span class="decline str01">オカノ薬局</span>って、どんなところ？</h2>
+              </hgroup>
+              <p>
+                私たちの薬局は、先代から地域に根ざして歩んできました。現在は地域連携室・医薬品情報室・キャリアサポート室・広報企画室など、店舗を越えた新しい取り組みを進めています。<strong>地域に必要とされ、喜ばれる薬局であり続ける</strong>ことが私たちの目標です。<br>
+                働く環境も、創業当時から大切にしてきた誠実さを受け継いでいます。日々の努力をしっかり評価し、休みを取りやすい体制や充実した福利厚生を整えています。人間関係が煮詰まらず、安心して仕事に専念できる“<strong>「大きすぎず小さすぎない」ちょうどいい規模感”</strong>も魅力のひとつです。
+              </p>
+              <p>また、オカノ薬局の理念「自分らしく生ききる一助となる」には、スタッフ自身も自分らしく生きることを大切にし、仕事を通して実現するという思いが込められています。<br>
+                変化する時代のなかで、地域に貢献できる姿を一緒に考え、形にしてくださる方を心よりお待ちしています。</p>
+            </div>
+            <div class="photo">
+              <img src="/recruit/lib/img/top/who_01.webp" alt="">
+              <p>有限会社オカノ薬局<br>
+                代表取締役　山中 祐子</p>
+            </div>
+          </div>
+        </section>
+        <section id="hub" class="topbox">
+          <div class="mainimage"><img src="/recruit/lib/img/top/hub_01.webp" alt=""></div>
+          <div class="subimage"><img src="/recruit/lib/img/top/hub_02.webp" alt=""></div>
+          <div class="detail">
+            <hgroup class="recTop01">
+              <p class="en">Connecting People and Care </p>
+              <h2 class="title">明石の<span class=" str01">「地域<span class="decline">ハブとなる</span>」</span><br class="sp">ために
+              </h2>
+            </hgroup>
+            <p>今、国の求める薬局像が大きく変化しています。昔から地域の方々に信頼されてきたオカノ薬局は、<strong>この国の求める
+                姿もかなり近い</strong>と感じています。<br>医療・介護・行政など、<strong>地域の多職種をつなぎ橋渡し役</strong>となっていきます。</p>
+          </div>
+        </section>
+        <section id="together" class="topbox">
+          <div class="mainimage"><img src="/recruit/lib/img/top/together_01.webp" alt=""></div>
+          <div class="subimage"><img src="/recruit/lib/img/top/together_02.webp" alt=""></div>
+          <div class="detail">
+            <hgroup class="recTop01">
+              <p class="en">Together for Better Care</p>
+              <h2 class="title">地域に寄り添い、共に成長できる<br>
+                <span class="decline"><span class=" str01">仲間</span>を募集</span>しています
+              </h2>
+            </hgroup>
+            <p>私たちは、地域密着薬局として「何が求められているか」「どうすればもっと喜んでいただけるか」を常に考えながら行動しています。</p>
+            <p>そんな想いに共感し、ともに地域医療を支えていける方をお待ちしています。<br>
+              採用にあたっては、経験や資格だけでなく、人への思いやりやホスピタリティを大切にしています。</p>
+          </div>
+        </section>
+        <section id="trust" class="topbox">
+          <div class="mainimage"><img src="/recruit/lib/img/top/trust_01.webp" alt=""></div>
+          <div class="subimage"><img src="/recruit/lib/img/top/trust_02.webp" alt=""></div>
+          <div class="detail">
+            <hgroup class="recTop01">
+              <p class="en">Build Community Trust</p>
+              <h2 class="title">多店舗を巡って視野を広げ<br>
+                地域で<span class="decline str01">頼られる人</span>へ</h2>
+            </hgroup>
+            <p>
+              オカノ薬局は、明石駅を取り囲むように5店舗を展開しているのが特徴です。入社後はラウンダー制を通じて無理のないペースで複数店舗を経験できます。店舗ごとに診療科や規模（大型店・路面店）が異なり、患者様の層や業務の進め方もさまざま。これは、幅広い内容の処方や対応を学ぶ機会を増やすためでもあります。
+            </p>
+            <p>異なる店舗を経験することで、自然と知識が広がり、柔軟な対応力が身についていきます。各店にいる目標となる先輩から良いところを吸収しながら、得意分野を伸ばせる環境です。</p>
+          </div>
+        </section>
+        <section id="env" class="topbox">
+          <div class="mainimage"><img src="/recruit/lib/img/top/env_01.webp" alt=""></div>
+          <div class="subimage"><img src="/recruit/lib/img/top/env_02.webp" alt=""></div>
+          <div class="detail">
+            <hgroup class="recTop01">
+              <p class="en">Learn Together,Support Each Other</p>
+              <h2 class="title"><span class="decline str01">学び合い</span>、<span class="decline str01">助け合う</span>。<br>
+                そんな雰囲気の薬局です。</h2>
+            </hgroup>
+            <p>
+              キャリアサポート室を中心に教育・研修体制を整えており、振り返りやフォロー面談を行いながら、皆さんの成長にしっかり伴走します。薬剤師も事務スタッフも勉強好きで向上心のある人が多く、お互いに助け合い、刺激し合いながら成長できる職場です。
+            </p>
+            <p>忙しい中でもチームワークを大切に、テキパキと前向きに働く頼もしい仲間たちがそろっています。合言葉は「焦らず、ひとつずつ」。地域で本当に喜ばれる対応は何かを一緒に考え、できることを一つずつ増やしていきましょう。
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+<?php get_footer(); ?>
