@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&display=swap");
@@ -1373,39 +1374,188 @@ header::before {
 /* ------------------------------------
 // wp class
 ------------------------------------ */
-div.alignright,
-img.alignright,
-a.alignright {
+.entryBody {
+  margin-top: 2em;
+}
+.entryBody div.alignright,
+.entryBody img.alignright,
+.entryBody a.alignright {
   float: right;
-  margin: 0 0 20px 20px;
+  margin: 0 0 1em 1em;
 }
-
-div.alignleft,
-img.alignleft,
-a.alignleft {
+.entryBody div.alignright.wp-caption,
+.entryBody img.alignright.wp-caption,
+.entryBody a.alignright.wp-caption {
+  margin-right: -10px;
+}
+.entryBody div.alignright.wp-caption .wp-caption-text,
+.entryBody img.alignright.wp-caption .wp-caption-text,
+.entryBody a.alignright.wp-caption .wp-caption-text {
+  margin-right: 10px;
+}
+.entryBody div.alignleft,
+.entryBody img.alignleft,
+.entryBody a.alignleft {
   float: left;
-  margin: 0 20px 20px 0;
+  margin: 0 1em 1em 0;
 }
-
-div.aligncenter,
-img.aligncenter,
-a.aligncenter {
+.entryBody div.aligncenter,
+.entryBody img.aligncenter,
+.entryBody a.aligncenter {
   clear: both;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  padding: 20px 0 0;
+  margin-bottom: 2em;
+  padding: 1em 0 0;
+  text-align: center;
 }
-
+.entryBody p a,
+.entryBody dt a,
+.entryBody dd a,
+.entryBody th a,
+.entryBody td a,
+.entryBody li a {
+  text-decoration: underline;
+  color: #3057a7;
+}
+.entryBody .wp-caption .wp-caption-text {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.entryBody::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.entryBody h1,
+.entryBody h2,
+.entryBody h3,
+.entryBody h4,
+.entryBody h5,
+.entryBody h6 {
+  font-weight: 500;
+  margin: 2em 0 1em;
+}
+.entryBody h1:first-child,
+.entryBody h2:first-child,
+.entryBody h3:first-child,
+.entryBody h4:first-child,
+.entryBody h5:first-child,
+.entryBody h6:first-child {
+  margin-top: 0;
+}
+.entryBody h1,
+.entryBody h2,
+.entryBody h3 {
+  color: var(--color-blue1);
+  font-size: 2.6rem;
+}
 @media screen and (max-width: 768px) {
-  .aligncenter,
-  .alignright,
-  .alignleft {
-    float: none !important;
-    padding: 0 0 20px 0 !important;
+  .entryBody h1,
+  .entryBody h2,
+  .entryBody h3 {
+    font-size: 2rem;
   }
 }
+.entryBody h4,
+.entryBody h5,
+.entryBody h6 {
+  font-size: 1.9rem;
+}
+@media screen and (max-width: 768px) {
+  .entryBody h4,
+  .entryBody h5,
+  .entryBody h6 {
+    font-size: 1.8rem;
+  }
+}
+.entryBody p:not(.wp-caption-text) + * {
+  margin-top: 2em;
+}
+.entryBody ul {
+  margin-bottom: 2em;
+}
+.entryBody ul li {
+  padding-left: 1em;
+  position: relative;
+}
+.entryBody ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+}
+.entryBody ol {
+  margin-bottom: 2em;
+  counter-reset: number;
+}
+.entryBody ol li {
+  padding-left: 1.5em;
+  position: relative;
+}
+.entryBody ol li::before {
+  position: absolute;
+  left: 0;
+  counter-increment: number;
+  content: counter(number) ".";
+}
+.entryBody dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 15px 20px;
+}
+.entryBody table {
+  width: 100% !important;
+  margin-bottom: 2em;
+  border-collapse: collapse;
+}
+.entryBody table th,
+.entryBody table td {
+  padding: 0.7em 1em;
+  border: solid 1px #232324;
+}
+.entryBody table th {
+  background: #EAE9E8;
+}
+.entryBody table td {
+  background: #fff;
+}
+@media screen and (max-width: 768px) {
+  .entryBody .aligncenter,
+  .entryBody .alignright,
+  .entryBody .alignleft {
+    margin: 0 !important;
+    float: none !important;
+    padding: 0 0 2em 0 !important;
+    width: 100%;
+  }
+  .entryBody .aligncenter img,
+  .entryBody .alignright img,
+  .entryBody .alignleft img {
+    width: 100% !important;
+  }
+  .entryBody .wp-caption {
+    width: auto !important;
+    margin: 0 !important;
+  }
+  .entryBody .wp-caption .wp-caption-text {
+    font-size: 1.4rem;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  .entryBody dl {
+    gap: 1rem 0;
+  }
+}
+
+/* ------------------------------------
+// wp class (block editor)
+------------------------------------ */
+.entryBody .wp-block-image .aligncenter .wp-element-caption {
+  text-align: center;
+}
+
 /* ------------------------------------
 // 404
 ----------------------------------- */
