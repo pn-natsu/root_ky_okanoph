@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('ROOT')) {
-    define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+  define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 }
 
 // 投稿⇒インタビューに名前を変更
@@ -132,8 +132,6 @@ function create_post_type()
   );
   tax_admin_column('post_type_xxxx', 'taxonoomy_xxxx', 'タグ');
   */
-
-
 }
 
 //タグをチェックボックスに変更するコード（カスタム投稿タイプの投稿画面）
@@ -304,21 +302,33 @@ add_action('init', 'my_remove_post_support');
 
 
 // ショートコード
-function Include_my_php($params = array())
+function include_my_php($atts)
 {
-  extract(shortcode_atts(array(
-    'file' => 'default'
-  ), $params));
+  $atts = shortcode_atts(array(
+    'file' => ''
+  ), $atts, 'myphp');
+
+  if (empty($atts['file'])) {
+    return '<p>ファイル名が指定されていません。</p>';
+  }
+
+  $base_dir = get_stylesheet_directory();
+  $path = str_replace(array('../', '..\\'), '', $atts['file']);
+  $template_path = $base_dir . '/' . $path . '.php';
+  if (!file_exists($template_path)) {
+    return '<p>ファイルが見つかりません: ' . esc_html($path) . '.php</p>';
+  }
   ob_start();
-  include(STYLESHEETPATH . "/$file");
+  include $template_path;
   return ob_get_clean();
 }
-add_shortcode('myphp', 'Include_my_php');
+add_shortcode('myphp', 'include_my_php');
 
 // 自動pタグ生成をやめる
-function customize_auto_p_handling($content) {
+function customize_auto_p_handling($content)
+{
   if (is_page() && !is_front_page()) {
-      remove_filter('the_content', 'wpautop');
+    remove_filter('the_content', 'wpautop');
   }
   return $content;
 }
@@ -366,9 +376,9 @@ function change_title_tag($title)
 }
 add_filter('pre_get_document_title', 'change_title_tag');
 
-add_filter( 'document_title', function( $title ) {
-  $title = str_replace( ' ｜ ', '｜', $title );
-return $title;
+add_filter('document_title', function ($title) {
+  $title = str_replace(' ｜ ', '｜', $title);
+  return $title;
 });
 
 
@@ -502,8 +512,8 @@ add_filter('manage_post_posts_columns', 'add_posts_columns');
 $add_column_customs = array(
   array(
     'post_type' => 'post',
-    'cf_slug' => 'pickup',
-    'cf_name' => '上部に固定する',
+    'cf_slug' => 'interview_order',
+    'cf_name' => '並び順',
   ),
 );
 
@@ -518,9 +528,9 @@ foreach ($add_column_customs as $add_column_custom) {
   add_action('manage_' . $add_column_custom['post_type'] . '_posts_custom_column', function ($column_name, $post_id) use ($add_column_custom) {
     if ($column_name === 'custom_field_' . $add_column_custom['cf_slug']) {
       $custom_field = get_post_meta($post_id, $add_column_custom['cf_slug'], true);
-      if($add_column_custom['cf_slug'] === 'pickup'){
+      if ($add_column_custom['cf_slug'] === 'pickup') {
         echo $custom_field ? '〇' : '—';
-      }else{
+      } else {
         echo $custom_field ? esc_html($custom_field) : '—';
       }
     }
@@ -758,32 +768,33 @@ function my_tiny_mce_before_init($init_array)
 add_filter('tiny_mce_before_init', 'my_tiny_mce_before_init');
 
 //アーカイブページで現在のカテゴリー・タグ・タームを取得する
-function get_current_term(){
- 
+function get_current_term()
+{
+
   $id = '';
   $tax_slug = '';
 
-  if(is_category()){
-      $tax_slug = "category";
-      $id = get_query_var('cat'); 
-  }else if(is_tag()){
-      $tax_slug = "post_tag";
-      $id = get_query_var('tag_id');  
-  }else if(is_tax()){
-      $tax_slug = get_query_var('taxonomy');  
-      $term_slug = get_query_var('term'); 
-      $term = get_term_by("slug",$term_slug,$tax_slug);
-      $id = $term->term_id;
+  if (is_category()) {
+    $tax_slug = "category";
+    $id = get_query_var('cat');
+  } else if (is_tag()) {
+    $tax_slug = "post_tag";
+    $id = get_query_var('tag_id');
+  } else if (is_tax()) {
+    $tax_slug = get_query_var('taxonomy');
+    $term_slug = get_query_var('term');
+    $term = get_term_by("slug", $term_slug, $tax_slug);
+    $id = $term->term_id;
   }
 
-  return get_term($id,$tax_slug);
+  return get_term($id, $tax_slug);
 }
 
 // ブロックエディタを完全に無効化
 add_filter('use_block_editor_for_post', '__return_false', 10);
 add_filter('use_widgets_block_editor', '__return_false');
-add_filter('use_block_editor_for_post_type', function($use_block_editor, $post_type) {
-    return false;
+add_filter('use_block_editor_for_post_type', function ($use_block_editor, $post_type) {
+  return false;
 }, 10, 2);
 
 //ContactForm7の自動pタグ生成を無効

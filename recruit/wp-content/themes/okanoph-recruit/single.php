@@ -21,85 +21,102 @@
 
     <!--pageMV-->
     <div class="pageMV">
-      <div class="photo"><img src="/recruit/lib/img/interview/01/mv.webp" alt=""></div>
-      <div class="panel alignR">
-        <p class="lead"><strong>男性でも育休が取れる</strong><br>社員のことを親身に考えてくれる会社です</p>
-
+      <?php if (get_field('mv')): ?>
+        <div class="photo"><img src="<?php the_field('mv'); ?>" alt=""></div>
+      <?php endif; ?>
+      <?php
+      $mv_text_position = get_field('mv_text_position');
+      if ($mv_text_position === 'left') {
+        $position_class = 'alignL';
+      } elseif ($mv_text_position === 'right') {
+        $position_class = 'alignR';
+      } else {
+        $position_class = 'alignR';
+      }
+      ?>
+      <div class="panel <?php echo $position_class; ?>">
+        <?php if (get_the_content()) : ?>
+          <div class="lead"><?php the_content(); ?></div>
+        <?php endif; ?>
         <div class="data">
-          <p class="year">2020年入社</p>
+          <?php if (get_field('hired_year')): ?>
+            <p class="year"><?php the_field('hired_year'); ?>年入社</p>
+          <?php endif; ?>
+          <?php
+          $job_title = get_field('job_title');
+          $job_type = get_the_category()[0]->name;
+          $position = get_field('position');
+          ?>
           <ul>
-            <li class="job">薬剤師/正社員</li>
-            <li class="status">地域連携室 室長、統括マネージャー</li>
+            <li class="job"><?php if ($job_title): ?><?php echo $job_title; ?>/<?php endif; ?><?php echo $job_type; ?></li>
+            <?php if ($position): ?>
+              <li class="status"><?php echo $position; ?></li>
+            <?php endif; ?>
           </ul>
-          <p class="name">中嶋　悟</p>
+          <?php if (get_field('name')): ?>
+            <p class="name"><?php the_field('name'); ?></p>
+          <?php endif; ?>
         </div>
       </div>
     </div>
     <!--/pageMV-->
-    <div class="qaboxContainer">
-
-      <!-- item -->
-      <div class="item">
-        <div class="question">
-          <hgroup>
-            <p class="en">Question</p>
-            <p class="num">01</p>
-            <h3>入社のきっかけや、<br>決め手になったポイントを<br>教えてください。</h3>
-          </hgroup>
-        </div>
-        <div class="answer">
-          <p>前職の同僚から紹介を受けたことがきっかけです。実際に働いている人から内情を聞けたことで安心できましたし、経営が安定している点も魅力でした。また、有給が取得しやすい環境で、仕事と家庭の両立ができそうだと感じたことが、入社を決める大きな要因でした。</p>
-        </div>
+    <?php if (have_rows('qa')) : $i = 1; ?>
+      <div class="qaboxContainer">
+        <?php while (have_rows('qa')) : the_row();
+          $question = get_sub_field('question');
+          $answer  = get_sub_field('answer');
+        ?>
+          <!-- item -->
+          <div class="item">
+            <div class="question">
+              <hgroup>
+                <p class="en">Question</p>
+                <p class="num"><?php echo sprintf('%02d', $i); ?></p>
+                <h3><?php echo $question; ?></h3>
+              </hgroup>
+            </div>
+            <div class="answer">
+              <?php echo $answer; ?>
+            </div>
+          </div>
+        <?php $i++;
+        endwhile; ?>
       </div>
-      <!-- item -->
-      <div class="item">
-        <div class="question">
-          <hgroup>
-            <p class="en">Question</p>
-            <p class="num">02</p>
-            <h3>現在の業務内容や、<br>やりがいを感じる瞬間を<br>教えてください。 </h3>
-          </hgroup>
-        </div>
-        <div class="answer">
-          <div class="photo"><img src="/recruit/lib/img/interview/01/photo_01.webp" alt=""></div>
-          <p>現在はマネージャーとして、また地域連携室室長として勤務しています。システム導入や業務改善を行い、社員全体の負担を軽減できたときには達成感があります。さらに在宅業務では、服薬が全くできていなかった患者様が少しずつ服薬できるようになったとき、大きなやりがいを感じます</p>
-        </div>
-      </div>
-      <!-- item -->
-      <div class="item">
-        <div class="question">
-          <hgroup>
-            <p class="en">Question</p>
-            <p class="num">03</p>
-            <h3>薬局としての特徴や、<br>他と違うと感じる点は<br>ありますか？</h3>
-          </hgroup>
-        </div>
-        <div class="answer">
-          <p>まず、有給休暇が取得しやすく、家族との時間をしっかり確保できることです。加えて、週休2日制で働けるため、生活リズムも安定しました。自分の取り組みを適正に評価していただける点も、安心につながっています。さらに、育児休暇について会社側から提案していただけたことには驚きました。男性でも取得できる環境が整っていることは大変ありがたく、働きやすさを強く実感しています。</p>
-        </div>
-      </div>
-      <!-- item -->
-      <div class="item">
-        <div class="question">
-          <hgroup>
-            <p class="en">Question</p>
-            <p class="num">04</p>
-            <h3>将来、どのような薬剤師を<br>目指していきたいですか？</h3>
-          </hgroup>
-        </div>
-        <div class="answer">
-          <p>薬剤の知識はもちろんのこと、在宅医療や保険制度についても幅広く学び、豊富な知識を持った薬剤師を目指していきたいと考えています。患者様や地域により貢献できるよう、日々スキルを高めていきたいです。</p>
-        </div>
-      </div>
-      <!-- / -->
-
-
-    </div>
+    <?php endif; ?>
     <!--pager-->
     <ul class="pager">
-      <li><span>Prev</span></li>
-      <li><a href="/recruit/interview/">Interview INDEX</a></li>
-      <li><a href="/recruit/interview/02/">Next</a></li>
+      <?php
+      $current_sort = get_post_meta(get_the_ID(), 'interview_order', true);
+      $prev_post = get_posts(array(
+        'meta_key'   => 'interview_order',
+        'meta_query' => array(array('key' => 'interview_order', 'value' => $current_sort, 'compare' => '<', 'type' => 'NUMERIC')),
+        'orderby'    => 'meta_value_num',
+        'order'      => 'DESC',
+        'posts_per_page' => 1
+      ));
+      $next_post = get_posts(array(
+        'meta_key'   => 'interview_order',
+        'meta_query' => array(array('key' => 'interview_order', 'value' => $current_sort, 'compare' => '>', 'type' => 'NUMERIC')),
+        'orderby'    => 'meta_value_num',
+        'order'      => 'ASC',
+        'posts_per_page' => 1
+      ));
+      ?>
+      <li>
+        <?php if ($prev_post): ?>
+          <a href="<?php echo get_permalink($prev_post[0]->ID); ?>">Prev</a>
+        <?php else: ?>
+          <span>Prev</span>
+        <?php endif; ?>
+      </li>
+      <li><a href="<?php echo get_post_type_archive_link('post'); ?>">Interview INDEX</a></li>
+      <li>
+        <?php if ($next_post): ?>
+          <a href="<?php echo get_permalink($next_post[0]->ID); ?>">Next</a>
+        <?php else: ?>
+          <span>Next</span>
+        <?php endif; ?>
+      </li>
     </ul>
     <!--/pager-->
   </main>

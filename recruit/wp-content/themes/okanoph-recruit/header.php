@@ -29,7 +29,7 @@
     $target_category = $urlsplit[1];
     if ($target_category != '') :
       $lower_slug = preg_replace('/\.html|\?.*/', "", $target_category);
-      $lower_slug_path = ROOT . '/lib/css/' . $lower_slug . '.css';
+      $lower_slug_path = ROOT . '/recruit/lib/css/' . $lower_slug . '.css';
       if (file_exists($lower_slug_path)) :
         $version = filemtime($lower_slug_path);
     ?>

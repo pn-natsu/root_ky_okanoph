@@ -1,0 +1,36 @@
+        <section id="requirements">
+          <h2>募集職種</h2>
+          <div class="requirementsList">
+            <section>
+              <h3>薬剤師</h3>
+              <div class="photo"><img src="/recruit/lib/img/store/img_yakuzaishi.webp" alt=""></div>
+              <dl>
+                <dt>正社員</dt>
+                <dd><a href="/recruit/requirements/pharmacist-fulltime/">募集中</a></dd>
+                <dt>パート</dt>
+                <dd><a href="/recruit/requirements/pharmacist-part/">募集中</a></dd>
+              </dl>
+            </section>
+            <section>
+              <h3>医療事務</h3>
+              <div class="photo"><img src="/recruit/lib/img/store/img_jimu.webp" alt=""></div>
+              <dl>
+                <dt>正社員</dt>
+                <dd><a href="/recruit/requirements/clerk-fulltime/">募集中</a></dd>
+                <dt>パート</dt>
+                <dd><a href="/recruit/requirements/clerk-part/">募集中</a></dd>
+              </dl>
+            </section>
+            <section>
+              <h3>管理栄養士</h3>
+              <div class="photo"><img src="/recruit/lib/img/store/img_kanrieiyoshi.webp" alt=""></div>
+              <dl>
+                <dt>正社員</dt>
+                <dd><a href="/recruit/requirements/dietitian-fulltime/">募集中</a></dd>
+                <dt>パート</dt>
+                <dd><span>募集なし</span></dd>
+              </dl>
+            </section>
+
+          </div>
+        </section>

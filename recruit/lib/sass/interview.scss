@@ -56,7 +56,7 @@
         right: clp(1.5rem, 20);
         left: clp(1.5rem, 20);
         background: #91A1B0;
-        padding: 1.5rem .5rem;
+        padding: 1.5rem .4rem;
         text-align: center;
         color: #FFF;
         ul {
@@ -266,10 +266,12 @@
       p+p {
         margin-top: 1rem;
       }
-      .photo+p {
+      .photo+p,
+      p:has(img) + p {
         margin-top: 3rem;
       }
-      p+.photo {
+      p+.photo,
+      p + p:has(img) {
         margin-top: 3rem;
       }
       h4 {
