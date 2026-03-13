@@ -258,7 +258,7 @@ function get_current_page_slug()
 }
 
 
-// 特定の投稿のブロックエディタ（Gutenberg）を無効化する
+// 特定の投稿タイプのみ、ブロックエディタ（Gutenberg）を無効化する
 function my_disable_block_editor($use_block_editor, $post_type)
 {
   if (in_array($post_type, ['page'], true)) {
@@ -268,7 +268,7 @@ function my_disable_block_editor($use_block_editor, $post_type)
 }
 add_filter('use_block_editor_for_post_type', 'my_disable_block_editor', 10, 2);
 
-// ビジュアルエディタを無効化する（HTMLエディタのみにする）
+// 特定の投稿タイプのみ、ビジュアルエディタを無効化する（HTMLエディタのみにする）
 function my_disable_visual_editor($can_richedit)
 {
   global $post;
@@ -291,10 +291,10 @@ function custom_action_for_specific_slug()
 }
 add_action('admin_head', 'custom_action_for_specific_slug');
 
-//投稿編集画面で不要な項目を非表示にする
+//特定の投稿タイプのみ、編集画面で不要な項目を非表示にする
 function my_remove_post_support()
 {
-  remove_post_type_support('post_type_xxxx', 'editor');
+  remove_post_type_support('post_type', 'editor');
 }
 add_action('init', 'my_remove_post_support');
 
@@ -515,6 +515,16 @@ $add_column_customs = array(
     'cf_slug' => 'interview_order',
     'cf_name' => '並び順',
   ),
+  array(
+    'post_type' => 'requirements',
+    'cf_slug' => 'job_type',
+    'cf_name' => '募集形態',
+  ),
+);
+
+$job_type_label = array(
+  'full-time' => '正社員',
+  'part-time' => 'パート',
 );
 
 foreach ($add_column_customs as $add_column_custom) {
@@ -525,12 +535,15 @@ foreach ($add_column_customs as $add_column_custom) {
   });
 
   // カスタム列にカスタムフィールドの値を表示
-  add_action('manage_' . $add_column_custom['post_type'] . '_posts_custom_column', function ($column_name, $post_id) use ($add_column_custom) {
+  add_action('manage_' . $add_column_custom['post_type'] . '_posts_custom_column', function ($column_name, $post_id) use ($add_column_custom, $job_type_label) {
     if ($column_name === 'custom_field_' . $add_column_custom['cf_slug']) {
       $custom_field = get_post_meta($post_id, $add_column_custom['cf_slug'], true);
       if ($add_column_custom['cf_slug'] === 'pickup') {
         echo $custom_field ? '〇' : '—';
       } else {
+        if (isset($job_type_label[$custom_field])) {
+          $custom_field = $job_type_label[$custom_field];
+        }
         echo $custom_field ? esc_html($custom_field) : '—';
       }
     }

@@ -3,7 +3,7 @@
   <?php
   $store_parent = get_page_by_path('store');
   if (is_front_page() || $post->post_parent === $store_parent->ID || is_singular('post')) {
-    get_template_part( 'template-parts/interview');
+    get_template_part('template-parts/interview');
   }
   ?>
   <!-- linebnr -->
@@ -23,31 +23,41 @@
       <div class="fukidashi01"><img src="/recruit/lib/img/cmn/img_requirements01.webp" alt="募集要項も、ぜひ見てみてくださいね"></div>
       <div class="fukidashi02"><img src="/recruit/lib/img/cmn/img_requirements02.webp" alt="一歩踏み出すなら、ここから"></div>
     </div>
-    <div class="LinkContainer">
-      <ul>
-        <li><a href="/recruit/store/papios-higashi/">
-            <div class="photo"><img src="/recruit/lib/img/cmn/store_papioshigashi.webp" alt=""></div>
-            <p><span>オカノ薬局</span>パピオス東店</p>
-          </a></li>
-        <li><a href="/recruit/store/papios-nishi//">
-            <div class="photo"><img src="/recruit/lib/img/cmn/store_papiosnishi.webp" alt=""></div>
-            <p><span>オカノ薬局</span>パピオス西店</p>
-          </a></li>
-        <li><a href="/recruit/store/akashi-eki/">
-            <div class="photo"><img src="/recruit/lib/img/cmn/store_akashieki.webp" alt=""></div>
-            <p><span>オカノ薬局</span>明石駅店</p>
-          </a></li>
-        <li><a href="/recruit/store/eki-higashi/">
-            <div class="photo"><img src="/recruit/lib/img/cmn/store_ekihigashi.webp" alt=""></div>
-            <p><span>オカノ薬局</span>駅東店</p>
-          </a></li>
-        <li><a href="/recruit/store/aspia-mae/">
-            <div class="photo"><img src="/recruit/lib/img/cmn/store_aspiamae.webp" alt=""></div>
-            <p><span>オカノ薬局</span>アスピア前店</p>
-          </a></li>
 
-      </ul>
-      <div class="entryform_btn"><a href="/recruit/entryform/">全店共通応募フォーム</a></div>
+    <div class="LinkContainer">
+      <?php
+      $parent_page = get_page_by_path('store');
+      if ($parent_page) {
+        $args = array(
+          'post_type'      => 'page',
+          'post_parent'    => $parent_page->ID,
+          'posts_per_page' => -1,
+          'orderby'        => 'menu_order',
+          'order'          => 'ASC'
+        );
+        $child_query = new WP_Query($args);
+      }
+      if ($child_query->have_posts()):
+      ?>
+        <ul>
+          <?php while ($child_query->have_posts()):
+            $child_query->the_post();
+          ?>
+            <li><a href="<?php the_permalink(); ?>">
+                <div class="photo">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('large'); ?>
+                  <?php else : ?>
+                    <img src="/recruit/lib/img/cmn/no_image.png" alt="">
+                  <?php endif; ?>
+                </div>
+                <p><span>オカノ薬局</span><?php the_title(); ?></p>
+              </a></li>
+          <?php endwhile;
+          wp_reset_postdata(); ?>
+        </ul>
+      <?php endif; ?>
+      <div class="entryform_btn"><a href="<?php echo home_url(); ?>/entryform/">全店共通応募フォーム</a></div>
     </div>
   </section>
   <!-- footer -->
