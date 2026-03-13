@@ -58,7 +58,7 @@
   right: clamp(1.5rem, 1.4vw, 2rem);
   left: clamp(1.5rem, 1.4vw, 2rem);
   background: #91A1B0;
-  padding: 1.5rem 0.5rem;
+  padding: 1.5rem 0.4rem;
   text-align: center;
   color: #FFF;
 }
@@ -266,10 +266,12 @@
 .qaboxContainer .item .answer p + p {
   margin-top: 1rem;
 }
-.qaboxContainer .item .answer .photo + p {
+.qaboxContainer .item .answer .photo + p,
+.qaboxContainer .item .answer p:has(img) + p {
   margin-top: 3rem;
 }
-.qaboxContainer .item .answer p + .photo {
+.qaboxContainer .item .answer p + .photo,
+.qaboxContainer .item .answer p + p:has(img) {
   margin-top: 3rem;
 }
 .qaboxContainer .item .answer h4 {
