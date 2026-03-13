@@ -820,14 +820,10 @@ header:hover {
 }
 #staffvoice #interviewLinkContainer .swiper-slide .label li {
   font-weight: 500;
-  font-size: clamp(0.8rem, 1vw, 1.4rem);
-}
-#staffvoice #interviewLinkContainer .swiper-slide .label li.name {
-  font-size: clamp(0.8rem, 1.1vw, 1.6rem);
-  font-weight: 600;
+  font-size: clamp(0.8rem, 1.2vw, 1.7rem);
 }
 #staffvoice #interviewLinkContainer .swiper-slide .label li.year {
-  font-size: clamp(0.8rem, 1.1vw, 1.6rem);
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
   font-weight: 400;
   width: 100%;
 }
