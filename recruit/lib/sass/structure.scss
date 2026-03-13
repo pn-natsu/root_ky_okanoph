@@ -833,13 +833,9 @@ header {
 				}
 				li {
 					font-weight: 500;
-					font-size: clp(.8rem, 14);
-					&.name {
-						font-size: clp(.8rem, 16);
-						font-weight: 600;
-					}
+					font-size: clp(.8rem, 17);
 					&.year {
-						font-size: clp(.8rem, 16);
+						font-size: clp(.8rem, 14);
 						font-weight: 400;
 						width: 100%;
 					}

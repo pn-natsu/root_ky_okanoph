@@ -97,7 +97,6 @@
         <li><img src="/lib/img/top/about_05.webp" alt=""></li>
         <li><img src="/lib/img/top/about_06.webp" alt=""></li>
         <li><img src="/lib/img/top/about_07.webp" alt=""></li>
-        <li><img src="/lib/img/top/about_08.webp" alt=""></li>
         <li><img src="/lib/img/top/about_01.webp" alt=""></li>
         <li><img src="/lib/img/top/about_02.webp" alt=""></li>
         <li><img src="/lib/img/top/about_03.webp" alt=""></li>
@@ -127,7 +126,6 @@
         <li><img src="/lib/img/top/about_05.webp" alt=""></li>
         <li><img src="/lib/img/top/about_06.webp" alt=""></li>
         <li><img src="/lib/img/top/about_07.webp" alt=""></li>
-        <li><img src="/lib/img/top/about_08.webp" alt=""></li>
       </ul>
     </section>
     <?php
