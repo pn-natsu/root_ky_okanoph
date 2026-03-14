@@ -39,9 +39,6 @@
                         $job_type = get_the_category()[0]->name;
                         ?>
                         <li><?php if ($job_title): ?><?php echo $job_title; ?>/<?php endif; ?><?php echo $job_type; ?></li>
-                        <?php if (get_field('name')): ?>
-                          <li class="name"><?php the_field('name'); ?></li>
-                        <?php endif; ?>
                       </ul>
                     </div>
                   </a>

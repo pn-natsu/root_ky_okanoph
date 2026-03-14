@@ -520,6 +520,11 @@ $add_column_customs = array(
     'cf_slug' => 'job_type',
     'cf_name' => '募集形態',
   ),
+  array(
+    'post_type' => 'requirements',
+    'cf_slug' => 'display',
+    'cf_name' => '募集状態',
+  ),
 );
 
 $job_type_label = array(
@@ -538,7 +543,7 @@ foreach ($add_column_customs as $add_column_custom) {
   add_action('manage_' . $add_column_custom['post_type'] . '_posts_custom_column', function ($column_name, $post_id) use ($add_column_custom, $job_type_label) {
     if ($column_name === 'custom_field_' . $add_column_custom['cf_slug']) {
       $custom_field = get_post_meta($post_id, $add_column_custom['cf_slug'], true);
-      if ($add_column_custom['cf_slug'] === 'pickup') {
+      if ($add_column_custom['cf_slug'] === 'display') {
         echo $custom_field ? '〇' : '—';
       } else {
         if (isset($job_type_label[$custom_field])) {
