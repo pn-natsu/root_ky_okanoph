@@ -58,6 +58,10 @@
   background: #FFF;
   padding-left: clamp(1.5rem, 2.8vw, 4rem);
 }
+#requirementsData.nothiring {
+  padding: 5rem 2rem;
+  text-align: center;
+}
 @media screen and (max-width: 768px) {
   #requirementsData .reqtable tbody {
     grid-template-columns: 1fr;

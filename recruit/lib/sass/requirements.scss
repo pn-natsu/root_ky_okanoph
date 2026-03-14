@@ -69,6 +69,10 @@ p {
       padding-left: clp(1.5rem, 40);
     }
   }
+  &.nothiring {
+    padding: 5rem 2rem;
+    text-align: center;
+  }
 @include media(sp) {
 .reqtable {
   tbody {
@@ -80,10 +84,8 @@ p {
   }
   
 }
-
 }
 
 
 }
 
-@include media(sp) {}
