@@ -93,7 +93,7 @@
   <meta name="twitter:image" content="<?php echo $og_image; ?>" />
   <meta itemprop="image" content="<?php echo $og_image; ?>" />
   <!-- end tiwitter card -->
-  <link rel="shortcut icon" href="/recruit/lib/img/favicon.ico">
+  <link rel="shortcut icon" href="/lib/img/favicon.ico">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",

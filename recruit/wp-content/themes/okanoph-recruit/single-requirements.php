@@ -58,8 +58,9 @@
         </tbody>
       </table>
 
-
-      <div class="entryform_btn"><a href="<?php echo home_url(); ?>/entryform/">エントリーフォームは<br class="sp">こちらから</a></div>
+      <?php if (get_field('display')): ?>
+        <div class="entryform_btn"><a href="<?php echo home_url(); ?>/entryform/">エントリーフォームは<br class="sp">こちらから</a></div>
+      <?php endif; ?>
 
 
     </div>

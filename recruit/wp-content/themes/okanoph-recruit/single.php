@@ -53,9 +53,6 @@
               <li class="status"><?php echo $position; ?></li>
             <?php endif; ?>
           </ul>
-          <?php if (get_field('name')): ?>
-            <p class="name"><?php the_field('name'); ?></p>
-          <?php endif; ?>
         </div>
       </div>
     </div>
