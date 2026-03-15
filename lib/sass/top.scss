@@ -37,6 +37,10 @@
 
 #mv {
  position: relative;
+ video {
+  width: 100%;
+  border-radius: 30px;
+ }
  &::before {
   content: "";
   width: 60%;

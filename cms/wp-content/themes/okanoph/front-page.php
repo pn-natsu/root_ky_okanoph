@@ -2,12 +2,7 @@
 <!-- front-page.php -->
 <div id="contents">
   <div id="mv">
-
-    <picture>
-      <source media="(max-width:767px)" srcset="/lib/img/top/mv.webp">
-      <source srcset="/lib/img/top/mv.webp">
-      <img src="/lib/img/top/mv.webp" alt="">
-    </picture>
+    <video src="/lib/movie/okanopharm_movie_2.mp4" poster="/lib/img/top/mv.webp" autoplay muted loop playsinline></video>
   </div>
   <main>
     <!-- about -->
@@ -26,8 +21,8 @@
       'posts_per_page' => $posts_per_page,
       'meta_query' => array(
         array(
-          'key'     => 'pickup',
-          'value'   => 1,
+          'key' => 'pickup',
+          'value' => 1,
           'compare' => '=',
         )
       ),
@@ -40,13 +35,14 @@
     if ($posts_per_page > $pickup_count) {
       $normal_args = array(
         'posts_per_page' => $posts_per_page - $pickup_count,
-        'post__not_in'   => $exclude_ids,
+        'post__not_in' => $exclude_ids,
       );
       $normal_posts = get_posts($normal_args);
     }
     $all_posts = array_merge($pickup_posts, $normal_posts);
-    if (!empty($all_posts)): global $post;
-    ?>
+    if (!empty($all_posts)):
+      global $post;
+      ?>
 
       <!-- information -->
       <section id="information">
@@ -70,7 +66,8 @@
           </div>
           <div class="infolist">
             <ul>
-              <?php foreach ($all_posts as $post): setup_postdata($post); ?>
+              <?php foreach ($all_posts as $post):
+                setup_postdata($post); ?>
                 <?php if (get_field('disp_body')): ?>
                   <li>
                     <div>
@@ -82,7 +79,8 @@
                     </div>
                   </li>
                 <?php else: ?>
-                  <li><a href="<?php the_permalink(); ?>"><span><?php the_time('Y/m/d'); ?></span><?php the_title(); ?></a></li>
+                  <li><a href="<?php the_permalink(); ?>"><span><?php the_time('Y/m/d'); ?></span><?php the_title(); ?></a>
+                  </li>
                 <?php endif; ?>
               <?php endforeach;
               wp_reset_postdata(); ?>
@@ -97,7 +95,6 @@
         <li><img src="/lib/img/top/about_05.webp" alt=""></li>
         <li><img src="/lib/img/top/about_06.webp" alt=""></li>
         <li><img src="/lib/img/top/about_07.webp" alt=""></li>
-        <li><img src="/lib/img/top/about_01.webp" alt=""></li>
         <li><img src="/lib/img/top/about_02.webp" alt=""></li>
         <li><img src="/lib/img/top/about_03.webp" alt=""></li>
         <li><img src="/lib/img/top/about_04.webp" alt=""></li>
@@ -119,7 +116,6 @@
         <div class="person02"><img src="/lib/img/top/about_person_01.webp" alt=""></div>
       </div>
       <ul class="bottomPhoto moviescroll">
-        <li><img src="/lib/img/top/about_01.webp" alt=""></li>
         <li><img src="/lib/img/top/about_02.webp" alt=""></li>
         <li><img src="/lib/img/top/about_03.webp" alt=""></li>
         <li><img src="/lib/img/top/about_04.webp" alt=""></li>
@@ -134,8 +130,8 @@
       'post_type' => 'blog',
     ];
     $query = new WP_Query($args);
-    if ($query->have_posts()) :
-    ?>
+    if ($query->have_posts()):
+      ?>
 
       <!-- blog -->
       <div id="blog">
@@ -145,13 +141,14 @@
         </hgroup>
 
         <div class="blogContainer">
-          <?php while ($query->have_posts()) : $query->the_post(); ?>
+          <?php while ($query->have_posts()):
+            $query->the_post(); ?>
             <!-- item -->
             <div class="item"><a href="<?php the_permalink(); ?>">
                 <div class="photo">
-                  <?php if (has_post_thumbnail()) : ?>
+                  <?php if (has_post_thumbnail()): ?>
                     <?php the_post_thumbnail('large'); ?>
-                  <?php else : ?>
+                  <?php else: ?>
                     <img src="/lib/img/cmn/no_image.png" alt="">
                   <?php endif; ?>
                 </div>
@@ -180,16 +177,16 @@
     $parent_page = get_page_by_path('store');
     if ($parent_page) {
       $args = array(
-        'post_type'      => 'page',
-        'post_parent'    => $parent_page->ID,
+        'post_type' => 'page',
+        'post_parent' => $parent_page->ID,
         'posts_per_page' => -1,
-        'orderby'        => 'menu_order',
-        'order'          => 'ASC'
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
       );
       $child_query = new WP_Query($args);
     }
     if ($child_query->have_posts()):
-    ?>
+      ?>
       <!-- store info -->
       <section id="storeinfo">
         <hgroup class="htype01">
@@ -202,11 +199,12 @@
               $child_query->the_post();
               $slug = get_post_field('post_name', get_the_ID());
               $slug_no_hifun = str_replace('-', '', $slug);
-            ?>
+              ?>
               <!-- store -->
               <div class="slide <?php echo $slug; ?>">
                 <a href="<?php the_permalink(); ?>" class="store_<?php echo $slug_no_hifun; ?>">
-                  <div class="photo"><img src="/lib/img/cmn/store_<?php echo $slug_no_hifun; ?>.webp" alt="オカノ薬局 <?php the_title(); ?>"></div>
+                  <div class="photo"><img src="/lib/img/cmn/store_<?php echo $slug_no_hifun; ?>.webp"
+                      alt="オカノ薬局 <?php the_title(); ?>"></div>
                   <p><span>オカノ薬局</span> <?php the_title(); ?></p>
                   <div class="icon"></div>
                 </a>
