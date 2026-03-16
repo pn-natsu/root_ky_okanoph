@@ -33,8 +33,55 @@
 
 /* #mv
 ----------------------------------- */
+#topmv {
+  width: 100vw;
+  overflow: hidden;
+  padding: 0 2rem 10rem 2rem;
+}
+#topmv .movie {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 30px;
+  position: relative;
+}
+#topmv .movie::before {
+  content: "";
+  width: 60%;
+  aspect-ratio: 1;
+  display: block;
+  position: absolute;
+  right: -10rem;
+  bottom: -10rem;
+  background: url(/lib/img/cmn/bg_body_02.webp) no-repeat center/contain;
+  z-index: 0;
+}
+#topmv .movie > * {
+  z-index: 2;
+  position: relative;
+}
+#topmv video {
+  width: 100%;
+  border-radius: 30px;
+}
+@media screen and (max-width: 768px) {
+  #topmv {
+    padding: 0 2rem 5rem 2rem;
+  }
+  #topmv .movie::before {
+    right: -5rem;
+    bottom: -5rem;
+  }
+  #topmv video {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+/* #mv
+----------------------------------- */
 #mv {
   position: relative;
+  display: none;
 }
 #mv video {
   width: 100%;
@@ -55,7 +102,6 @@
   z-index: 2;
   position: relative;
 }
-
 /* #information
 ----------------------------------- */
 #instagram {

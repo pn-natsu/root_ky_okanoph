@@ -1,9 +1,14 @@
 <?php get_header(); ?>
 <!-- front-page.php -->
-<div id="contents">
-  <div id="mv">
+
+<div id="topmv">
+  <div class="movie">
     <video src="/lib/movie/okanopharm_movie_2.mp4" poster="/lib/img/top/mv.webp" autoplay muted loop playsinline></video>
   </div>
+</div>
+
+
+<div id="contents">
   <main>
     <!-- about -->
     <section id="instagram">
