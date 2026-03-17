@@ -19,52 +19,54 @@
       <p class="type"><?php echo get_field('job_type'); ?></p>
     </div>
 
-    <div class="discription">
-      <?php if (get_field('lead')) : ?>
-        <p class="lead"><?php echo get_field('lead'); ?></p>
-      <?php endif; ?>
-      <?php if (get_the_content()) : ?>
-        <?php the_content(); ?>
-      <?php endif; ?>
-      <?php if (has_post_thumbnail()) : ?>
-        <div class="image"><?php the_post_thumbnail('full'); ?></div>
-      <?php endif; ?>
-    </div>
+    <?php if (get_field('lead') || get_the_content() || has_post_thumbnail()): ?>
+      <div class="discription">
+        <?php if (get_field('lead')) : ?>
+          <p class="lead"><?php echo get_field('lead'); ?></p>
+        <?php endif; ?>
+        <?php if (get_the_content()) : ?>
+          <?php the_content(); ?>
+        <?php endif; ?>
+        <?php if (has_post_thumbnail()) : ?>
+          <div class="image"><?php the_post_thumbnail('full'); ?></div>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
 
     <!-- requirements data -->
-    <div id="requirementsData">
-      <table cellspacing="0" class="reqtable">
-        <tbody>
-          <?php
-          $job = get_the_terms(get_the_ID(), 'job');
-          ?>
-          <tr>
-            <th scope="col">職種</th>
-            <td><?php echo $job[0]->name; ?></td>
-          </tr>
-          <?php
-          $field_objects  = get_field_objects();
-          if ($field_objects):
-            foreach ($field_objects as $field):
-          ?>
-              <?php if ($field['value']): ?>
-                <tr>
-                  <th scope="col"><?php echo $field['label']; ?></th>
-                  <td><?php echo $field['value']; ?></td>
-                </tr>
-              <?php endif; ?>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </tbody>
-      </table>
-
-      <?php if (get_field('display')): ?>
+    <?php if (get_field('display')): ?>
+      <div id="requirementsData">
+        <table cellspacing="0" class="reqtable">
+          <tbody>
+            <?php
+            $job = get_the_terms(get_the_ID(), 'job');
+            ?>
+            <tr>
+              <th scope="col">職種</th>
+              <td><?php echo $job[0]->name; ?></td>
+            </tr>
+            <?php
+            $field_objects  = get_field_objects();
+            if ($field_objects):
+              foreach ($field_objects as $field):
+            ?>
+                <?php if ($field['value']): ?>
+                  <tr>
+                    <th scope="col"><?php echo $field['label']; ?></th>
+                    <td><?php echo $field['value']; ?></td>
+                  </tr>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </tbody>
+        </table>
         <div class="entryform_btn"><a href="<?php echo home_url(); ?>/entryform/">エントリーフォームは<br class="sp">こちらから</a></div>
-      <?php endif; ?>
-
-
-    </div>
-
+      </div>
+    <?php else: ?>
+      <div id="requirementsData" class="nothiring">
+        <p>現在募集しておりません。</p>
+      </div>
+    <?php endif; ?>
 
   </main>
 </div>

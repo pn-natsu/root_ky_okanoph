@@ -5,9 +5,15 @@
   margin: 0 auto 5rem auto;
   padding: 0 2rem;
 }
+.discription.complete {
+  text-align: center;
+}
 @media screen and (max-width: 768px) {
   .discription {
     padding: 0 0;
+  }
+  .discription.complete {
+    text-align: left;
   }
 }
 
@@ -64,18 +70,18 @@ p {
   gap: 7px;
 }
 #formContainer .formtable th {
-  background: #91A1B0;
+  background: #91a1b0;
   text-align: center;
   vertical-align: middle;
   font-weight: 400;
-  color: #FFF;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #formContainer .formtable td.nes {
   padding: 1.5rem 0 1.5rem 1rem;
-  color: #C73636;
+  color: #c73636;
   font-weight: 400;
 }
 @media screen and (max-width: 768px) {
@@ -97,11 +103,17 @@ p {
     text-align: center;
   }
 }
-#formContainer input[type=text] {
+#formContainer input[type=text],
+#formContainer input[type=email] {
   font-size: 1.3em;
   padding: 0.5em;
   margin: 0 0.5rem;
   width: 100%;
+}
+#formContainer input[type=text]::placeholder,
+#formContainer input[type=email]::placeholder {
+  color: #bbb;
+  font-size: 0.8em;
 }
 #formContainer input[type=text].number {
   width: auto;
@@ -111,14 +123,10 @@ p {
   padding: 0.5em 0;
 }
 #formContainer input[type=text].month {
-  width: 2em;
+  width: 3em;
 }
 #formContainer input[type=text].day {
-  width: 2em;
-}
-#formContainer input[type=text]::placeholder {
-  color: #BBB;
-  font-size: 0.8em;
+  width: 3em;
 }
 #formContainer textarea {
   font-size: 1em;
@@ -181,15 +189,40 @@ p {
 }
 #formContainer .err {
   display: block;
-  color: #EB5F5F;
+  color: #eb5f5f;
   font-size: 0.8em;
+}
+#formContainer .submit_notice {
+  max-width: 1200px;
+  margin: 10rem auto 0;
+  padding-inline: 2rem;
+}
+#formContainer .submit_notice p {
+  width: 70%;
+  border: solid 2px #D0AE33;
+  color: #c89d01;
+  font-weight: 700;
+  padding: 1em;
+  font-size: 1.8rem;
+  text-align: center;
+}
+#formContainer .submit_notice + .submit {
+  margin-top: 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  #formContainer .submit_notice p {
+    font-size: 1.5rem;
+  }
 }
 #formContainer .submit {
   max-width: 1200px;
   margin: 10rem auto 0;
   padding-inline: 2rem;
+  position: relative;
 }
-#formContainer .submit button {
+#formContainer .submit button,
+#formContainer .submit input {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -199,14 +232,48 @@ p {
   text-align: center;
   font-size: clamp(1.8rem, 2.2vw, 3.2rem);
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
   width: 70%;
   min-width: fit-content;
   margin: 0 auto;
+  border: none;
 }
-#formContainer .submit button::after {
+#formContainer .submit button::after,
+#formContainer .submit input::after {
   content: "";
   width: clamp(1.28rem, 1.1vw, 1.6rem);
   aspect-ratio: 12/20;
   background: url(/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
+}
+#formContainer .submit button[type=button].back,
+#formContainer .submit input[type=button].back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: fit-content;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #EAE9E8;
+  color: #232324;
+}
+#formContainer .submit button[type=button].back::before,
+#formContainer .submit input[type=button].back::before {
+  content: "＜";
+}
+#formContainer .submit .wpcf7-spinner {
+  position: absolute;
+}
+@media screen and (max-width: 768px) {
+  #formContainer .submit button[type=button].back,
+  #formContainer .submit input[type=button].back {
+    width: 70%;
+    position: static;
+  }
+  #formContainer .submit .wpcf7-spinner {
+    position: static;
+    display: block;
+    margin: 1rem auto 0;
+  }
 }

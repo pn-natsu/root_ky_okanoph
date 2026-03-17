@@ -1376,3 +1376,7 @@ a.aligncenter {
   text-align: center;
   padding: 100px 0;
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

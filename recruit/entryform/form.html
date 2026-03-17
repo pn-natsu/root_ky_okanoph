@@ -1,0 +1,94 @@
+<section class="discription">
+  <h2 class="lead">個人情報の取り扱いについて</h2>
+  <p>
+    当フォームにご入力いただいた個人情報は、採用選考および採用後の人事管理の目的のみに使用いたします。<br>取得した個人情報は、法令に基づく場合を除き、応募者ご本人の同意なく第三者に提供・開示することはありません。<br>また、適切な安全管理措置を講じ、漏えい・紛失・改ざん等が生じないよう厳重に管理いたします。<br>選考の結果、不採用となった場合は、一定期間保管後、適切な方法で破棄いたします。<br>ご入力いただく前に、上記内容に同意のうえ、送信をお願いいたします。
+  </p>
+  <div class="privacyCheckbox">
+    [checkbox* your-privacy use_label_element "個人情報の取り扱いに同意する"]
+  </div>
+</section>
+<!-- requirements data -->
+<div id="formContainer">
+  <table class="formtable">
+    <tr>
+      <th>職種</th>
+      <td class="nes">必須</td>
+      <td>
+        [radio your-job use_label_element "薬剤師" "調剤事務兼調剤補助" "管理栄養士" "その他"]
+      </td>
+    </tr>
+    <tr>
+      <th>形態</th>
+      <td class="nes">必須</td>
+      <td>
+        [radio your-jobtype use_label_element "正社員" "パート"]
+      </td>
+    </tr>
+    <tr>
+      <th>お名前</th>
+      <td class="nes">必須</td>
+      <td>[text* your-name autocomplete:name placeholder "岡野　太郎"]</td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td class="nes">必須</td>
+      <td>[text* your-furigana placeholder "オカノ　タロウ"]</td>
+    </tr>
+    <tr>
+      <th>生年月日</th>
+      <td class="nes">必須</td>
+      <td>[text* your-birth_year class:year placeholder "1995"]年[text* your-birth_month class:month placeholder "12"]月[text* your-birth_day class:day placeholder "31"]日</td>
+    </tr>
+    <tr>
+      <th>卒業大学</th>
+      <td class="nes"></td>
+      <td>[text your-university placeholder "大学名"]</td>
+    </tr>
+    <tr>
+      <th>卒業年度</th>
+      <td class="nes"></td>
+      <td>[text your-university_year size:4 class:number placeholder "1995"]年</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td class="nes">必須</td>
+      <td>
+        [radio your-gender use_label_element "男性" "女性"]
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td class="nes">必須</td>
+      <td>[email* your-email autocomplete:email placeholder "○○○@○○○.jp"]</td>
+    </tr>
+    <tr>
+      <th>お電話番号</th>
+      <td class="nes"></td>
+      <td>[text your-tell size:12 class:number placeholder "06-6398-7648"]</td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td class="nes"></td>
+      <td>
+        <div class="postalcode">郵便番号[text your-zip class:number size:10 placeholder "123-4567"]</div>
+        [text your-address placeholder "住所"]
+      </td>
+    </tr>
+    <tr>
+      <th>質問・自己PR・備考</th>
+      <td class="nes"></td>
+      <td>[textarea your-message rows:20 maxlength:400]<p class="count">残文字数 : [count your-message down]</td>
+    </tr>
+    <tr>
+      <th>履歴書</th>
+      <td class="nes">必須</td>
+      <td>[file* your-file filetypes:pdf|docx|xlsx limit:1mb]</td>
+    </tr>
+  </table>
+  <div class="submit_notice">
+    <p>入力内容をご確認のうえ<br class="sp">送信ボタンをタップしてください</p>
+  </div>
+  <div class="submit">
+    [submit "送信する"]
+  </div>
+</div>
