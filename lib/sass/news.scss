@@ -116,12 +116,13 @@
  right: 0;
  top: 50%;
  transform: translateY(-50%);
+ display: flex;
  a {
   padding: 1rem;
   border-radius: 10px 0 0 10px;
   writing-mode: vertical-lr;
   &::after {
-  margin-top: 1rem;
+  margin: 1rem 0 0 0;
   }
  }
   }
@@ -155,16 +156,6 @@
   vertical-align: middle;
   }
  }
-  @include media(sp) {
- a {
-  padding: 1rem;
-  border-radius: 10px 0 0 10px;
-  writing-mode: vertical-lr;
-  &::after {
-  margin-top: 1rem;
-  }
- }
-  }
 }
 
 /* pager

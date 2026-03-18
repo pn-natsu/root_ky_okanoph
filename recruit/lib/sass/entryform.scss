@@ -7,36 +7,38 @@
 .discription {
   margin: 0 auto 5rem auto;
   padding: 0 2rem;
+  p {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+  }
+  .lead {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    font-weight: 500;
+    font-size: clp(2rem, 24);
+  }
+  .privacyCheckbox {
+    max-width: 1200px;
+    background: $color_beige_01;
+    padding: 3rem;
+    margin: 0 auto;
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0 1rem;
+    }
+  }
   &.complete {
     text-align: center;
+  }
+  .wpcf7-list-item {
+    margin: 0;
   }
   @include media(sp) {
     padding: 0 0;
     &.complete {
       text-align: left;
     }
-  }
-}
-
-p {
-  max-width: 1200px;
-  margin: 0 auto 5rem;
-}
-.lead {
-  max-width: 1200px;
-  margin: 0 auto 3rem;
-  font-weight: 500;
-  font-size: clp(2rem, 24);
-}
-.privacyCheckbox {
-  max-width: 1200px;
-  background: $color_beige_01;
-  padding: 3rem;
-  margin: 0 auto;
-  label {
-    display: flex;
-    align-items: center;
-    gap: 0 1rem;
   }
 }
 
@@ -145,7 +147,8 @@ p {
     }
   }
 
-  .radioBox {
+  .radioBox,
+  .wpcf7-radio {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -201,6 +204,7 @@ p {
     padding-inline: 2rem;
     p {
       width: 70%;
+      margin: 0 auto;
       border: solid 2px $color_yellow_01;
       color: #c89d01;
       font-weight: 700;
@@ -212,7 +216,9 @@ p {
       margin-top: 2.5rem;
     }
     @include media(sp) {
+      margin-top: 5rem;
       p {
+        width: auto;
         font-size: 1.5rem;
       }
     }
@@ -281,4 +287,11 @@ p {
       }
     }
   }
+
+  .wpcf7-list-item {
+    margin: 0;
+  }
 }
+
+/* contact form 7
+----------------------------------- */

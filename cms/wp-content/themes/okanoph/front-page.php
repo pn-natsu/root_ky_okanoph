@@ -21,7 +21,7 @@
     </section>
 
     <?php
-    $posts_per_page = 2;
+    $posts_per_page = 5;
     $pickup_args = array(
       'posts_per_page' => $posts_per_page,
       'meta_query' => array(

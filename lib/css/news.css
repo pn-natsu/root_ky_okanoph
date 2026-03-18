@@ -98,6 +98,7 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
   }
   .indexlink a {
     padding: 1rem;
@@ -105,7 +106,7 @@
     writing-mode: vertical-lr;
   }
   .indexlink a::after {
-    margin-top: 1rem;
+    margin: 1rem 0 0 0;
   }
 }
 
@@ -135,16 +136,6 @@
   background: #FFF;
   margin-right: 1rem;
   vertical-align: middle;
-}
-@media screen and (max-width: 768px) {
-  .backindex a {
-    padding: 1rem;
-    border-radius: 10px 0 0 10px;
-    writing-mode: vertical-lr;
-  }
-  .backindex a::after {
-    margin-top: 1rem;
-  }
 }
 
 /* pager

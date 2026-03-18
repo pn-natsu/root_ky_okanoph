@@ -327,7 +327,7 @@ header::before {
   }
   #header .btn_store,
   #header .btn_menu {
-    display: block;
+    display: grid;
   }
 }
 

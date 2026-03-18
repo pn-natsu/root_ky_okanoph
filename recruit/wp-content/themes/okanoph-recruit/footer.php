@@ -7,7 +7,7 @@
   }
   ?>
   <!-- linebnr -->
-  <div id="linebnr"><a href="#LINE" target="_blank">
+  <div id="linebnr"><a href="https://lin.ee/ZIp6Fj0" target="_blank">
       <picture>
         <source media="(max-width:767px)" srcset="/recruit/lib/img/cmn/bnr_line_sp.webp">
         <source srcset="/recruit/lib/img/cmn/bnr_line.webp">
@@ -71,7 +71,7 @@
         <li><a href="/" class="home"><img src="/recruit/lib/img/cmn/bnr_okanograndtop.webp" alt="オカノ薬局"></a></li>
         <li><a href="/news/" class="info"><span class="en">Information</span><span class="jp">お知らせ</span></a></li>
         <li><a href="/blog/" class="blog"><span class="en">Blog</span><span class="jp">スタッフブログ</span></a></li>
-        <li><a href="#" target="_blank" class="insta"><span class="en">Instagram</span><span class="jp">インスタグラム</span></a>
+        <li><a href="https://www.instagram.com/okanogram/" target="_blank" class="insta"><span class="en">Instagram</span><span class="jp">インスタグラム</span></a>
         </li>
       </ul>
     </footer>

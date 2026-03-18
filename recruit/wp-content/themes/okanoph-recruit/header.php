@@ -199,8 +199,8 @@
           <li class="store"><a data-target="modal_store" class="modal_open">採用情報</a></li>
         </ul>
         <ul class="sns">
-          <li><a href="#instagram"><img src="/recruit/lib/img/cmn/icon_instagram.webp" alt=""></a></li>
-          <li><a href="#line"><img src="/recruit/lib/img/cmn/icon_line.webp" alt=""></a></li>
+          <li><a href="https://www.instagram.com/okanogram/" target="_blank"><img src="/recruit/lib/img/cmn/icon_instagram.webp" alt=""></a></li>
+          <li><a href="https://lin.ee/ZIp6Fj0" target="_blank"><img src="/recruit/lib/img/cmn/icon_line.webp" alt=""></a></li>
         </ul>
 
         <div class="home"><a href="/"><img src="/recruit/lib/img/cmn/header_logo_w.webp" alt=""></a></div>
