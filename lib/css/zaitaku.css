@@ -74,7 +74,7 @@
 }
 #delivery .detail h2 span {
   color: #D0AE33;
-  font-size: clamp(3rem, 3.5vw, 5rem);
+  font-size: clamp(3rem, 3.1vw, 4.5rem);
   font-weight: 700;
 }
 #delivery .detail p {

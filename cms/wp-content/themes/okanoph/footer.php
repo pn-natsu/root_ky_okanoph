@@ -38,7 +38,7 @@
           </dl>
         <?php endif; ?>
         <dl class="recruitList">
-          <dt><a href="/recruit/">スタッフ採用</a></dt>
+          <dt><a href="/recruit/">採用情報</a></dt>
           <dd>
             <ul>
               <li><a href="/recruit/store/papios-higashi/">パピオス東店</a></li>

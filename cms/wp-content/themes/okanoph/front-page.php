@@ -109,7 +109,7 @@
       <div class="aboutContainer">
         <div class="person01"><img src="/lib/img/top/about_person_02.webp" alt=""></div>
         <div class="detail">
-          <p class="lead">明石海峡を望む<br class="sp">穏やかな港町、明石</p>
+          <p class="lead">明石の街とともに、<br class="sp">地域密着型の薬局として</p>
           <p>この地でオカノ薬局は 約100年前に創業しました。<br>
             開局以来変わらず持ち続けている私たちの信念は<br>
             「地域の人々と寄り添い続ける」ということ<br>

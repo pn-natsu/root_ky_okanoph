@@ -3,7 +3,7 @@
     <div id="contents">
       <div id="mv">
         <div class="siteTitle">
-          <p class="title">スタッフ採用</p>
+          <p class="title">採用情報</p>
           <div class="message"><img src="/recruit/lib/img/top/mv_catch.webp"
               alt="つながりの真ん中に、私たちの薬局を。Be the Heart of the Community"></div>
         </div>

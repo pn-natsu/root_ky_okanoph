@@ -569,15 +569,12 @@ header:hover {
 #mv .siteTitle picture {
   display: block;
 }
-#mv .siteTitle .title {
-  font-size: clamp(2rem, 3.1vw, 4.4rem);
-}
 #mv .siteTitle .en {
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(1.6rem, 1.7vw, 2.4rem);
+  font-size: clamp(3rem, 4.2vw, 6rem);
 }
 
 #pageTitleBlock {

@@ -565,12 +565,10 @@ header {
 		picture {
 			display: block;
 		}
-		.title {
-			font-size: clp(2rem, 44);
-		}
+
 		.en {
 			@include font-Fredoka;
-			font-size: clp(1.6rem, 24);
+			font-size: clp(3rem, 60);
 		}
 	}
 

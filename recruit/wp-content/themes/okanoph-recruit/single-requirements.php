@@ -3,7 +3,6 @@
 <div id="contents">
   <div id="mv">
     <div class="siteTitle">
-      <p class="title">スタッフ採用</p>
       <p class="en">Recruit</p>
     </div>
     <picture>
