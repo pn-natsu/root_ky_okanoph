@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('ROOT')) {
-    define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+  define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 }
 
 // 投稿⇒お知らせに名前を変更
@@ -132,8 +132,6 @@ function create_post_type()
   );
   tax_admin_column('post_type_xxxx', 'taxonoomy_xxxx', 'タグ');
   */
-
-
 }
 
 //タグをチェックボックスに変更するコード（カスタム投稿タイプの投稿画面）
@@ -182,7 +180,7 @@ function tax_admin_column($post_name, $taxonomy, $tax_label)
                                                       } ?>><?php echo $term->name; ?></option>
         <?php endforeach; ?>
       </select>
-  <?php
+<?php
     }
   });
 }
@@ -316,9 +314,10 @@ function Include_my_php($params = array())
 add_shortcode('myphp', 'Include_my_php');
 
 // 自動pタグ生成をやめる
-function customize_auto_p_handling($content) {
+function customize_auto_p_handling($content)
+{
   if (is_page() && !is_front_page()) {
-      remove_filter('the_content', 'wpautop');
+    remove_filter('the_content', 'wpautop');
   }
   return $content;
 }
@@ -366,9 +365,9 @@ function change_title_tag($title)
 }
 add_filter('pre_get_document_title', 'change_title_tag');
 
-add_filter( 'document_title', function( $title ) {
-  $title = str_replace( ' ｜ ', '｜', $title );
-return $title;
+add_filter('document_title', function ($title) {
+  $title = str_replace(' ｜ ', '｜', $title);
+  return $title;
 });
 
 
@@ -450,21 +449,28 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
 
 add_action('image_send_to_editor', 'give_linked_images_class', 10, 8);
 
-//カスタム投稿のデフォルトタクソノミーを指定
-function default_taxonomy_select()
+//カスタム投稿のデフォルトタクソノミーを指定（ブロックエディタ版）
+add_action('transition_post_status', 'set_default_term_for_custom_post', 10, 3);
+
+function set_default_term_for_custom_post($new_status, $old_status, $post)
 {
-  ?>
-  <script type="text/javascript">
-    jQuery(function($) {
-      //console.log('check');
-      //$('#categorychecklist li:first-child input[type="checkbox"]').prop('checked', true);
-    });
-  </script>
-<?php
+  // 1. 対象のカスタム投稿タイプを指定（例: 'event'）
+  $target_post_type = 'blog';
+
+  // 新規作成時（auto-draftが生成された時）のみ実行
+  if ($new_status === 'auto-draft' && $post->post_type === $target_post_type) {
+
+    // 2. 対象のタクソノミースラッグを指定（例: 'event_category'）
+    $taxonomy = 'blog-cat';
+
+    // 3. デフォルトでチェックを入れたいタームの「スラッグ」または「ID」を指定（例: 'news'）
+    // 複数指定したい場合は配列にします 例: array('news', 'important')
+    $default_term = 'pharmacy-letter';
+
+    // タームをセットする
+    wp_set_object_terms($post->ID, $default_term, $taxonomy);
+  }
 }
-add_action('admin_head-post-new.php', 'default_taxonomy_select');
-add_action('admin_head-post.php', 'default_taxonomy_select');
-add_action('admin_head-edit.php', 'default_taxonomy_select');
 
 //カテゴリの記事数をリンクに含める
 add_filter('wp_list_categories', 'my_list_categories', 10, 2);
@@ -518,9 +524,9 @@ foreach ($add_column_customs as $add_column_custom) {
   add_action('manage_' . $add_column_custom['post_type'] . '_posts_custom_column', function ($column_name, $post_id) use ($add_column_custom) {
     if ($column_name === 'custom_field_' . $add_column_custom['cf_slug']) {
       $custom_field = get_post_meta($post_id, $add_column_custom['cf_slug'], true);
-      if($add_column_custom['cf_slug'] === 'pickup'){
+      if ($add_column_custom['cf_slug'] === 'pickup') {
         echo $custom_field ? '〇' : '—';
-      }else{
+      } else {
         echo $custom_field ? esc_html($custom_field) : '—';
       }
     }
@@ -758,25 +764,26 @@ function my_tiny_mce_before_init($init_array)
 add_filter('tiny_mce_before_init', 'my_tiny_mce_before_init');
 
 //アーカイブページで現在のカテゴリー・タグ・タームを取得する
-function get_current_term(){
- 
+function get_current_term()
+{
+
   $id = '';
   $tax_slug = '';
 
-  if(is_category()){
-      $tax_slug = "category";
-      $id = get_query_var('cat'); 
-  }else if(is_tag()){
-      $tax_slug = "post_tag";
-      $id = get_query_var('tag_id');  
-  }else if(is_tax()){
-      $tax_slug = get_query_var('taxonomy');  
-      $term_slug = get_query_var('term'); 
-      $term = get_term_by("slug",$term_slug,$tax_slug);
-      $id = $term->term_id;
+  if (is_category()) {
+    $tax_slug = "category";
+    $id = get_query_var('cat');
+  } else if (is_tag()) {
+    $tax_slug = "post_tag";
+    $id = get_query_var('tag_id');
+  } else if (is_tax()) {
+    $tax_slug = get_query_var('taxonomy');
+    $term_slug = get_query_var('term');
+    $term = get_term_by("slug", $term_slug, $tax_slug);
+    $id = $term->term_id;
   }
 
-  return get_term($id,$tax_slug);
+  return get_term($id, $tax_slug);
 }
 
 // // ブロックエディタを完全に無効化
