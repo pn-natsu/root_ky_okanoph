@@ -11,14 +11,14 @@
 <div id="contents">
   <main>
     <!-- about -->
-    <section id="instagram">
+    <!-- <section id="instagram">
       <hgroup class="htype01">
         <p class="en">Instagram</p>
         <h2>インスタグラム</h2>
       </hgroup>
-      <?php echo do_shortcode('[instagram-feed feed=2]'); ?>
+      <?php //echo do_shortcode('[instagram-feed feed=2]'); ?>
       <div class="link"><a href="https://www.instagram.com/okanogram/" target="_blank">もっと見る</a></div>
-    </section>
+    </section> -->
 
     <?php
     $posts_per_page = 5;
