@@ -389,14 +389,16 @@
     margin: 0 auto;
     width: vwsize(617);
     margin-top: clp(2rem, 100);
+    padding-right: vwsize(100);
+
   }
   .aboutContainer {
     width: fit-content;
     margin: clp(2rem, 50) auto 0;
     display: grid;
     gap: 3rem;
-    grid-template-columns: vwsize(280) max-content vwsize(170) calc(vwsize(110) - 3rem);
-    grid-template-areas: "person01 detail person02 sp";
+    grid-template-columns: vwsize(280) max-content vwsize(380) ;
+    grid-template-areas: "person01 detail person02 ";
     .detail {
       grid-area: detail;
       p {
@@ -463,8 +465,8 @@
     .aboutContainer {
       padding: 0 2rem;
       gap: 0;
-      grid-template-columns: 28fr 5fr 17fr;
-      grid-template-areas: "detail detail detail" "person01 sp person02 ";
+      grid-template-columns: 4fr .5fr 5.5fr;
+      grid-template-areas: "detail detail detail" "person01 sp person02";
       .detail {
         P {
           &:not(&.lead) {

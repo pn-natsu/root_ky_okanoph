@@ -2,6 +2,15 @@
 <html lang="ja">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-57TJCHYH5E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-57TJCHYH5E');
+</script>  
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="stylesheet" href="/recruit/lib/js/swiper/swiper-bundle.css">
