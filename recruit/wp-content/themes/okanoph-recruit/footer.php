@@ -19,44 +19,13 @@
   <!-- requirementsLink -->
   <section id="requirementsLink">
     <div class="head">
-      <h2>募集要項</h2>
+      <h2>エントリーフォーム</h2>
       <div class="fukidashi01"><img src="/recruit/lib/img/cmn/img_requirements01.webp" alt="募集要項も、ぜひ見てみてくださいね"></div>
       <div class="fukidashi02"><img src="/recruit/lib/img/cmn/img_requirements02.webp" alt="一歩踏み出すなら、ここから"></div>
     </div>
 
-    <div class="LinkContainer">
-      <?php
-      $parent_page = get_page_by_path('store');
-      if ($parent_page) {
-        $args = array(
-          'post_type'      => 'page',
-          'post_parent'    => $parent_page->ID,
-          'posts_per_page' => -1,
-          'orderby'        => 'menu_order',
-          'order'          => 'ASC'
-        );
-        $child_query = new WP_Query($args);
-      }
-      if ($child_query->have_posts()):
-      ?>
-        <ul>
-          <?php while ($child_query->have_posts()):
-            $child_query->the_post();
-          ?>
-            <li><a href="<?php the_permalink(); ?>">
-                <div class="photo">
-                  <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('large'); ?>
-                  <?php else : ?>
-                    <img src="/recruit/lib/img/cmn/no_image.png" alt="">
-                  <?php endif; ?>
-                </div>
-                <p><span>オカノ薬局</span><?php the_title(); ?></p>
-              </a></li>
-          <?php endwhile;
-          wp_reset_postdata(); ?>
-        </ul>
-      <?php endif; ?>
+
+
       <div class="entryform_btn"><a href="<?php echo home_url(); ?>/entryform/">全店共通応募フォーム</a></div>
     </div>
   </section>

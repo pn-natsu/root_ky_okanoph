@@ -74,7 +74,7 @@ function create_post_type()
       "show_ui" => true,
       "show_in_rest" => true,
       "rest_base" => "",
-      "has_archive" => true, //falseで、スラッグのURLは固定ページが優先される
+      "has_archive" => false, //falseで、スラッグのURLは固定ページが優先される
       "show_in_menu" => true,
       "exclude_from_search" => false,
       "capability_type" => "post",

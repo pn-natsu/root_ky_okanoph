@@ -205,7 +205,7 @@
           <li><a href="/recruit/">採用トップ</a></li>
           <li><a href="/recruit/interview/">スタッフ紹介</a></li>
           <li><a href="/recruit/entryform/">エントリーフォーム</a></li>
-          <li class="store"><a data-target="modal_store" class="modal_open">募集職種</a></li>
+          <li><a href="/recruit/requirements/">募集職種</a></li>
         </ul>
         <ul class="sns">
           <li><a href="https://www.instagram.com/okanogram/" target="_blank"><img src="/recruit/lib/img/cmn/icon_instagram.webp" alt=""></a></li>
