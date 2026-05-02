@@ -65,6 +65,11 @@ fieldset {
   margin: 0;
 }
 
+.uc {
+  pointer-events: none;
+  background: #333 !important;
+}
+
 /* ------------------------------------
 // base
 ------------------------------------ */

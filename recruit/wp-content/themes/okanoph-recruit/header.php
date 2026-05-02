@@ -2,6 +2,15 @@
 <html lang="ja">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-57TJCHYH5E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-57TJCHYH5E');
+</script>  
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="stylesheet" href="/recruit/lib/js/swiper/swiper-bundle.css">
@@ -196,7 +205,7 @@
           <li><a href="/recruit/">採用トップ</a></li>
           <li><a href="/recruit/interview/">スタッフ紹介</a></li>
           <li><a href="/recruit/entryform/">エントリーフォーム</a></li>
-          <li class="store"><a data-target="modal_store" class="modal_open">募集職種</a></li>
+          <li><a href="/recruit/requirements/">募集職種</a></li>
         </ul>
         <ul class="sns">
           <li><a href="https://www.instagram.com/okanogram/" target="_blank"><img src="/recruit/lib/img/cmn/icon_instagram.webp" alt=""></a></li>
