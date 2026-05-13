@@ -156,11 +156,11 @@
   }
 
   .thumb {
-    aspect-ratio: 4/3;
+    aspect-ratio: 380/260;
     background: #EFEFEF;
     margin-bottom: .5rem;
     img {
-      object-fit: contain;
+      object-fit: cover;
       width: 100%;
       height: 100%;
     }
