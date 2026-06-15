@@ -1,0 +1,156 @@
+/* .pricetableBox
+----------------------------------- */
+.pricetableBox {
+  overflow: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding-bottom: 2rem;
+}
+.pricetableBox .pricetable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 15px 15px;
+  overflow: hidden;
+  border: 2px solid #ffcc00;
+}
+.pricetableBox .pricetable th, .pricetableBox .pricetable td {
+  padding: clamp(1rem, 2.1vw, 3rem);
+  border-bottom: 2px solid #FDD23C;
+  border-right: 2px solid #FDD23C;
+}
+.pricetableBox .pricetable td {
+  border-right: 1px solid #FDD23C;
+}
+.pricetableBox .pricetable td:last-of-type {
+  border-right: none;
+}
+.pricetableBox .pricetable thead th {
+  background: #FDD23C;
+}
+.pricetableBox .pricetable thead th:not(:last-of-type) {
+  border-right: 1px solid #FFF;
+}
+.pricetableBox .pricetable tbody th {
+  background: #FCF6E2;
+}
+.pricetableBox .pricetable tbody tr.thinline td {
+  border-bottom: 1px solid #FDD23C;
+}
+.pricetableBox .pricetable tr:last-child th, .pricetableBox .pricetable tr:last-child td {
+  border-bottom: none;
+}
+@media screen and (max-width: 768px) {
+  .pricetableBox .pricetable th {
+    white-space: nowrap;
+  }
+  .pricetableBox .pricetable th.wrap {
+    white-space: wrap;
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 768px) {
+  .pricetableBox .pricetable.baseprice {
+    display: block;
+  }
+  .pricetableBox .pricetable.baseprice th, .pricetableBox .pricetable.baseprice td {
+    font-size: clamp(1.4rem, 1.1vw, 1.6rem);
+  }
+  .pricetableBox .pricetable.baseprice th {
+    border-right: 0;
+  }
+  .pricetableBox .pricetable.baseprice thead {
+    display: block;
+  }
+  .pricetableBox .pricetable.baseprice thead tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "th1 th1" "th2 th3" "th4 th4";
+    gap: 1px;
+  }
+  .pricetableBox .pricetable.baseprice thead tr th {
+    border-right: none;
+    padding: 0 1rem;
+  }
+  .pricetableBox .pricetable.baseprice thead tr th:nth-of-type(1) {
+    grid-area: th1;
+  }
+  .pricetableBox .pricetable.baseprice thead tr th:nth-of-type(2) {
+    grid-area: th2;
+  }
+  .pricetableBox .pricetable.baseprice thead tr th:nth-of-type(3) {
+    grid-area: th3;
+  }
+  .pricetableBox .pricetable.baseprice thead tr th:nth-of-type(4) {
+    grid-area: th4;
+  }
+  .pricetableBox .pricetable.baseprice tbody {
+    display: block;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "th  th" "td1 td2" "td3 td3";
+    border-bottom: 1px solid #FDD23C;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr th {
+    grid-area: th;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr td:nth-of-type(1) {
+    grid-area: td1;
+    font-weight: 500;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr td:nth-of-type(2) {
+    grid-area: td2;
+    border-right: none;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr td:nth-of-type(3) {
+    grid-area: td3;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr:not(:has(th)) {
+    grid-template-areas: "td1 td2" "td3 td3";
+  }
+  .pricetableBox .pricetable.baseprice tbody tr.total {
+    grid-template-areas: "td1 td1" "td2 td2";
+  }
+  .pricetableBox .pricetable.baseprice tbody tr.total td {
+    border-right: none;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr.total td:nth-of-type(2) {
+    border-top: 1px solid #FDD23C;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr.total td:nth-of-type(2) br {
+    display: none;
+  }
+  .pricetableBox .pricetable.baseprice tbody tr.total td:nth-of-type(3) {
+    grid-area: td3;
+    display: none;
+  }
+}
+
+/* xxxxxxxxxxxxxxxx
+----------------------------------- */
+#pricelist {
+  width: min(1200px, 100% - 4rem);
+  margin: 0 auto;
+}
+#pricelist .notice01 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#pricelist .notice01 li {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+  gap: 1rem;
+}
+#pricelist .notice02 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#pricelist .notice02 li {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+  gap: 1rem;
+}

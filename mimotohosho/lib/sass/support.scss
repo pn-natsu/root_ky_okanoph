@@ -1,0 +1,333 @@
+@charset "utf-8";
+@import "include";
+
+/* tab changer structure
+----------------------------------- */
+
+.bodyContainer {
+ background: $color_blue_03;
+ padding: clp(2rem, 50) clp(1rem, 50);
+ >section {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clp(2rem, 50) clp(1rem, 100);
+  background: #FFF;
+  border-radius: 20px;
+  &.active {
+   display: block;
+  }
+ }
+ @include media(sp) {
+  >section {
+   padding: clp(2rem, 50) 1rem;
+  }
+
+ }
+
+}
+
+/* .tab
+----------------------------------- */
+.tab {
+ width: min(1200px, 100% - 4rem);
+ margin: 0 auto;
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 2rem;
+ li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+   border-radius: 15px 15px 0 0;
+   background: $color_blue_02;
+   padding: 2rem .25rem;
+   font-weight: 700;
+   color: #FFF;
+   display: flex; // テキストの上下中央揃えのため
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   position: relative;
+   line-height: 1.4;
+   font-size: clp(1.6rem, 20);
+   &::after {
+    content: "";
+    width: 1rem;
+    aspect-ratio: 1;
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    position: absolute;
+    bottom: .5rem;
+    right: calc(50% - .5rem);
+    transform: rotate(45deg);
+    display: block;
+    opacity: 0;
+    transition: .3s;
+   }
+   &:hover {
+    a {
+     &::after {
+      display: block;
+      opacity: 1;
+     }
+    }
+
+   }
+  }
+  &.active {
+   a {
+    background: $color_blue_03;
+    color: $color_okanoblue_01;
+    pointer-events: none;
+    &::after {
+     border-right: 2px solid $color_okanoblue_01;
+     border-bottom: 2px solid $color_okanoblue_01;
+     display: block;
+     opacity: 1;
+    }
+   }
+  }
+ }
+}
+@include media(sp) {
+
+ .tab {
+  width: min(1200px, 100% - 0rem);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  li {
+   border-radius: 5px;
+   background: $color_blue_02;
+   a {
+    padding: 1rem .5rem 1.5rem;
+    font-size: clp(1.4rem, 20);
+    &::after {
+     content: "";
+     width: 1rem;
+     aspect-ratio: 1;
+     border-right: 2px solid #FFF;
+     border-bottom: 2px solid #FFF;
+     position: absolute;
+     bottom: .5rem;
+     right: calc(50% - .5rem);
+     transform: rotate(45deg);
+     display: block;
+     opacity: 1;
+     transition: .3s;
+    }
+   }
+   &.active {
+    a {
+     background: $color_okanoblue_01;
+     color: #FFF;
+     border-radius: 5px;
+     pointer-events: none;
+     &::after {
+      border-right: 2px solid #FFF;
+      border-bottom: 2px solid #FFF;
+      display: block;
+      opacity: 1;
+     }
+    }
+   }
+  }
+ }
+
+}
+
+.sub_tab {
+ width: min(1200px, 100% - 4rem);
+ margin: 2rem auto 0;
+ display: flex;
+ gap: 1rem;
+ justify-content: center;
+ li {
+  a {
+   display: block;
+   background: $color_blue_02;
+   padding: .5rem 2rem;
+   border-radius: 50vh;
+   color: #FFF;
+   font-size: clp(1.4rem,16);
+  }
+  &.active {
+   a {
+   background: $color_okanoblue_01;
+   }
+  }
+ }
+  @include media(sp) {
+   flex-wrap: wrap;
+   gap: 1rem 2rem;
+  }
+}
+
+
+/* #mv
+----------------------------------- */
+
+.bodyContainer {
+
+ .text {
+  margin-bottom: 3rem;
+  p+p {
+   margin-top: 1.5em;
+  }
+ }
+
+ .panel {
+  position: relative;
+  margin-top: 5rem;
+  picture {
+   position: relative;
+   z-index: 1;
+  }
+  .data {
+   position: absolute;
+   left: 3rem;
+   top: 6%;
+   z-index: 2;
+   width: 60%;
+  }
+  .panelLead {
+   font-weight: bold;
+   font-size: clp(2rem, 32);
+   color: $color_okanoblue_01;
+   text-shadow: 0 0 5px #FFF;
+   margin-bottom: clp(2rem, 40);
+  }
+  ul {
+   li {
+    &+li {
+     margin-top: 1rem;
+    }
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+    font-weight: 500;
+    text-shadow: 0 0 4px #fff,
+    0 0 8px #fff,
+    0 0 12px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff;
+
+    font-size: clp(1.3rem, 20);
+    &::before {
+     content: "";
+     aspect-ratio: 1/1.2;
+     width: 2rem;
+     background: url(../img/support/icon_check.webp) no-repeat center /contain;
+    }
+   }
+  }
+ }
+
+ @include media(sp) {
+  .htype01 {
+   margin-bottom: 2rem;
+  }
+  .panel {
+   margin: 3rem 0 6rem;
+   border-radius: 20px 20px 0 0;
+   border: 1px solid #CCC;
+   border-bottom: none;
+   padding-bottom: 2rem;
+   &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L50,80 L100,0' fill='none' stroke='%23ccc' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   }
+   picture {
+    display: block;
+    img {
+     width: 99%;
+    }
+   }
+   .data {
+    position: relative;
+    left: auto;
+    top: auto;
+    z-index: 2;
+    width: 100%;
+    padding: 0 1rem;
+   }
+  }
+ }
+
+
+ .summary {
+  max-width: 1200px;
+  margin: 5rem auto 0;
+  h3 {
+   text-align: center;
+  }
+  .summaryContainer {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: auto;
+   gap: clp(1rem, 20);
+   >section {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    background: $color_orange_01;
+    border-radius: 2rem;
+    margin: 0;
+    padding: clp(1rem, 20);
+    h4 {
+     color: #FFF;
+     text-align: center;
+     font-weight: 500;
+     font-size: clp(1.8rem, 24);
+     align-self: center;
+    }
+    p {
+     padding: clp(1.5rem, 30) clp(1.5rem, 20);
+     background: #FFF;
+     border-radius: 15px;
+    }
+   }
+
+  }
+ }
+
+ @include media(sp) {
+  .summary {
+   .summaryContainer {
+    grid-template-columns: repeat(1, 1fr);
+    >section {
+    margin: 0;
+     h4 {
+      font-size: clp(1.6rem, 24);
+     }
+    }
+
+   }
+  }
+
+
+ }
+
+
+}
+
+#sec01 {
+ .text .image {
+  max-width: 825px;
+  margin: clp(2rem, 50) auto 0;
+ }
+}
+
+
+@include media(sp) {}

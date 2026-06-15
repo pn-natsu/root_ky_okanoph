@@ -4,7 +4,7 @@
 
     <div class="logo"><img src="/lib/img/cmn/footer_logo.webp" alt="オカノ薬局は明石市大明石町、明石駅近くの調剤薬局です。"></div>
     <p class="address">有限会社　オカノ薬局<br>
-      〒673-0891　兵庫県明石市大明石町1-6-1</p>
+      〒673-0891　<br class="sp">兵庫県明石市大明石町1-6-1 <br class="sp">パピオスあかし3階</p>
     <footer>
       <!-- gnav js.clon from  #header -->
       <div class="barlist">

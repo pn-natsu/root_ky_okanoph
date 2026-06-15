@@ -1,0 +1,338 @@
+/* .panel
+----------------------------------- */
+.panel {
+  width: min(1200px, 100% - 4rem);
+  margin: 0 auto 5rem;
+  position: relative;
+}
+.panel picture {
+  display: block;
+  z-index: 1;
+}
+.panel .text {
+  position: absolute;
+  z-index: 2;
+  left: clamp(2rem, 3.5vw, 5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+}
+.panel .lead {
+  font-size: clamp(2.4rem, 2.8vw, 4rem);
+}
+.panel .guide {
+  font-size: clamp(1.6rem, 1.4vw, 2rem);
+}
+.panel dl {
+  color: #F98E3D;
+  margin: 4rem 0;
+}
+.panel dl dt {
+  font-size: clamp(1.6rem, 1.9vw, 2.8rem);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.panel dl dd a {
+  line-height: 1;
+  color: #F98E3D;
+  font-size: clamp(4rem, 5.6vw, 8rem);
+  font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  .panel .text {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    padding: 0 1rem;
+    transform: translateY(-5rem);
+  }
+  .panel .lead {
+    font-weight: bold;
+  }
+  .panel dl {
+    margin: 2rem 0;
+  }
+  .panel dl dt {
+    font-weight: bold;
+  }
+}
+
+/* formContainer
+----------------------------------- */
+#formContainer {
+  width: min(1200px, 100% - 4rem);
+  margin: 0 auto 5rem;
+  position: relative;
+}
+#formContainer .formArea {
+  background: #E6F0F3;
+  padding: clamp(2rem, 4.2vw, 6rem) clamp(1rem, 4.2vw, 6rem);
+  border-radius: 20px;
+}
+#formContainer #privacySection {
+  margin: 0 auto 5rem;
+}
+#formContainer #privacySection h3 {
+  color: #3A62AD;
+  font-weight: 500;
+  text-align: center;
+  font-size: clamp(1.6rem, 1.7vw, 2.4rem);
+  margin-bottom: 2rem;
+}
+#formContainer #privacySection p {
+  text-align: center;
+  font-size: clamp(1.4rem, 1.3vw, 1.8rem);
+}
+#formContainer #privacySection .privacyCheck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 0 0;
+  font-size: clamp(1.6rem, 1.4vw, 2rem);
+}
+#formContainer #formTable {
+  display: block;
+}
+#formContainer #formTable tbody {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: clamp(1rem, 1.4vw, 2rem);
+}
+#formContainer #formTable tbody tr {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+  gap: clamp(1rem, 1.4vw, 2rem);
+}
+#formContainer #formTable tbody tr th {
+  padding: clamp(1.5rem, 1.7vw, 2.5rem) clamp(1rem, 1.4vw, 2rem);
+  text-align: left;
+  border-radius: 15px;
+  background: #FFF;
+  border: 1px solid #6DB4CC;
+  background: #6DB4CC;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+#formContainer #formTable tbody tr th .note {
+  display: block;
+  font-size: clamp(1.2rem, 1vw, 1.5rem);
+  width: 100%;
+}
+#formContainer #formTable tbody tr td {
+  position: relative;
+  align-self: center;
+}
+@media screen and (max-width: 768px) {
+  #formContainer #formTable tbody {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  #formContainer #formTable tbody tr {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 1;
+  }
+  #formContainer #formTable tbody tr th {
+    padding: clamp(1.5rem, 1.7vw, 2.5rem) clamp(1rem, 1.4vw, 2rem);
+    text-align: left;
+    border-radius: 15px;
+    background: #FFF;
+    border: 1px solid #6DB4CC;
+    background: #6DB4CC;
+    color: #FFF;
+    display: block;
+  }
+  #formContainer #formTable tbody tr th .note {
+    display: inline;
+  }
+  #formContainer #formTable tbody tr td {
+    position: relative;
+    align-self: center;
+  }
+}
+#formContainer {
+  /* base setting */
+}
+#formContainer #contactForm input[type=checkbox],
+#formContainer #contactForm input[type=radio] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #6DB4CC;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+#formContainer #contactForm input[type=checkbox] {
+  border-radius: 4px;
+}
+#formContainer #contactForm input[type=checkbox]:checked {
+  background-color: #6DB4CC;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 11'%3E%3Cpath d='M1 5l4 4L13 1' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+}
+#formContainer #contactForm input[type=radio] {
+  border-radius: 50%;
+}
+#formContainer #contactForm input[type=radio]:checked {
+  border-color: #6db4cc;
+  background: radial-gradient(circle, #6db4cc 45%, #fff 45%);
+}
+#formContainer #contactForm input[type=text],
+#formContainer #contactForm input[type=tel],
+#formContainer #contactForm input[type=email] {
+  background: #FFF;
+  border: 1px solid #6DB4CC;
+  padding: clamp(1.5rem, 1.7vw, 2.5rem) clamp(1rem, 1.4vw, 2rem);
+  text-align: left;
+  border-radius: 15px;
+  font-size: clamp(1.6rem, 1.4vw, 2rem);
+}
+#formContainer #contactForm input[type=text].short,
+#formContainer #contactForm input[type=tel].short,
+#formContainer #contactForm input[type=email].short {
+  width: 8em;
+}
+#formContainer #contactForm input[type=text]::placeholder,
+#formContainer #contactForm input[type=tel]::placeholder,
+#formContainer #contactForm input[type=email]::placeholder {
+  font-size: clamp(1.6rem, 1.4vw, 2rem);
+  color: #CCC;
+}
+#formContainer #contactForm textarea {
+  background: #FFF;
+  border: 1px solid #6DB4CC;
+  padding: clamp(1.5rem, 1.7vw, 2.5rem) clamp(1rem, 1.4vw, 2rem);
+  text-align: left;
+  border-radius: 15px;
+  width: 100%;
+  height: 8em;
+}
+#formContainer #contactForm td > input[type=text],
+#formContainer #contactForm td > input[type=tel],
+#formContainer #contactForm td > input[type=email] {
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  #formContainer #contactForm input[type=checkbox],
+  #formContainer #contactForm input[type=radio] {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+#formContainer {
+  /* custum setting */
+}
+#formContainer #contactForm .required {
+  color: #F98E3D;
+  font-weight: bold;
+}
+#formContainer #contactForm .required:has(+ input[type=text]), #formContainer #contactForm .required:has(+ input[type=tel]), #formContainer #contactForm .required:has(+ input[type=email]) {
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#formContainer #contactForm .required + input[type=text], #formContainer #contactForm .required + input[type=tel], #formContainer #contactForm .required + input[type=email] {
+  padding-left: 5em;
+}
+#formContainer #contactForm .checkGroup,
+#formContainer #contactForm .radioGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem clamp(1rem, 4.2vw, 6rem);
+}
+#formContainer #contactForm .checkGroup label,
+#formContainer #contactForm .radioGroup label {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.5rem, 0.7vw, 1rem);
+}
+#formContainer #contactForm .requiredBox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+#formContainer #contactForm .requiredBox span.required {
+  padding-left: 1em;
+}
+#formContainer #contactForm .requiredBox .otherField {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 768px) {
+  #formContainer #contactForm .required:has(+ input[type=text]), #formContainer #contactForm .required:has(+ input[type=tel]), #formContainer #contactForm .required:has(+ input[type=email]) {
+    position: relative;
+    left: 0;
+    top: auto;
+    transform: translateY(none);
+  }
+  #formContainer #contactForm .required + input[type=text], #formContainer #contactForm .required + input[type=tel], #formContainer #contactForm .required + input[type=email] {
+    padding: clamp(1.5rem, 1.7vw, 2.5rem) clamp(1rem, 1.4vw, 2rem);
+  }
+  #formContainer #contactForm .requiredBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  #formContainer #contactForm .requiredBox span.required {
+    padding-left: 0;
+  }
+  #formContainer #contactForm .requiredBox .otherField {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+#formContainer #contactForm .addressField {
+  margin-top: 1rem;
+}
+#formContainer #contactForm .addressField input[type=text] {
+  width: 100%;
+}
+#formContainer #contactForm .submitBtn {
+  margin: 4rem auto 0;
+  width: fit-content;
+  background: #F98E3D;
+  color: #FFF;
+  display: flex;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  font-size: clamp(2rem, 1.7vw, 2.4rem);
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem clamp(2rem, 6.9vw, 10rem);
+  border-radius: 50vh;
+}
+#formContainer #contactForm .submitBtn:hover {
+  background: #7BA1C7;
+}
+#formContainer #contactForm .submitBtn::after {
+  content: "";
+  width: 2rem;
+  aspect-ratio: 1;
+  background: url(/mimotohosho/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
+}

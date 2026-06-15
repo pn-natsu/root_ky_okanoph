@@ -353,13 +353,13 @@ function get_page_title()
 //条件分岐タグ等を使ってページにより $title を変更する処理
 function change_title_tag($title)
 {
-
-  /*
-  $urlall =  (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-  if (preg_match("/xxxx/", $urlall)) {
-    $title = 'ｘｘｘｘ';
+  // 固定ページでACF「タイトルタグ」に記載があれば、それで上書き
+  if (is_page() && function_exists('get_field')) {
+    $custom = trim((string) get_field('meta_title'));
+    if ($custom !== '') {
+      return $custom;
+    }
   }
-    */
 
   return $title;
 }
@@ -371,8 +371,6 @@ add_filter('document_title', function ($title) {
 });
 
 
-
-// ページネーション
 
 // ページネーション
 function bmPageNavi($query = null, $max_page = null)
@@ -795,5 +793,158 @@ function get_current_term()
 
 //ContactForm7の自動pタグ生成を無効
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+/* ============================================
+   構造化データ（JSON-LD）出力
+   ============================================ */
+
+// --- ① ACFフィールド登録（固定ページに入力欄を追加） ---
+add_action('acf/init', function () {
+    if (!function_exists('acf_add_local_field_group')) return;
+
+    acf_add_local_field_group([
+        'key'    => 'group_structured_data',
+        'title'  => 'metaと構造化データ（JSON-LD）',
+        'fields' => [
+            [
+                'key'          => 'field_meta_title',
+                'label'        => 'タイトルタグ',
+                'name'         => 'meta_title',
+                'type'         => 'text',
+                'instructions' => '',
+            ],
+            [
+                'key'          => 'field_description',
+                'label'        => 'メタディスクリプション',
+                'name'         => 'description',
+                'type'         => 'textarea',
+                'instructions' => '',
+                'rows'         => 3,
+            ],
+            [
+                'key'          => 'field_og_image',
+                'label'        => 'OGP画像URL',
+                'name'         => 'og_image',
+                'type'         => 'text',
+                'instructions' => '',
+            ],
+            [
+                'key'          => 'field_structured_data',
+                'label'        => 'JSON-LD',
+                'name'         => 'structured_data',
+                'type'         => 'textarea',
+                'instructions' => '<script>タグの中身だけを記載。空欄なら全ページ共通のデフォルトを出力します。',
+                'rows'         => 12,
+                'new_lines'    => '',
+            ],
+        ],        'location' => [
+            [
+                ['param' => 'post_type', 'operator' => '==', 'value' => 'page'],
+            ],
+        ],
+    ]);
+});
+
+// --- ② wp_head で出力 ---
+add_action('wp_head', function () {
+
+    $json = '';
+
+    // 固定ページでフォームに記載があれば、それを優先（店舗ページなど）
+    if (is_page()) {
+        $field = trim((string) get_field('structured_data'));
+        if ($field !== '') {
+            $json = $field;
+        }
+    }
+
+    // 記載がなければ、全ページ共通のデフォルト（5店舗まとめ）
+    if ($json === '') {
+        $json = my_default_structured_data();
+    }
+
+    echo "\n<script type=\"application/ld+json\">\n{$json}\n</script>\n";
+}, 5);
+
+// --- ③ 全ページ共通デフォルト（5店舗まとめの Pharmacy） ---
+function my_default_structured_data() {
+    return <<<'JSONLD'
+{
+  "@context": "https://schema.org",
+  "@type": "Pharmacy",
+  "@id": "https://www.okano-ph.jp/#pharmacy",
+  "name": "オカノ薬局",
+  "url": "https://www.okano-ph.jp/",
+  "hasPart": [{
+      "@type": "Pharmacy",
+      "@id": "https://www.okano-ph.jp/store/papios-higashi/#pharmacy",
+      "name": "オカノ薬局 パピオス東店",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "673-0891",
+        "addressRegion": "兵庫県",
+        "addressLocality": "明石市",
+        "streetAddress": "大明石町1-6-1 パピオスあかし3階"
+      },
+      "telephone": "078-915-8555"
+    },
+    {
+      "@type": "Pharmacy",
+      "@id": "https://www.okano-ph.jp/store/papios-nishi/#pharmacy",
+      "name": "オカノ薬局 パピオス西店",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "673-0891",
+        "addressRegion": "兵庫県",
+        "addressLocality": "明石市",
+        "streetAddress": "大明石町1-6-1パピオスあかし3階"
+      },
+      "telephone": "078-915-8577"
+    },
+    {
+      "@type": "Pharmacy",
+      "@id": "https://www.okano-ph.jp/store/eki-higashi/#pharmacy",
+      "name": "オカノ薬局 駅東店",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "673-0886",
+        "addressRegion": "兵庫県",
+        "addressLocality": "明石市",
+        "streetAddress": "東仲ノ町11-30 KTSビル1F"
+      },
+      "telephone": "078-915-7613"
+    },
+    {
+      "@type": "Pharmacy",
+      "@id": "https://www.okano-ph.jp/store/aspia-mae/#pharmacy",
+      "name": "オカノ薬局 アスピア前店",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "673-0886",
+        "addressRegion": "兵庫県",
+        "addressLocality": "明石市",
+        "streetAddress": "東仲ノ町10-17"
+      },
+      "telephone": "078-915-2481"
+    },
+    {
+      "@type": "Pharmacy",
+      "@id": "https://www.okano-ph.jp/store/akashi-eki/#pharmacy",
+      "name": "オカノ薬局 明石駅店",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "673-0891",
+        "addressRegion": "兵庫県",
+        "addressLocality": "明石市",
+        "streetAddress": "大明石町1丁目3-3"
+      },
+      "telephone": "078-918-7624"
+    }
+  ]
+}
+JSONLD;
+}
+
 
 ?>

@@ -1,0 +1,192 @@
+@charset "utf-8";
+@import "include";
+
+/* .pricetableBox
+----------------------------------- */
+
+.pricetableBox {
+ overflow: auto;
+ width: 100%;
+ max-width: 1200px;
+ margin: 0 auto 2rem;
+ padding-bottom: 2rem;
+ .pricetable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+   border-radius: 15px 15px;
+   overflow: hidden;
+   border: 2px solid #ffcc00;
+  th,td {
+   padding: clp(1rem,30);
+   border-bottom: 2px solid $color_yellow_01;
+   border-right: 2px solid $color_yellow_01;
+  }
+  td {
+   border-right: 1px solid $color_yellow_01;
+   &:last-of-type {
+   border-right: none;
+   }
+
+  }
+  thead {
+   th {
+    background: $color_yellow_01;
+    &:not(:last-of-type) {
+     border-right: 1px solid #FFF;
+    }
+   }
+  }
+  tbody {
+   th {
+    background: $color_yellow_02;
+   }
+   tr.thinline {
+    td {
+     border-bottom: 1px solid $color_yellow_01;
+    }
+    
+   }
+  }
+  tr:last-child {
+   th,td {
+    border-bottom: none;
+   }
+  }
+ }
+ @include media(sp) {
+ .pricetable {
+  th {
+   white-space: nowrap;
+   &.wrap {
+    white-space: wrap;
+   }
+  }
+ }
+@include media(sp) {
+  .pricetable.baseprice {
+    display: block;
+    th,td {
+     font-size: clp(1.4rem,16);
+    }
+    th {
+     border-right: 0;
+    }
+
+    thead {
+      display: block;
+      tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "th1 th1" "th2 th3" "th4 th4";
+        gap: 1px;
+        th {
+        border-right: none;
+        padding: 0 1rem;
+        &:nth-of-type(1) {
+         grid-area: th1;
+        }
+        &:nth-of-type(2) {
+         grid-area: th2;
+        }
+        &:nth-of-type(3) {
+         grid-area: th3;
+        }
+        &:nth-of-type(4) {
+         grid-area: th4;
+        }
+        }
+      }
+    }
+
+    tbody {
+      display: block;
+      tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "th  th"
+          "td1 td2"
+          "td3 td3";
+        border-bottom: 1px solid $color_yellow_01;
+
+        th {
+          grid-area: th;
+        }
+
+        td:nth-of-type(1) {
+          grid-area: td1;
+          font-weight: 500;
+        }
+        td:nth-of-type(2) {
+          grid-area: td2;
+          border-right: none;
+        }
+        td:nth-of-type(3) {
+          grid-area: td3;
+        }
+      }
+
+      tr:not(:has(th)) {
+        grid-template-areas:
+          "td1 td2"
+          "td3 td3";
+      }
+      tr.total {
+       grid-template-areas: "td1 td1" "td2 td2";
+       td {
+        border-right: none;
+       }
+        td:nth-of-type(2) {
+         border-top: 1px solid $color_yellow_01;
+          br {
+           display: none;
+          }
+        }
+         td:nth-of-type(3) {
+          grid-area: td3;
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+}
+}
+
+/* xxxxxxxxxxxxxxxx
+----------------------------------- */
+
+#pricelist{
+ width: min(1200px, 100% - 4rem);
+ margin: 0 auto;
+
+ .notice01 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  li {
+   display: grid;
+   grid-template-columns: subgrid;
+   grid-column: span 2;
+   gap: 1rem;
+  }
+ }
+
+
+ .notice02 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  li {
+   display: grid;
+   grid-template-columns: subgrid;
+   grid-column: span 2;
+   gap: 1rem;
+
+  }
+ }
+
+}
+
+@include media(sp) {
+}

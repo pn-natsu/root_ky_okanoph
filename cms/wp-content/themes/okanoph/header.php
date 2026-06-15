@@ -104,95 +104,18 @@
   <meta itemprop="image" content="<?php echo $og_image; ?>" />
   <!-- end tiwitter card -->
   <link rel="shortcut icon" href="/lib/img/favicon.ico">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Pharmacy",
-      "@id": "https://example.com/#pharmacy",
-      "name": "オカノ薬局",
-      "url": "https://www.okano-ph.jp/",
-      "hasPart": [{
-          "@type": "Pharmacy",
-          "@id": "https://www.okano-ph.jp/store/papios-higashi/#pharmacy",
-          "name": "オカノ薬局 パピオス東店",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "673-0891",
-            "addressRegion": "兵庫県",
-            "addressLocality": "明石市",
-            "streetAddress": "大明石町1-6-1 パピオスあかし3階"
-          },
-          "telephone": "078-915-8555"
-        },
-        {
-          "@type": "Pharmacy",
-          "@id": "https://www.okano-ph.jp/store/papios-nishi/#pharmacy",
-          "name": "オカノ薬局 パピオス西店",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "673-0891",
-            "addressRegion": "兵庫県",
-            "addressLocality": "明石市",
-            "streetAddress": "大明石町1-6-1パピオスあかし3階"
-          },
-          "telephone": "078-915-8577"
-        },
-        {
-          "@type": "Pharmacy",
-          "@id": "https://www.okano-ph.jp/store/eki-higashi/#pharmacy",
-          "name": "オカノ薬局 駅東店",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "673-0886",
-            "addressRegion": "兵庫県",
-            "addressLocality": "明石市",
-            "streetAddress": "東仲ノ町11-30 KTSビル1F"
-          },
-          "telephone": "078-915-7613"
-        },
-        {
-          "@type": "Pharmacy",
-          "@id": "https://www.okano-ph.jp/store/aspia-mae/#pharmacy",
-          "name": "オカノ薬局 アスピア前店",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "673-0886",
-            "addressRegion": "兵庫県",
-            "addressLocality": "明石市",
-            "streetAddress": "東仲ノ町10-17"
-          },
-          "telephone": "078-915-2481"
-        },
-        {
-          "@type": "Pharmacy",
-          "@id": "https://www.okano-ph.jp/store/akashi-eki/#pharmacy",
-          "name": "オカノ薬局 明石駅店",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "673-0891",
-            "addressRegion": "兵庫県",
-            "addressLocality": "明石市",
-            "streetAddress": "大明石町1丁目3-3"
-          },
-          "telephone": "078-918-7624"
-        }
-      ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-
-      <?php echo json_breadcrumb(); ?> "article": {
-        "@type": "Article",
-        "headline": "<?php echo $title; ?>",
-        "description": "<?php echo $description; ?>",
-        "url": "<?php echo $urlall; ?>"
-      }
-    }
-  </script>
   <?php wp_head(); ?>
-</head>
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  <?php echo json_breadcrumb(); ?> "article": {
+  "@type": "Article",
+  "headline": "<?php echo $title; ?>",
+  "description": "<?php echo $description; ?>",
+  "url": "<?php echo $urlall; ?>"
+  }
+  }
+  </script></head>
 
 <body>
   <div id="pageContainer">
