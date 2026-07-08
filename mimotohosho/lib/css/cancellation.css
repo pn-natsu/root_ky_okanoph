@@ -1,0 +1,68 @@
+/* .pricetableBox
+----------------------------------- */
+#cancellation-policy {
+  max-width: calc(1200px + 4rem);
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+#cancellation-policy > section {
+  margin-top: 5rem !important;
+}
+#cancellation-policy h1 {
+  font-size: 2.4rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+#cancellation-policy h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #666;
+  padding-left: 0.5rem;
+}
+#cancellation-policy ol,
+#cancellation-policy ul {
+  padding-left: 2rem;
+  margin-left: 0;
+}
+#cancellation-policy ol {
+  list-style: decimal;
+  list-style-position: inside;
+  margin: 1rem 0;
+}
+#cancellation-policy ol > li {
+  text-indent: -1.25em;
+  padding-left: 1.25em;
+}
+#cancellation-policy ol > li + li {
+  margin-top: 1rem;
+}
+#cancellation-policy ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+#cancellation-policy ul > li {
+  position: relative;
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+  margin-top: 1rem;
+}
+#cancellation-policy address {
+  font-style: normal;
+}
+#cancellation-policy .privacy-policy__date {
+  text-align: right;
+  margin-top: 4rem;
+}
+#cancellation-policy .privacy-policy__notes {
+  margin-top: 4rem;
+  font-size: 1.6rem;
+  color: #444;
+}
+#cancellation-policy .privacy-policy__notes > ul > li {
+  text-indent: -2em;
+  padding-left: 2em;
+}
+#cancellation-policy .privacy-policy__notes > ul ol {
+  padding-left: 3em;
+}

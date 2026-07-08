@@ -18,7 +18,7 @@
   width: 60%;
 }
 .panel .lead {
-  font-size: clamp(2.4rem, 2.8vw, 4rem);
+  font-size: clamp(1.8rem, 2.8vw, 4rem);
 }
 .panel .guide {
   font-size: clamp(1.6rem, 1.4vw, 2rem);
@@ -59,7 +59,7 @@
   }
 }
 
-/* formContainer
+/* xxxxxxxxxxxxxxxx
 ----------------------------------- */
 #formContainer {
   width: min(1200px, 100% - 4rem);

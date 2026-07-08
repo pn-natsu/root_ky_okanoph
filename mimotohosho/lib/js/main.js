@@ -45,6 +45,16 @@ $(function () {
     const $target = $(urlHash);
 
     if ($target.length) {
+      // タブ切り替え対象なら active を差し替え
+      if ($target.parent('.bodyContainer').length) {
+        $('.tab li, .sub_tab li').removeClass('active');
+        $(`.tab a[href="${urlHash}"], .sub_tab a[href="${urlHash}"]`)
+          .parent()
+          .addClass('active');
+        $('.bodyContainer > section').removeClass('active');
+        $target.addClass('active');
+      }
+
       $('html, body').scrollTop(0);
 
       setTimeout(function () {
