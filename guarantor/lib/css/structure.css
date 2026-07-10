@@ -237,7 +237,7 @@ header:hover {
 
 #header {
   display: grid;
-  grid-template-columns: clamp(30rem, 36.1vw, 52rem) 1fr clamp(20rem, 17.4vw, 25rem) clamp(20rem, 17.4vw, 25rem);
+  grid-template-columns: auto 1fr clamp(17rem, 17.4vw, 25rem) clamp(17rem, 17.4vw, 25rem);
   grid-template-rows: auto auto;
   grid-template-areas: "logo sp call home" "gnav gnav gnav gnav";
   gap: clamp(1rem, 2.1vw, 3rem) 0;
@@ -252,7 +252,21 @@ header:hover {
   grid-area: logo;
 }
 #header .logo a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+#header .logo a div {
+  font-weight: 600;
+  font-size: clamp(1.4rem, 1.5vw, 2.2rem);
+  color: #72933C;
+}
+#header .logo a div span {
+  font-size: 80%;
+  display: inline-block;
+}
+#header .logo a img {
+  width: clamp(17rem, 17.4vw, 25rem);
 }
 #header .call {
   grid-area: call;
@@ -298,7 +312,7 @@ header:hover {
   font-weight: 600;
 }
 #header .home a:hover {
-  background: #7BA1C7;
+  background: #72933C;
 }
 #header .gnav {
   grid-area: gnav;
@@ -315,7 +329,7 @@ header:hover {
   width: 1px;
   height: 100%;
   display: block;
-  background: #7BA1C7;
+  background: #72933C;
   position: absolute;
   right: 0;
   top: 0;
@@ -325,7 +339,7 @@ header:hover {
   width: 1px;
   height: 100%;
   display: block;
-  background: #7BA1C7;
+  background: #72933C;
   position: absolute;
   left: 0;
   top: 0;
@@ -337,7 +351,7 @@ header:hover {
   transition: 0.3s;
 }
 #header .gnav li a.current, #header .gnav li a:hover {
-  background: #7BA1C7;
+  background: #72933C;
   color: #FFF;
 }
 #header.fixed {
@@ -400,7 +414,7 @@ header:hover {
   #header .gnav li a {
     display: block;
     padding: 0.75rem;
-    background: #7BA1C7;
+    background: #72933C;
     color: #FFF;
     text-align: center;
   }
@@ -580,7 +594,7 @@ header:hover {
   width: 2px;
   height: 100%;
   display: block;
-  background: #7BA1C7;
+  background: #72933C;
   position: absolute;
   right: 0;
   top: 0;
@@ -590,7 +604,7 @@ header:hover {
   width: 2px;
   height: 100%;
   display: block;
-  background: #7BA1C7;
+  background: #72933C;
   position: absolute;
   left: 0;
   top: 0;
@@ -603,7 +617,7 @@ header:hover {
   line-height: 1;
 }
 #footer footer .gnav li a.current, #footer footer .gnav li a:hover {
-  background: #7BA1C7;
+  background: #72933C;
   color: #FFF;
 }
 #footer footer .utillink {
@@ -652,7 +666,7 @@ header:hover {
   margin: 0 auto;
 }
 #footer footer .utillink .home a:hover {
-  background: #7BA1C7;
+  background: #72933C;
 }
 #footer .copy {
   border-top: 1px solid #EAE9E8;
@@ -695,7 +709,7 @@ header:hover {
     display: block;
     text-align: center;
     padding: 1em 1em;
-    background: #7BA1C7;
+    background: #72933C;
     color: #FFF;
   }
   #footer footer .utillink {
@@ -769,7 +783,7 @@ header:hover {
 #pagetop.pagetop a {
   padding: clamp(0.5rem, 1vw, 1.5rem) clamp(1.25rem, 1.7vw, 2.4rem) clamp(0.5rem, 1vw, 1.5rem);
   color: #FFF;
-  background: #7BA1C7;
+  background: #72933C;
   border-radius: 50vh;
   font-size: clamp(1.2rem, 1.4vw, 2rem);
   font-weight: 500;

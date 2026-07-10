@@ -142,7 +142,7 @@
   content: "";
   width: 3rem;
   aspect-ratio: 1;
-  background: url(/mimotohosho/lib/img/top/sytstemimage_parts_04.webp) no-repeat center/contain;
+  background: url(/guarantor/lib/img/top/sytstemimage_parts_04.webp) no-repeat center/contain;
 }
 #systemdetail > section .targetDetail {
   background: #E6F0F3;
@@ -184,10 +184,10 @@
   margin-top: 10px;
 }
 #systemdetail > section .targetDetail dl.lawer dt {
-  background: #7BA1C7;
+  background: #72933C;
 }
 #systemdetail > section .targetDetail dl.lawer dd ul li::before {
-  background: #7BA1C7;
+  background: #72933C;
 }
 #systemdetail > section .person {
   display: flex;
@@ -268,7 +268,7 @@
   content: "";
   width: clamp(2.2rem, 2.1vw, 3rem);
   aspect-ratio: 1;
-  background: url(/mimotohosho/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
+  background: url(/guarantor/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
 }
 @media screen and (max-width: 768px) {
   #support {

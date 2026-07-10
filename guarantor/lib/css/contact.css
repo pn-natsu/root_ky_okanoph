@@ -328,11 +328,11 @@
   border-radius: 50vh;
 }
 #formContainer #contactForm .submitBtn:hover {
-  background: #7BA1C7;
+  background: #72933C;
 }
 #formContainer #contactForm .submitBtn::after {
   content: "";
   width: 2rem;
   aspect-ratio: 1;
-  background: url(/mimotohosho/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
+  background: url(/guarantor/lib/img/cmn/icon_allow_01.svg) no-repeat center/contain;
 }

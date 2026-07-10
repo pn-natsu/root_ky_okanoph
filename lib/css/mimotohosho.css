@@ -94,3 +94,13 @@
   text-align: center;
   margin-bottom: 3rem;
 }
+
+.link a {
+  display: block;
+  padding: 3rem;
+  text-align: center;
+  background-color: #72933C;
+  border-radius: 30px;
+  color: #FFF;
+  font-size: clamp(2rem, 2.1vw, 3rem);
+}

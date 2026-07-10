@@ -194,7 +194,7 @@ header {
 
 #header {
 	display: grid;
-	grid-template-columns: clp(30rem, 520) 1fr clp(20rem, 250) clp(20rem, 250);
+	grid-template-columns: auto 1fr clp(17rem, 250) clp(17rem, 250);
 	grid-template-rows: auto auto;
 	grid-template-areas: "logo sp call home" "gnav gnav gnav gnav";
 	gap: clp(1rem, 30) 0;
@@ -209,7 +209,21 @@ header {
 		padding: 1.5rem 2rem;
 		grid-area: logo;
 		a {
-			display: block;
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			div {
+				font-weight: 600;
+				font-size: clp(1.4rem,22);
+				color: $color_blue_01;
+				span {
+					font-size: 80%;
+					display: inline-block;
+				}
+			}
+			img {
+				width: clp(17rem, 250);
+			}
 		}
 	}
 

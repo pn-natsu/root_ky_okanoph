@@ -100,3 +100,15 @@
     margin-bottom: 3rem;
   }
 }
+
+.link {
+  a {
+  display: block;
+  padding: 3rem;
+  text-align: center;
+  background-color: #72933C;
+  border-radius: 30px;
+  color: #FFF;
+  font-size: clp(2rem,30);
+  }
+}
